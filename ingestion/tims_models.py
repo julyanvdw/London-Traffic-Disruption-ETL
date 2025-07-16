@@ -8,6 +8,8 @@ Note: field optionality is specified as per most decent API docs: https://api-po
 """
 
 # todo: docs might be out of data: some of these 'str' types are probs enumerated. We can build that in here
+# todo: might add support for multi-pologons later
+
 
 from pydantic import BaseModel, Field, field_validator
 from typing import List, Optional, Any

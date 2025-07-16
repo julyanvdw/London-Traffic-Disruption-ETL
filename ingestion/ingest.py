@@ -31,25 +31,15 @@ def ingest_tims_data():
 
         with open(filepath, "r") as f:
             data = json.load(f)
-            
-            test = data[1]
-            # print(json.dumps(test, indent=2))
-            try:
-                d = Disruption(**test)
-                print(d.model_dump_json(indent=2))
-            except Exception as e:
-                print(f"Couldn't parse into a pydantic object {e}")
 
-
-    #         print(json.dumps(data[-1], indent=2))
-
-    #         # For each data item (disruption), handle each disruption as a individual record 
-    #         for d in data:
-    #             try:
-    #                 disruption = Disruption(**d)
-    #                 processed_data.append(disruption)
-    #             except Exception as e:
-    #                 print(f"Couldn't parse into a pydantic object {e}")
+            # For each data item (representing a disruption), handle each disruption as an individual record
+            for d in data: 
+                # try auto-converting using pydantic
+                try:
+                    disruption = Disruption(**d)
+                    processed_data.append(disruption)
+                except Exception as e:
+                    print(f"Couldn't parse into pydantic object. {e}")
 
     # # 2. Write processed data items (disruptions) to an output file for the next step in the pipeline
     # test = processed_data[0]

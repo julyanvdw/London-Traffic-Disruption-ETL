@@ -8,14 +8,13 @@ This script performs the ingestion of raw, collected data files:
 3) Validate what we do have
 
 """
-
 import os
 import json
 from tims_models import Disruption
 from datetime import datetime
 
 
-# INGEST MODULS
+# INGEST MODULES
 
 def ingest_tims_data():
     
@@ -35,7 +34,7 @@ def ingest_tims_data():
 
             # For each data item (representing a disruption), handle each disruption as an individual record
             for d in data: 
-                # try auto-converting using pydantic
+                # try auto-converting using into pydantic
                 try:
                     disruption = Disruption(**d)
                     processed_data.append(disruption)
@@ -45,7 +44,7 @@ def ingest_tims_data():
     # # 2. Write processed data items (disruptions) to an output file for the next step in the pipeline
     timestamp = datetime.now()
     timestamp = timestamp.strftime("%Y-%m-%d-%H-%M-%S")
-    filename = f"processed-snapshot-{timestamp}"
+    filename = f"processed-snapshot-{timestamp}.json"
     output_path = os.path.join(processed_location, filename)
 
     with open(output_path, "w") as f:

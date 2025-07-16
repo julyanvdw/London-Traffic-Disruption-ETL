@@ -29,10 +29,10 @@ query_params = {
 
 try: 
     print("Attempting to fetch data...")
-    response = requests.get(API_ENDPOINT, params=query_params)
+    response = requests.get(API_ENDPOINT, params=query_params) #note: this strips off the meta-data header and leaves us with a list of disruptions
     response.raise_for_status() 
 
-    # make sure that the server returns JSON (according to spec)
+    # make sure that the server returns JSON (according to server spec)
     try:
         data = response.json()
 

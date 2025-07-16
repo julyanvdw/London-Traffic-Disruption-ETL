@@ -15,6 +15,8 @@ This script accesses the API with the use of my API keys (as per registration wi
 
 import requests
 import json
+from datetime import datetime
+import os
 
 API_ID = "julyan-tims-pipeline"
 API_KEY = "cdfd168c1c934e259e8cbeafd3d00cdc"
@@ -26,14 +28,26 @@ query_params = {
     }   
 
 try: 
+    print("Attempting to fetch data...")
     response = requests.get(API_ENDPOINT, params=query_params)
     response.raise_for_status() 
 
     # make sure that the server returns JSON (according to spec)
     try:
         data = response.json()
-        print(data)
 
+        timestamp = datetime.now()
+        timestamp = timestamp.strftime("%Y-%m-%d-%H-%M-%S")
+        filename = f"TIMS-snapshot-{timestamp}"
+
+        # Make a dir to store snapshots if there is none already
+        os.makedirs("../data/raw", exist_ok=True)
+
+        # Write the data to a file
+        with open(f"../data/raw/{filename}", "w") as f:
+            json.dump(data, f)
+        
+        print(f"Data saved to {filename} in /data/raw")
 
     except Exception as e:
         print("Data is not in JSON format", e)

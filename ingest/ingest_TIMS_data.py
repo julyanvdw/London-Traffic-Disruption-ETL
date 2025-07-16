@@ -10,7 +10,7 @@ Details on HTTP request structure for this API can be foudn at: https://api-port
 This script accesses the API with the use of my API keys (as per registration with TFL). It works as follows: 
 1) Accesses the API with the relevant API key and API ID (as per registration with TFL)
 2) Fetches the data
-3) Saves the data as a JSON snapshot 
+3) Saves the data as a JSON snapshot in a directory which stores all raw info
 """
 
 import requests
@@ -47,6 +47,7 @@ try:
         with open(f"../data/raw/{filename}", "w") as f:
             json.dump(data, f)
         
+        print(f"Snapshot length: {len(data)} current incidents")
         print(f"Data saved to {filename} in /data/raw")
 
     except Exception as e:

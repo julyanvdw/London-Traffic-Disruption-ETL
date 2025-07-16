@@ -12,6 +12,7 @@ This script performs the ingestion of raw, collected data files:
 import os
 import json
 from tims_models import Disruption
+from datetime import datetime
 
 
 # INGEST MODULS
@@ -42,8 +43,17 @@ def ingest_tims_data():
                     print(f"Couldn't parse into pydantic object. {e}")
 
     # # 2. Write processed data items (disruptions) to an output file for the next step in the pipeline
-    # test = processed_data[0]
-    # # print(test.model_dump_json(indent=2))
+    timestamp = datetime.now()
+    timestamp = timestamp.strftime("%Y-%m-%d-%H-%M-%S")
+    filename = f"processed-snapshot-{timestamp}"
+    output_path = os.path.join(processed_location, filename)
+
+    with open(output_path, "w") as f:
+        dumped_data = []
+        for d in processed_data:
+            dumped_data.append(d.model_dump())
+        json.dump(dumped_data, f, indent=2, default=str)
+
 
             
 # MASTER INGEST
@@ -51,5 +61,8 @@ def ingest_tims_data():
 def ingest(): 
 
     ingest_tims_data()
+
+    # add other ingest streams here 
+    # also we can do some data integration of applicable
 
 ingest()

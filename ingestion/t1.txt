@@ -1,0 +1,38 @@
+{
+  "$type": "Tfl.Api.Presentation.Entities.RoadDisruption, Tfl.Api.Presentation.Entities",
+  "id": "TIMS-212978",
+  "url": "/Road/All/Disruption/TIMS-212978",
+  "point": "[-0.173419,51.482176]",
+  "severity": "Serious",
+  "ordinal": 2,
+  "category": "Works",
+  "subCategory": "Borough works",
+  "comments": "Battersea Bridge scheme. - [A3220] Beaufort Street (All approaches) between [A3220] Cheyne Walk and [A3220] Battersea Bridge Road - There are temporary signals in place to facilitate works for the Battersea Bridge scheme.",
+  "currentUpdate": "Traffic is slow moving on all approaches with Chelsea Embankment delays westbound with tailbacks from Albert Bridge and Cheyne Walk has eastbound delays from Edith Grove. In addition Battersea Bridge Road has northbound delays tailing back to Hyde Lane. Expect delays. ",
+  "currentUpdateDateTime": "2025-07-16T12:11:57Z",
+  "corridorIds": [],
+  "startDateTime": "2025-06-19T11:00:00Z",
+  "endDateTime": "2025-10-03T22:59:00Z",
+  "lastModifiedTime": "2025-07-16T12:13:07Z",
+  "levelOfInterest": "High",
+  "location": "[A3220] BEAUFORT STREET (SW10 ,SW3 ) (Kensington & Chelsea)",
+  "status": "Active",
+  "geography": {
+    "type": "Point",
+    "coordinates": [
+      -0.173419,
+      51.482176
+    ],
+    "crs": {
+      "type": "name",
+      "properties": {
+        "name": "EPSG:4326"
+      }
+    }
+  },
+  "isProvisional": false,
+  "hasClosures": false,
+  "roadDisruptionLines": [],
+  "roadDisruptionImpactAreas": [],
+  "recurringSchedules": []
+}

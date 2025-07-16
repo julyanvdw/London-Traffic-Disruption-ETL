@@ -7,57 +7,53 @@ This script performs the ingestion of raw, collected data files:
 2) We'll clean out all of the stuff that's not relevant
 3) Validate what we do have
 
-
-
-Schema of an incident
-1. TFL id (may need to reconcile)
-2. status
-3. severity
-4. levelOfInterest
-5. category
-6. start time
-7. end time
-8. location
-9. corridor
-10. comment
-11. current update (if I understand correctly, this may update as we go along - all related to the same ID tho)
-12. cause area - this is nested tho
-
-
 """
 
 import os
 import json
+from tims_models import Disruption
+
 
 # INGEST MODULS
 
 def ingest_tims_data():
     
-    # Storage setup
+    # 0. Storage setup
     raw_location = "../data/raw"
     processed_location = '../data/processed'
     os.makedirs(processed_location, exist_ok=True)
 
     processed_data = []
 
-    # Batch process each snapshot in the raw location
+    # 1. Batch process each snapshot from the raw location
     for filename in os.listdir(raw_location):
         filepath = os.path.join(raw_location, filename)
-        print(filepath)
 
         with open(filepath, "r") as f:
             data = json.load(f)
+            
+            test = data[1]
+            # print(json.dumps(test, indent=2))
+            try:
+                d = Disruption(**test)
+                print(d.model_dump_json(indent=2))
+            except Exception as e:
+                print(f"Couldn't parse into a pydantic object {e}")
 
-            # For each data item (disruption), handle each disruption as a individual record 
-            for d in data:
 
-                # stuff
-                pass
-                
-                processed_data.append(d)
+    #         print(json.dumps(data[-1], indent=2))
 
-    # Write processed data items (disruptions) to an output file for the next step in the pipeline
-    
+    #         # For each data item (disruption), handle each disruption as a individual record 
+    #         for d in data:
+    #             try:
+    #                 disruption = Disruption(**d)
+    #                 processed_data.append(disruption)
+    #             except Exception as e:
+    #                 print(f"Couldn't parse into a pydantic object {e}")
+
+    # # 2. Write processed data items (disruptions) to an output file for the next step in the pipeline
+    # test = processed_data[0]
+    # # print(test.model_dump_json(indent=2))
 
             
 # MASTER INGEST

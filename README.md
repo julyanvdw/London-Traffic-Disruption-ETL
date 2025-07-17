@@ -1,7 +1,5 @@
 A data pipeline pulling data from 'Transport for London', transforming it, performing calculations on it and also storing it. Later on, a service layer (via API, interface or CLI) will be made avaialble as well as some applications. 
 
-
-
 Dependencies:
 1. requests
 2. pydantic 
@@ -25,10 +23,10 @@ stuff done during data transformation
 
 plan: 
 1. get disruptions into db ✅
-2. refactor to simulate datalake 
-3. add elements that complicate it (aggregation and windowing)
+2. refactor to simulate datalake ✅
 4. write tests
 5. write service layer
+    - maybe an API which allows people to model their data usages
 6. write logs
 7. orchestrate (locally)
 9. build some dashboard

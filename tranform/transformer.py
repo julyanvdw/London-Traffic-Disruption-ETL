@@ -13,14 +13,11 @@ import json
 from tims_models import Disruption
 from datetime import datetime
 
-
-# INGEST MODULES
-
 def ingest_tims_data():
     
     # 0. Storage setup
-    raw_location = "../data/raw"
-    processed_location = '../data/processed'
+    raw_location = "../datalake/raw"
+    processed_location = '../datalake/transformed'
     os.makedirs(processed_location, exist_ok=True)
 
     processed_data = []
@@ -44,18 +41,14 @@ def ingest_tims_data():
     # # 2. Write processed data items (disruptions) to an output file for the next step in the pipeline
     timestamp = datetime.now()
     timestamp = timestamp.strftime("%Y-%m-%d-%H-%M-%S")
-    filename = f"processed-snapshot-{timestamp}.json"
+    filename = f"transformed-snapshot-{timestamp}.json"
     output_path = os.path.join(processed_location, filename)
 
     with open(output_path, "w") as f:
         dumped_data = []
         for d in processed_data:
             dumped_data.append(d.model_dump())
-        json.dump(dumped_data, f, indent=2, default=str)
-
-
-            
-# MASTER INGEST
+        json.dump(dumped_data, f, indent=2, default=str)   
 
 def ingest(): 
 

@@ -63,7 +63,6 @@ class StreetSegment(BaseModel):
                 return None
         return value
             
-
 class Street(BaseModel):
     name: Optional[str] = None
     closure: Optional[str] = None

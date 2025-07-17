@@ -38,15 +38,22 @@ def ingest_tims_data():
                 except Exception as e:
                     print(f"Couldn't parse into pydantic object. {e}")
 
+            # Remove possible duplicates
+            seen = {}
+            for disruption in processed_data:
+                if disruption.tims_id not in seen:
+                    seen[disruption.tims_id] = disruption
+
+            deduplicated_data = list(seen.values())
+
     # # 2. Write processed data items (disruptions) to an output file for the next step in the pipeline
-    timestamp = datetime.now()
-    timestamp = timestamp.strftime("%Y-%m-%d-%H-%M-%S")
+    timestamp = datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
     filename = f"transformed-snapshot-{timestamp}.json"
     output_path = os.path.join(processed_location, filename)
 
     with open(output_path, "w") as f:
         dumped_data = []
-        for d in processed_data:
+        for d in deduplicated_data:
             dumped_data.append(d.model_dump())
         json.dump(dumped_data, f, indent=2, default=str)   
 

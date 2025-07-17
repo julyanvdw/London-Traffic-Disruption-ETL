@@ -34,14 +34,9 @@ def load_tims_data():
             data = json.load(f)
 
             #2. load each disruption into the database
-            count = 0
             for d in data:
                 # manually flatten the disruption object into a tuple
-                adding_timestamp = datetime.now()
-
-                print(count)
-                count += 1
-                
+                adding_timestamp = datetime.now()   
                 disruption_row = (
                     d["tims_id"],
                     adding_timestamp,

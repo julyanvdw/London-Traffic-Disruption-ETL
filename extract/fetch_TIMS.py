@@ -13,10 +13,12 @@ This script accesses the API with the use of my API keys (as per registration wi
 3) Saves the data as a JSON snapshot in a 'datalake' (simulated with a directory) which stores all raw info
 """
 
+
+
 import requests
-import json
-from datetime import datetime
-import os
+import sys
+sys.path.append("../")
+from datalake_manager import LakeManager
 
 API_ID = "julyan-tims-pipeline"
 API_KEY = "cdfd168c1c934e259e8cbeafd3d00cdc"
@@ -30,26 +32,18 @@ query_params = {
 try: 
     print("Attempting to fetch data...")
     response = requests.get(API_ENDPOINT, params=query_params) #note: this strips off the meta-data header and leaves us with a list of disruptions
-    response.raise_for_status() 
+    response.raise_for_status()
 
-    # make sure that the server returns JSON (according to server spec)
+    # Ensure the server returns data in JSON format
     try:
         data = response.json()
-        timestamp = datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
-        filename = f"TIMS-snapshot-{timestamp}.json"
-
-        # Make a dir to store snapshots if there is none already
-        os.makedirs("../datalake/raw", exist_ok=True)
-
-        # Write the data to a file
-        with open(f"../datalake/raw/{filename}", "w") as f:
-            json.dump(data, f)
-        
-        print(f"Snapshot length: {len(data)} current incidents")
-        print(f"Data saved to {filename} in /datalake/raw")
+        manager = LakeManager()
+        manager.write_TIMS_raw_snapshot(data)
 
     except Exception as e:
-        print("Data is not in JSON format", e)
+        print("TIMS Data not in expected JSON format", e)
 
-except requests.RequestException as e:
-    print("The Request Failed", e)
+except requests.RequestException as e: 
+    print("TIMS Data Request Faled", e)
+
+

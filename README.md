@@ -24,8 +24,8 @@ stuff done during data transformation
 
 
 plan: 
-1. get disruptions into db
-2. refactor to simulate datalake
+1. get disruptions into db ✅
+2. refactor to simulate datalake 
 3. add elements that complicate it (aggregation and windowing)
 4. write tests
 5. write service layer

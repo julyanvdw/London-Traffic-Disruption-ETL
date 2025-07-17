@@ -33,7 +33,6 @@ class LakeManager:
         with open(filename, "w") as f:
             json.dump(raw_data, f)
 
-    
     def read_TIMS_raw_snapshot(self):
         # Read in every file in the dir, read in every data item
         data = []
@@ -62,5 +61,19 @@ class LakeManager:
 
             json.dump(dumped_data, f, indent=2, default=str)
 
+    def read_TIMS_transformed_snapshot(self):
+        # Read in every file in the dir, read in every data item per file
+        data = []
 
+        # Batch read files in the dir
+        for filename in os.listdir(self.tims_transformed_dir_location):
+            filepath = self.tims_transformed_dir_location + "/" + filename
+
+            with open(filepath, "r") as f:
+                data.append(json.load(f))
+
+        # return 2D array
+        return data
+
+        
 

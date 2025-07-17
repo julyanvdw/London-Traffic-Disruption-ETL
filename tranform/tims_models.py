@@ -8,8 +8,7 @@ Note: field optionality is specified as per most decent API docs: https://api-po
 """
 
 # todo: docs might be out of data: some of these 'str' types are probs enumerated. We can build that in here
-# todo: might add support for multi-pologons later
-# todo: maybe add more validation? 
+# todo: might add support for multi-pologons later 
 
 
 from pydantic import BaseModel, Field, field_validator
@@ -29,7 +28,7 @@ class Geography(BaseModel):
 
 class Geometry(BaseModel):
     geo_type: Optional[str] = Field(None, alias="type")
-    coordinates: Optional[Any] = None  # Accept any type, custom validation below
+    coordinates: Optional[Any] = None 
     crs: Optional[CRS] = None
 
     @field_validator('coordinates', mode='before')

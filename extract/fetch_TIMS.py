@@ -10,10 +10,9 @@ Details on HTTP request structure for this API can be foudn at: https://api-port
 This script accesses the API with the use of my API keys (as per registration with TFL). It works as follows: 
 1) Accesses the API with the relevant API key and API ID (as per registration with TFL)
 2) Fetches the data
-3) Saves the data as a JSON snapshot in a 'datalake' (simulated with a directory) which stores all raw info
+3) Saves the data as a JSON snapshot in a 'datalake' (via datalake manager) which stores all raw info
+
 """
-
-
 
 import requests
 import sys

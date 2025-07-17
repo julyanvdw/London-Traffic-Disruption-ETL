@@ -16,9 +16,11 @@ class LakeManager:
 
     def __init__(self):
         self.tims_raw_dir_location = "../datalake/raw/tims"
+        self.tims_transformed_dir_location = "../datalake/transformed/tims"
 
-        # File Structure Setup
+        # File Structure Auto-Setup
         os.makedirs(self.tims_raw_dir_location, exist_ok=True)
+        os.makedirs(self.tims_transformed_dir_location, exist_ok=True)
 
     # DATASTREAM-SPECIFIC METHODS
 
@@ -32,4 +34,33 @@ class LakeManager:
             json.dump(raw_data, f)
 
     
+    def read_TIMS_raw_snapshot(self):
+        # Read in every file in the dir, read in every data item
+        data = []
+
+        # Batch read files
+        for filename in os.listdir(self.tims_raw_dir_location):
+            filepath = self.tims_raw_dir_location + "/" + filename
+
+            with open(filepath, "r") as f:
+                data.append(json.load(f))
+
+        #return a 2D array
+        return data
+    
+    def write_TIMS_transformed_snapshot(self, transformed_data):
+        # Create the filename
+        timestamp = datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
+        filename = self.tims_transformed_dir_location + "/" + f"transformed-snapshot-{timestamp}.json"
+
+        # Write to file
+        with open(filename, "w") as f:
+            dumped_data = []
+
+            for d in transformed_data:
+                dumped_data.append(d.model_dump()) # converts pydantic objects to python dicts
+
+            json.dump(dumped_data, f, indent=2, default=str)
+
+
 

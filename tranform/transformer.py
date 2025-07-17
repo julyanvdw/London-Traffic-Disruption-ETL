@@ -3,59 +3,42 @@ Julyan van der Westhuizen
 16/07/25
 
 This script performs the ingestion of raw, collected data files: 
-1) Each snapshot contians 0..n incidents, so we'll split those up into seperate objects
-2) We'll clean out all of the stuff that's not relevant
-3) Validate what we do have
-
+1) Each snapshot contians 0..n traffic disruptions
+2) Data then undergoes validation and cleaning by parisng the JSON data with pydantic models defined in tims_models.py
 """
-import os
-import json
+
+import sys
+sys.path.append("../")
 from tims_models import Disruption
-from datetime import datetime
+from datalake_manager import LakeManager
+
 
 def ingest_tims_data():
     
-    # 0. Storage setup
-    raw_location = "../datalake/raw"
-    processed_location = '../datalake/transformed'
-    os.makedirs(processed_location, exist_ok=True)
-
     processed_data = []
+    manager = LakeManager()
+    files_data = manager.read_TIMS_raw_snapshot()
 
-    # 1. Batch process each snapshot from the raw location
-    for filename in os.listdir(raw_location):
-        filepath = os.path.join(raw_location, filename)
+    # note: files_data represnets data in the format [file_in_raw_tims_dir][data_item_for_that_file]
+    for data in files_data:
+        # data represetns a collection of data items (disruptions)
+        for d in data:
+            # try auto-converting by parsing with pydantic
+            try: 
+                disruption = Disruption(**d)
+                processed_data.append(disruption)
+            except Exception as e:
+                print(f"Could not parse into pydantic object. {e}")
+            
+    # remove possible duplicates in the data
+    seen = {}
+    for disruption in processed_data:
+        if disruption.tims_id not in seen: 
+            seen[disruption.tims_id] = disruption
 
-        with open(filepath, "r") as f:
-            data = json.load(f)
+    deduplicated_data = list(seen.values())
+    manager.write_TIMS_transformed_snapshot(deduplicated_data)
 
-            # For each data item (representing a disruption), handle each disruption as an individual record
-            for d in data: 
-                # try auto-converting using into pydantic
-                try:
-                    disruption = Disruption(**d)
-                    processed_data.append(disruption)
-                except Exception as e:
-                    print(f"Couldn't parse into pydantic object. {e}")
-
-            # Remove possible duplicates
-            seen = {}
-            for disruption in processed_data:
-                if disruption.tims_id not in seen:
-                    seen[disruption.tims_id] = disruption
-
-            deduplicated_data = list(seen.values())
-
-    # # 2. Write processed data items (disruptions) to an output file for the next step in the pipeline
-    timestamp = datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
-    filename = f"transformed-snapshot-{timestamp}.json"
-    output_path = os.path.join(processed_location, filename)
-
-    with open(output_path, "w") as f:
-        dumped_data = []
-        for d in deduplicated_data:
-            dumped_data.append(d.model_dump())
-        json.dump(dumped_data, f, indent=2, default=str)   
 
 def ingest(): 
 

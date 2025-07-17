@@ -16,6 +16,7 @@ from pydantic import BaseModel, Field, field_validator
 from typing import List, Optional, Any
 from datetime import datetime
 import json
+import re
 
 class CRS(BaseModel):
     crs_type: Optional[str] = Field(None, alias="type")
@@ -71,6 +72,14 @@ class Street(BaseModel):
 
 class Disruption(BaseModel):
     tims_id: str = Field(..., alias="id")
+
+    @field_validator('tims_id')
+    @classmethod
+    def validate_tims_id(cls, value):
+        if not re.fullmatch(r"TIMS-\d+", value):
+            raise ValueError(f"tims_id must match 'TIMS-<digits>', got '{value}'")
+        return value
+    
     url: Optional[str] = None
     severity: Optional[str] = None
     ordinal: Optional[int] = None

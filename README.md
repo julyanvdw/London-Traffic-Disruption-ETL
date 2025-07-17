@@ -4,6 +4,7 @@ Dependencies:
 1. requests
 2. pydantic 
 3. postgres - set up a db (if locally)
+4. pytest
 
 todo: 
 1. Create a setup script for anyones cloning the repo (or just provide a way to manage it)
@@ -25,10 +26,11 @@ plan:
 1. get disruptions into db ✅
 2. refactor to simulate datalake ✅
 4. write tests
+5. go and delete old snapshots
+6. write logs
+7. orchestrate (locally) - like build a dashboard for checking on the pipeline
 5. write service layer
     - maybe an API which allows people to model their data usages
-6. write logs
-7. orchestrate (locally)
 9. build some dashboard
 10. build some visualisation
 11. try to do all of this on servers (hosted solutions)

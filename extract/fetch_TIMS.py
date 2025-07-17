@@ -28,21 +28,24 @@ query_params = {
         "app_key":API_KEY
     }   
 
-try: 
-    print("Attempting to fetch data...")
-    response = requests.get(API_ENDPOINT, params=query_params) #note: this strips off the meta-data header and leaves us with a list of disruptions
-    response.raise_for_status()
+def fetch_tims_data():
+    try: 
+        print("Attempting to fetch data...")
+        response = requests.get(API_ENDPOINT, params=query_params) #note: this strips off the meta-data header and leaves us with a list of disruptions
+        response.raise_for_status()
 
-    # Ensure the server returns data in JSON format
-    try:
-        data = response.json()
-        manager = LakeManager()
-        manager.write_TIMS_raw_snapshot(data)
+        # Ensure the server returns data in JSON format
+        try:
+            data = response.json()
+            manager = LakeManager()
+            manager.write_TIMS_raw_snapshot(data)
 
-    except Exception as e:
-        print("TIMS Data not in expected JSON format", e)
+        except Exception as e:
+            print("TIMS Data not in expected JSON format", e)
 
-except requests.RequestException as e: 
-    print("TIMS Data Request Faled", e)
+    except requests.RequestException as e: 
+        print("TIMS Data Request Faled", e)
 
+if __name__ == "__main__": 
+    fetch_tims_data()
 

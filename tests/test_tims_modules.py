@@ -123,6 +123,33 @@ def test_LakeManager_read_TIMS_transformed_snapshot():
         assert len(data) == 1
         assert data[0] == [disruption.model_dump()]
 
+def test_move_snapshot_to_processed():
+    # Checks if move_snapshot_to_processed moves and renames the file correctly
+    
+    with tempfile.TemporaryDirectory() as raw_dir, tempfile.TemporaryDirectory() as processed_dir:
+        manager = LakeManager()
+        manager.tims_raw_dir_location = raw_dir
+        manager.processed_dir = processed_dir
+
+        # Create a test file in the temp dir which we're trying to move
+        filename = "TIMS-snapshot-test.json"
+        filepath = raw_dir + "/" + filename
+        test_data = {"id": "TIMS-206772"}
+        with open(filepath, "w") as f:
+            json.dump(test_data, f)
+
+        # Move the file
+        manager.move_snapshot_to_processed(filepath, filename)
+
+        # Check that the file was indeed moved to the new location as specified above
+        new_filename = "PROCESSED-" + filename
+        processed_path = processed_dir + "/" + new_filename
+        assert os.path.exists(processed_path)
+        with open(processed_path, "r") as f:
+            data = json.load(f)
+        assert data == test_data
+
+
 # Pydantic model tests
 def test_Disruption_parsing():
     # Checks if the pydantic model parses JSON as expected (strips what's not defined and keeps what is)

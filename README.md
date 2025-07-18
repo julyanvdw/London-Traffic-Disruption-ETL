@@ -26,7 +26,7 @@ plan:
 1. get disruptions into db ✅
 2. refactor to simulate datalake ✅
 4. write tests ✅
-5. go and delete old snapshots 
+5. go and delete old snapshots ✅
 6. write logs functionality ✅
 7. orchestrate (locally) with orchestration script
 8. Host

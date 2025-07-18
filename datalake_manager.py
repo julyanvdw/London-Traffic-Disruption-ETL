@@ -17,9 +17,12 @@ from pipeline_log_manager import shared_logger
 class LakeManager:
 
     def __init__(self):
-        self.tims_raw_dir_location = "../datalake/raw/tims"
-        self.tims_transformed_dir_location = "../datalake/transformed/tims"
-        self.processed_dir = "../datalake/processed"
+         # Get the absolute path to the folder where this file lives (your project root)
+        project_root = os.path.dirname(os.path.abspath(__file__))
+
+        self.tims_raw_dir_location = f"{project_root}/datalake/raw/tims"
+        self.tims_transformed_dir_location = f"{project_root}/datalake/transformed/tims"
+        self.processed_dir = f"{project_root}/datalake/processed"
 
         # File Structure Auto-Setup
         os.makedirs(self.tims_raw_dir_location, exist_ok=True)

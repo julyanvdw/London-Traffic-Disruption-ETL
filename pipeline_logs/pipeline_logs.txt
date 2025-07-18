@@ -1,11 +1,82 @@
-[LOG]  2025-07-18 15:32:54  Attempting to fetch data from TIMS API...
-[LOG]  2025-07-18 15:32:57  API Response Status Code: 200
-[LOG]  2025-07-18 15:32:57  Wrote RAW snapshot: ../datalake/raw/tims/TIMS-snapshot-2025-07-18-15-32-57.json
-[LOG]  2025-07-18 15:32:57  Successfully wrote raw snapshot
-[LOG]  2025-07-18 15:33:13  Read RAW snapshot: TIMS-snapshot-2025-07-18-15-32-57.json
-[LOG]  2025-07-18 15:33:13  Wrote TRANSFORMED snapshot: ../datalake/transformed/tims/transformed-snapshot-2025-07-18-15-33-13.json
-[LOG]  2025-07-18 15:33:13  Successfully wrote transformed snapshot.
-[LOG]  2025-07-18 15:33:34  Attempting to connect to DB...
-[LOG]  2025-07-18 15:33:34  Connected to DB
-[LOG]  2025-07-18 15:33:34  READ TRANSFORMED snapshot: transformed-snapshot-2025-07-18-15-33-13.json
-[LOG]  2025-07-18 15:33:34  Succesfully loaded snapshot into DB.
+[PIPELINE-PHASE]  2025-07-18 17:15:29  === STARTING PIPELINE ===
+[PIPELINE-PHASE]  2025-07-18 17:15:29  === EXTRACT ===
+[LOG]  2025-07-18 17:15:29  Attempting to fetch data from TIMS API...
+[LOG]  2025-07-18 17:15:31  API Response Status Code: 200
+[LOG]  2025-07-18 17:15:31  Wrote RAW snapshot: ../datalake/raw/tims/TIMS-snapshot-2025-07-18-17-15-31.json
+[LOG]  2025-07-18 17:15:31  Successfully wrote raw snapshot
+[PIPELINE-PHASE]  2025-07-18 17:15:31  === TRANSFORM ===
+[LOG]  2025-07-18 17:15:31  Read RAW snapshot: TIMS-snapshot-2025-07-18-17-15-31.json
+[LOG]  2025-07-18 17:15:31  Wrote TRANSFORMED snapshot: ../datalake/transformed/tims/transformed-snapshot-2025-07-18-17-15-31.json
+[LOG]  2025-07-18 17:15:31  Successfully wrote transformed snapshot.
+[PIPELINE-PHASE]  2025-07-18 17:15:31  === LOAD ===
+[LOG]  2025-07-18 17:15:31  Attempting to connect to DB...
+[LOG]  2025-07-18 17:15:31  Connected to DB
+[LOG]  2025-07-18 17:15:31  READ TRANSFORMED snapshot: transformed-snapshot-2025-07-18-17-15-31.json
+[LOG]  2025-07-18 17:15:31  Succesfully loaded snapshot into DB.
+[PIPELINE-PHASE]  2025-07-18 17:15:31  === CLOSING PIPELINE ===
+[PIPELINE-PHASE]  2025-07-18 17:21:00  === STARTING PIPELINE ===
+[PIPELINE-PHASE]  2025-07-18 17:21:00  === EXTRACT ===
+[LOG]  2025-07-18 17:21:00  Attempting to fetch data from TIMS API...
+[LOG]  2025-07-18 17:21:02  API Response Status Code: 200
+[LOG]  2025-07-18 17:21:02  Wrote RAW snapshot: ../datalake/raw/tims/TIMS-snapshot-2025-07-18-17-21-02.json
+[LOG]  2025-07-18 17:21:02  Successfully wrote raw snapshot
+[PIPELINE-PHASE]  2025-07-18 17:21:02  === TRANSFORM ===
+[LOG]  2025-07-18 17:21:02  Read RAW snapshot: TIMS-snapshot-2025-07-18-17-21-02.json
+[LOG]  2025-07-18 17:21:02  Wrote TRANSFORMED snapshot: ../datalake/transformed/tims/transformed-snapshot-2025-07-18-17-21-02.json
+[LOG]  2025-07-18 17:21:02  Successfully wrote transformed snapshot.
+[PIPELINE-PHASE]  2025-07-18 17:21:02  === LOAD ===
+[LOG]  2025-07-18 17:21:02  Attempting to connect to DB...
+[LOG]  2025-07-18 17:21:02  Connected to DB
+[LOG]  2025-07-18 17:21:02  READ TRANSFORMED snapshot: transformed-snapshot-2025-07-18-17-21-02.json
+[LOG]  2025-07-18 17:21:02  Succesfully loaded snapshot into DB.
+[PIPELINE-PHASE]  2025-07-18 17:21:02  === CLOSING PIPELINE ===
+[PIPELINE-PHASE]  2025-07-18 17:40:32  === STARTING PIPELINE ===
+[PIPELINE-PHASE]  2025-07-18 17:40:32  === EXTRACT ===
+[LOG]  2025-07-18 17:40:32  Attempting to fetch data from TIMS API...
+[LOG]  2025-07-18 17:40:34  API Response Status Code: 200
+[LOG]  2025-07-18 17:40:34  Wrote RAW snapshot: ../datalake/raw/tims/TIMS-snapshot-2025-07-18-17-40-34.json
+[LOG]  2025-07-18 17:40:34  Successfully wrote raw snapshot
+[PIPELINE-PHASE]  2025-07-18 17:40:34  === TRANSFORM ===
+[LOG]  2025-07-18 17:40:34  Read RAW snapshot: TIMS-snapshot-2025-07-18-17-40-34.json
+[LOG]  2025-07-18 17:40:34  Wrote TRANSFORMED snapshot: ../datalake/transformed/tims/transformed-snapshot-2025-07-18-17-40-34.json
+[LOG]  2025-07-18 17:40:34  Successfully wrote transformed snapshot.
+[PIPELINE-PHASE]  2025-07-18 17:40:34  === LOAD ===
+[LOG]  2025-07-18 17:40:34  Attempting to connect to DB...
+[LOG]  2025-07-18 17:40:34  Connected to DB
+[LOG]  2025-07-18 17:40:34  READ TRANSFORMED snapshot: transformed-snapshot-2025-07-18-17-40-34.json
+[LOG]  2025-07-18 17:40:34  Succesfully loaded snapshot into DB.
+[PIPELINE-PHASE]  2025-07-18 17:40:34  === CLOSING PIPELINE ===
+[PIPELINE-PHASE]  2025-07-18 17:41:49  === STARTING PIPELINE ===
+[PIPELINE-PHASE]  2025-07-18 17:41:49  === EXTRACT ===
+[LOG]  2025-07-18 17:41:49  Attempting to fetch data from TIMS API...
+[LOG]  2025-07-18 17:41:50  API Response Status Code: 200
+[LOG]  2025-07-18 17:41:50  Wrote RAW snapshot: ../datalake/raw/tims/TIMS-snapshot-2025-07-18-17-41-50.json
+[LOG]  2025-07-18 17:41:50  Successfully wrote raw snapshot
+[PIPELINE-PHASE]  2025-07-18 17:44:33  === STARTING PIPELINE ===
+[PIPELINE-PHASE]  2025-07-18 17:44:33  === EXTRACT ===
+[LOG]  2025-07-18 17:44:33  Attempting to fetch data from TIMS API...
+[LOG]  2025-07-18 17:44:34  API Response Status Code: 200
+[LOG]  2025-07-18 17:44:34  Wrote RAW snapshot: ../datalake/raw/tims/TIMS-snapshot-2025-07-18-17-44-34.json
+[LOG]  2025-07-18 17:44:34  Successfully wrote raw snapshot
+[PIPELINE-PHASE]  2025-07-18 17:49:00  === STARTING PIPELINE ===
+[PIPELINE-PHASE]  2025-07-18 17:49:00  === EXTRACT ===
+[LOG]  2025-07-18 17:49:00  Attempting to fetch data from TIMS API...
+[LOG]  2025-07-18 17:49:01  API Response Status Code: 200
+[LOG]  2025-07-18 17:49:01  Wrote RAW snapshot: /Users/julyanvanderwesthuizen/Desktop/London_Traffic_Incident_Data_Pipeline/datalake/raw/tims/TIMS-snapshot-2025-07-18-17-49-01.json
+[LOG]  2025-07-18 17:49:01  Successfully wrote raw snapshot
+[PIPELINE-PHASE]  2025-07-18 17:50:01  === STARTING PIPELINE ===
+[PIPELINE-PHASE]  2025-07-18 17:50:01  === EXTRACT ===
+[LOG]  2025-07-18 17:50:01  Attempting to fetch data from TIMS API...
+[LOG]  2025-07-18 17:50:03  API Response Status Code: 200
+[LOG]  2025-07-18 17:50:03  Wrote RAW snapshot: /Users/julyanvanderwesthuizen/Desktop/London_Traffic_Incident_Data_Pipeline/datalake/raw/tims/TIMS-snapshot-2025-07-18-17-50-03.json
+[LOG]  2025-07-18 17:50:03  Successfully wrote raw snapshot
+[PIPELINE-PHASE]  2025-07-18 17:50:03  === TRANSFORM ===
+[LOG]  2025-07-18 17:50:03  Read RAW snapshot: TIMS-snapshot-2025-07-18-17-50-03.json
+[LOG]  2025-07-18 17:50:03  Wrote TRANSFORMED snapshot: /Users/julyanvanderwesthuizen/Desktop/London_Traffic_Incident_Data_Pipeline/datalake/transformed/tims/transformed-snapshot-2025-07-18-17-50-03.json
+[LOG]  2025-07-18 17:50:03  Successfully wrote transformed snapshot.
+[PIPELINE-PHASE]  2025-07-18 17:50:03  === LOAD ===
+[LOG]  2025-07-18 17:50:03  Attempting to connect to DB...
+[LOG]  2025-07-18 17:50:03  Connected to DB
+[LOG]  2025-07-18 17:50:03  READ TRANSFORMED snapshot: transformed-snapshot-2025-07-18-17-50-03.json
+[LOG]  2025-07-18 17:50:03  Succesfully loaded snapshot into DB.
+[PIPELINE-PHASE]  2025-07-18 17:50:03  === CLOSING PIPELINE ===

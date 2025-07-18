@@ -1,7 +1,11 @@
-[LOG]  2025-07-18 14:38:34  Read RAW snapshot: TIMS-snapshot-2025-07-18-14-31-15.json
-[LOG]  2025-07-18 14:38:34  Read RAW snapshot: TIMS-snapshot-2025-07-18-14-31-05.json
-[LOG]  2025-07-18 14:38:34  Read RAW snapshot: TIMS-snapshot-2025-07-17-22-24-07.json
-[LOG]  2025-07-18 14:38:34  Read RAW snapshot: TIMS-snapshot-2025-07-18-14-34-32.json
-[LOG]  2025-07-18 14:38:34  Read RAW snapshot: TIMS-snapshot-2025-07-18-14-29-56.json
-[LOG]  2025-07-18 14:38:34  Wrote TRANSFORMED snapshot: ../datalake/transformed/tims/transformed-snapshot-2025-07-18-14-38-34.json
-[LOG]  2025-07-18 14:38:34  Successfully wrote transformed snapshot.
+[LOG]  2025-07-18 15:32:54  Attempting to fetch data from TIMS API...
+[LOG]  2025-07-18 15:32:57  API Response Status Code: 200
+[LOG]  2025-07-18 15:32:57  Wrote RAW snapshot: ../datalake/raw/tims/TIMS-snapshot-2025-07-18-15-32-57.json
+[LOG]  2025-07-18 15:32:57  Successfully wrote raw snapshot
+[LOG]  2025-07-18 15:33:13  Read RAW snapshot: TIMS-snapshot-2025-07-18-15-32-57.json
+[LOG]  2025-07-18 15:33:13  Wrote TRANSFORMED snapshot: ../datalake/transformed/tims/transformed-snapshot-2025-07-18-15-33-13.json
+[LOG]  2025-07-18 15:33:13  Successfully wrote transformed snapshot.
+[LOG]  2025-07-18 15:33:34  Attempting to connect to DB...
+[LOG]  2025-07-18 15:33:34  Connected to DB
+[LOG]  2025-07-18 15:33:34  READ TRANSFORMED snapshot: transformed-snapshot-2025-07-18-15-33-13.json
+[LOG]  2025-07-18 15:33:34  Succesfully loaded snapshot into DB.

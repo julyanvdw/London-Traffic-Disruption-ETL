@@ -74,6 +74,8 @@ def test_LakeManager_read_TIMS_raw_snapshot():
         # Setup manager
         manager = LakeManager()
         manager.tims_raw_dir_location = tmpdir
+        manager.processed_dir = tmpdir
+
         data = manager.read_TIMS_raw_snapshot()
 
         assert len(data) == 1
@@ -107,6 +109,7 @@ def test_LakeManager_read_TIMS_transformed_snapshot():
         # setup manager
         manager = LakeManager()
         manager.tims_transformed_dir_location = tmpdir
+        manager.processed_dir = tmpdir
 
         # Create a fake pydantic object
         disruption = tims_models.Disruption(id="TIMS-206772")
@@ -217,6 +220,7 @@ def test_ingestion():
                 super().__init__()
                 self.tims_raw_dir_location = raw_dir
                 self.tims_transformed_dir_location = transformed_dir
+                self.processed_dir = raw_dir #just dump the processed file anywhere - will be destroyed anyway
 
         # Assigning the temp lakeManager to the one used in the transformer
         transformer.LakeManager = TestLakeManager
@@ -247,6 +251,7 @@ def test_deduplication_ingestion():
                 super().__init__()
                 self.tims_raw_dir_location = raw_dir
                 self.tims_transformed_dir_location = transformed_dir
+                self.processed_dir = raw_dir 
 
         transformer.LakeManager = TestLakeManager
         transformer.ingest_tims_data()

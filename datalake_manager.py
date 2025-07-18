@@ -10,6 +10,7 @@ When incorporating proper enterprise solutions, this class can be altered - leav
 
 import os
 import json
+import shutil
 from datetime import datetime
 from pipeline_log_manager import shared_logger
 
@@ -18,10 +19,12 @@ class LakeManager:
     def __init__(self):
         self.tims_raw_dir_location = "../datalake/raw/tims"
         self.tims_transformed_dir_location = "../datalake/transformed/tims"
+        self.processed_dir = "../datalake/processed"
 
         # File Structure Auto-Setup
         os.makedirs(self.tims_raw_dir_location, exist_ok=True)
         os.makedirs(self.tims_transformed_dir_location, exist_ok=True)
+        os.makedirs(self.processed_dir, exist_ok=True)
 
     # DATASTREAM-SPECIFIC METHODS
 
@@ -48,6 +51,7 @@ class LakeManager:
                 data.append(json.load(f))
 
             shared_logger.log(f"Read RAW snapshot: {filename}")
+            self.move_snapshot_to_processed(filepath, filename)
 
         #return a 2D array
         return data
@@ -80,9 +84,14 @@ class LakeManager:
                 data.append(json.load(f))
 
                 shared_logger.log(f"READ TRANSFORMED snapshot: {filename}")
+                self.move_snapshot_to_processed(filepath, filename)
 
         # return 2D array
         return data
 
-        
+    def move_snapshot_to_processed(self, filepath, filename):
+        # mark the snapshot
+        new_filename = "PROCESSED-" + filename
+        processed_path = self.processed_dir + "/" + new_filename
+        shutil.move(filepath, processed_path)
 

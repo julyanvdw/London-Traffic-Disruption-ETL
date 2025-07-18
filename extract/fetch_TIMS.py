@@ -18,6 +18,7 @@ import requests
 import sys
 sys.path.append("../")
 from datalake_manager import LakeManager
+from pipeline_log_manager import shared_logger
 
 API_ID = "julyan-tims-pipeline"
 API_KEY = "cdfd168c1c934e259e8cbeafd3d00cdc"
@@ -30,21 +31,23 @@ query_params = {
 
 def fetch_tims_data():
     try: 
-        print("Attempting to fetch data...")
+        shared_logger.log("Attempting to fetch data from TIMS API...")
         response = requests.get(API_ENDPOINT, params=query_params) #note: this strips off the meta-data header and leaves us with a list of disruptions
         response.raise_for_status()
+        shared_logger.log(f"API Response Status Code: {response.status_code}")
 
         # Ensure the server returns data in JSON format
         try:
             data = response.json()
             manager = LakeManager()
             manager.write_TIMS_raw_snapshot(data)
+            shared_logger.log("Successfully wrote raw snapshot")
 
         except Exception as e:
-            print("TIMS Data not in expected JSON format", e)
+            shared_logger.log_warning(f"TIMS Data could not be obtained in JSON format: {e}")
 
     except requests.RequestException as e: 
-        print("TIMS Data Request Faled", e)
+        shared_logger.log_warning(f"TIMS Data Request Failed: {e}")
 
 if __name__ == "__main__": 
     fetch_tims_data()

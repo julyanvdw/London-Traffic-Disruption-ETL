@@ -11,7 +11,11 @@ import requests
 import pytest
 from extract import fetch_TIMS
 from load import loader
+from pipeline_log_manager import shared_logger
 
+# Temporarily disable logger outputs
+shared_logger.to_file = False
+shared_logger.verbose = False
 
 # EXTRACT INTEGRATIONS
 

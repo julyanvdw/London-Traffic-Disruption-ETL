@@ -12,8 +12,9 @@ import os
 
 class PipelineLogger:
     def __init__(self, verbose = True, to_file = True):
-        self.logs = []
-        self.logs_location = 'pipeline_logs'  # relative to project root
+        # Makes sure that the class prints logs to a dir in the base dir of the pipeline
+        base_dir = os.path.dirname(os.path.abspath(__file__))
+        self.logs_location =  f"{base_dir}/pipeline_logs"
         self.logs_filename = 'pipeline_logs.txt'
 
         # Some settings
@@ -29,8 +30,6 @@ class PipelineLogger:
         timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         log = f"[{log_type}]  {timestamp}  {message}"
 
-        self.logs.append(log)
-
         # Output logs according to settings
         if self.verbose:
             print(log)
@@ -45,5 +44,5 @@ class PipelineLogger:
         self.log(message, log_type="ERROR")
 
 # creating a sample logger
-logger = PipelineLogger()
+shared_logger = PipelineLogger()
     

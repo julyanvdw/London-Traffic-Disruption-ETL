@@ -16,6 +16,11 @@ from extract import fetch_TIMS
 from datalake_manager import LakeManager
 from transform import tims_models, transformer
 from load import loader
+from pipeline_log_manager import shared_logger
+
+# Temporarily disable logger outputs
+shared_logger.to_file = False
+shared_logger.verbose = False
 
 # EXTRACTING TESTS
 

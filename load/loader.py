@@ -10,6 +10,7 @@ import psycopg2
 import json
 from datalake_manager import LakeManager
 from datetime import datetime
+from pipeline_log_manager import shared_logger
 
 DB_NAME = "datawarehouse"
 DB_USER = "julyan"
@@ -109,11 +110,14 @@ def load_tims_data(conn, cursor):
 
 def load():
     # SET UP DB CONNECTION
+    shared_logger.log("Attempting to connect to DB...")
     conn = connect_to_db()
     cursor = conn.cursor()
+    shared_logger.log("Connected to DB")
 
     # LOAD DATA FROM VARIOUS SOURCES
     load_tims_data(conn=conn, cursor=cursor)
+    shared_logger.log("Succesfully loaded snapshot into DB.")
 
     # CLOSE THE DB CONNECTION
     cursor.close()

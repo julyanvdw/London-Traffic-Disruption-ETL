@@ -11,6 +11,7 @@ When incorporating proper enterprise solutions, this class can be altered - leav
 import os
 import json
 from datetime import datetime
+from pipeline_log_manager import shared_logger
 
 class LakeManager:
 
@@ -33,6 +34,8 @@ class LakeManager:
         with open(filename, "w") as f:
             json.dump(raw_data, f)
 
+        shared_logger.log(f"Wrote RAW snapshot: {filename}")
+
     def read_TIMS_raw_snapshot(self):
         # Read in every file in the dir, read in every data item
         data = []
@@ -43,6 +46,8 @@ class LakeManager:
 
             with open(filepath, "r") as f:
                 data.append(json.load(f))
+
+            shared_logger.log(f"Read RAW snapshot: {filename}")
 
         #return a 2D array
         return data
@@ -61,6 +66,8 @@ class LakeManager:
 
             json.dump(dumped_data, f, indent=2, default=str)
 
+        shared_logger.log(f"Wrote TRANSFORMED snapshot: {filename}")
+
     def read_TIMS_transformed_snapshot(self):
         # Read in every file in the dir, read in every data item per file
         data = []
@@ -71,6 +78,8 @@ class LakeManager:
 
             with open(filepath, "r") as f:
                 data.append(json.load(f))
+
+                shared_logger.log(f"READ TRANSFORMED snapshot: {filename}")
 
         # return 2D array
         return data

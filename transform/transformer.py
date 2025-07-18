@@ -11,6 +11,7 @@ import sys
 sys.path.append("../")
 from transform.tims_models import Disruption
 from datalake_manager import LakeManager
+from pipeline_log_manager import shared_logger
 
 
 def ingest_tims_data():
@@ -28,7 +29,7 @@ def ingest_tims_data():
                 disruption = Disruption(**d)
                 processed_data.append(disruption)
             except Exception as e:
-                print(f"Could not parse into pydantic object. {e}")
+                shared_logger.log_warning(f"Could not parse data item in snapshot: {e}")
             
     # remove possible duplicates in the data
     seen = {}
@@ -38,6 +39,7 @@ def ingest_tims_data():
 
     deduplicated_data = list(seen.values())
     manager.write_TIMS_transformed_snapshot(deduplicated_data)
+    shared_logger.log("Successfully wrote transformed snapshot.")
 
 
 if __name__ == "__main__":

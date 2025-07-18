@@ -2,13 +2,12 @@
 Julyan van der Westhuizen
 17/07/25
 
-This scrip runs tests using PyTest to test all TIMS-related modules
+This scrip runs tests using PyTest to test all TIMS-related modules (unit testing)
 """
 
 import sys
 sys.path.append("../")
 from unittest.mock import patch, Mock
-import requests
 import tempfile
 import os
 import json
@@ -16,28 +15,9 @@ import pytest
 from extract import fetch_TIMS
 from datalake_manager import LakeManager
 from transform import tims_models, transformer
+from load import loader
 
 # EXTRACTING TESTS
-
-def test_TIMS_connection():
-     # Check if we can connect to the TIMS API
-    API_ENDPOINT = fetch_TIMS.API_ENDPOINT
-    query_params = fetch_TIMS.query_params
-
-    response = requests.get(API_ENDPOINT, params=query_params, timeout=10) #prevents the test form hanging
-    assert response.status_code == 200
-
-def test_TIMS_json_format():
-    # Check if the API returns json
-    API_ENDPOINT = fetch_TIMS.API_ENDPOINT
-    query_params = fetch_TIMS.query_params
-
-    response = requests.get(API_ENDPOINT, params=query_params, timeout=10) #prevents the test form hanging
-
-    try:
-        data = response.json()
-    except ValueError:
-        pytest.fail("API Response not in JSON format")
 
 def test_fetch_TIMS_snapshot_writing():
     # Check if the json data is being written to the file system
@@ -275,4 +255,41 @@ def test_deduplication_ingestion():
         assert len(data) == 2
         assert data[0]["tims_id"] == "TIMS-214298"
         assert data[1]["tims_id"] == "TIMS-000111"
+
+# LOAD TESTS
+
+def test_flatten_disruption():
+    # Checks that the flattening logic works properly
+
+    # The loader script obtains disruptions in python dict/list format via LakeManager
+    disruption = {
+        "tims_id": "TIMS-214298",
+        "severity": "Serious",
+        "streets": [
+            {
+                "name": "Buitengracht Street",
+                "closure": "closed",
+                "directions": "Both ways",
+                "segments": [{"toid": "1"}]
+            }
+        ],
+        "isProvisional": True,
+        "hasClosures": False
+    }
+
+    disruption_row, street_rows = loader.flatten_disruption(disruption)
+
+
+    # Check disruption_row fields
+    assert disruption_row[0] == "TIMS-214298"
+    assert disruption_row[3] == "Serious"
+    assert disruption_row[-2] == True
+    assert disruption_row[-1] == False
+
+    # Check street_rows
+    assert len(street_rows) == 1
+    assert street_rows[0][2] == "Buitengracht Street"
+    assert street_rows[0][3] == "closed"
+    assert street_rows[0][4] == "Both ways"
+    assert '"toid": "1"' in street_rows[0][5]  # segments JSON
 

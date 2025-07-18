@@ -17,9 +17,17 @@ DB_PASSWORD = "1234"
 DB_HOST = "localhost"
 
 
-def load_tims_data(conn, cursor):
-    
-    def flatten_disruption(disruption):
+def connect_to_db():
+    conn = psycopg2.connect(
+        dbname=DB_NAME,
+        user=DB_USER,
+        password=DB_PASSWORD,
+        host=DB_HOST
+    )
+
+    return conn
+
+def flatten_disruption(disruption):
         # Takes the nested JSON object and flattens it into a tuple according to the DB schema
         # Also flattens the streets component
         # Returns both
@@ -64,6 +72,8 @@ def load_tims_data(conn, cursor):
                 )
 
         return disruption_row, street_rows
+
+def load_tims_data(conn, cursor):
         
     manager = LakeManager()
     files_data = manager.read_TIMS_transformed_snapshot() #note files_data results in the form [file_in_dir][data_item_in_file]
@@ -99,12 +109,7 @@ def load_tims_data(conn, cursor):
 
 def load():
     # SET UP DB CONNECTION
-    conn = psycopg2.connect(
-        dbname=DB_NAME,
-        user=DB_USER,
-        password=DB_PASSWORD,
-        host=DB_HOST
-    )
+    conn = connect_to_db()
     cursor = conn.cursor()
 
     # LOAD DATA FROM VARIOUS SOURCES
@@ -114,4 +119,5 @@ def load():
     cursor.close()
     conn.close()
 
-load()
+if __name__ == "__main__":
+    load()

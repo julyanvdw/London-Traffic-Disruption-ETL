@@ -9,7 +9,7 @@ This script performs the ingestion of raw, collected data files:
 
 import sys
 sys.path.append("../")
-from tims_models import Disruption
+from transform.tims_models import Disruption
 from datalake_manager import LakeManager
 
 
@@ -40,11 +40,8 @@ def ingest_tims_data():
     manager.write_TIMS_transformed_snapshot(deduplicated_data)
 
 
-def ingest(): 
-
+if __name__ == "__main__":
     ingest_tims_data()
 
     # add other ingest streams here 
     # also we can do some data integration of applicable
-
-ingest()

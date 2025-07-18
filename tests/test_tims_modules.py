@@ -15,7 +15,7 @@ import json
 import pytest
 from extract import fetch_TIMS
 from datalake_manager import LakeManager
-from tranform import tims_models
+from transform import tims_models, transformer
 
 # EXTRACTING TESTS
 
@@ -214,3 +214,65 @@ def test_StreetSegment_coords_invalid_string():
     fake_lineString = 'some invalid lineString'
     segment = tims_models.StreetSegment(lineString=fake_lineString)
     assert segment.coords is None
+
+# TRANSFORM TESTS 
+
+def test_ingestion():
+    # Checks that the ingestion method works by creating a fake file, then checking if the output matches 
+
+    with tempfile.TemporaryDirectory() as raw_dir, tempfile.TemporaryDirectory() as transformed_dir:
+        # Create a fake raw snapshot file
+        test_data = [{"id": "TIMS-214298"}]
+        with open(f"{raw_dir}/raw.json", "w") as f:
+            json.dump(test_data, f)
+
+        # Creating a stub lakeMakanger which temporary points to tmpdirs
+        class TestLakeManager(LakeManager):
+            def __init__(self):
+                super().__init__()
+                self.tims_raw_dir_location = raw_dir
+                self.tims_transformed_dir_location = transformed_dir
+
+        # Assigning the temp lakeManager to the one used in the transformer
+        transformer.LakeManager = TestLakeManager
+
+        # Run the ingestion method
+        transformer.ingest_tims_data()
+
+        # Check that a file was created in transformed_dir and that it matches what we expect
+        files = os.listdir(transformed_dir)
+        assert len(files) == 1
+        with open(f"{transformed_dir}/{files[0]}", "r") as f:
+            data = json.load(f)
+
+        # Check the contents of what's returned
+        assert data[0]["tims_id"] == "TIMS-214298"
+
+def test_deduplication_ingestion(): 
+    # Checks that the ingestion method does indeed perform deduplication
+    
+    with tempfile.TemporaryDirectory() as raw_dir, tempfile.TemporaryDirectory() as transformed_dir:
+        # Create raw data with duplicate entries (duplication on tims ID)
+        test_data = [{"id": "TIMS-214298"}, {"id": "TIMS-214298"}, {"id": "TIMS-000111"}]
+        with open(f"{raw_dir}/raw.json", "w") as f:
+            json.dump(test_data, f)
+
+        class TestLakeManager(LakeManager):
+            def __init__(self):
+                super().__init__()
+                self.tims_raw_dir_location = raw_dir
+                self.tims_transformed_dir_location = transformed_dir
+
+        transformer.LakeManager = TestLakeManager
+        transformer.ingest_tims_data()
+
+        files = os.listdir(transformed_dir)
+        assert len(files) == 1
+        with open(f"{transformed_dir}/{files[0]}", "r") as f:
+            data = json.load(f)
+
+        # Only two (out of the three) entries should be present after deduplication
+        assert len(data) == 2
+        assert data[0]["tims_id"] == "TIMS-214298"
+        assert data[1]["tims_id"] == "TIMS-000111"
+

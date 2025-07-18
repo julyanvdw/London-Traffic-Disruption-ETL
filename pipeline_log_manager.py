@@ -14,7 +14,7 @@ class PipelineLogger:
     def __init__(self, verbose = True, to_file = True):
         # Makes sure that the class prints logs to a dir in the project root of the pipeline
         project_root = os.path.dirname(os.path.abspath(__file__))
-        
+
         self.logs_location =  f"{project_root}/pipeline_logs"
         self.logs_filename = 'pipeline_logs.txt'
 
@@ -44,8 +44,8 @@ class PipelineLogger:
     def log_error(self, message):
         self.log(message, log_type="ERROR")
 
-    def log_pipeline_phase(self, message):
-        self.log(message, log_type="PIPELINE-PHASE")
+    def log_pipeline_phase(self, phase):
+        self.log("", log_type=f"PIPELINE-PHASE: {phase}")
 
 # creating a shared logger
 shared_logger = PipelineLogger()

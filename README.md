@@ -28,7 +28,7 @@ plan:
 4. write tests ✅
 5. go and delete old snapshots ✅
 6. write logs functionality ✅
-7. orchestrate (locally) with orchestration script
+7. orchestrate (locally) with orchestration script ✅
 8. Host
 9. Add service layer
     - API for self-service access

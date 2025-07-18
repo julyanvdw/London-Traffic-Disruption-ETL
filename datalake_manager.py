@@ -24,6 +24,9 @@ class LakeManager:
         self.tims_transformed_dir_location = f"{project_root}/datalake/transformed/tims"
         self.processed_dir = f"{project_root}/datalake/processed"
 
+        # some settings
+        self.retain_window_size = 2
+
         # File Structure Auto-Setup
         os.makedirs(self.tims_raw_dir_location, exist_ok=True)
         os.makedirs(self.tims_transformed_dir_location, exist_ok=True)
@@ -34,7 +37,7 @@ class LakeManager:
     def write_TIMS_raw_snapshot(self, raw_data):
         # Create filename
         timestamp = datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
-        filename = self.tims_raw_dir_location + "/"+  f"TIMS-snapshot-{timestamp}.json"
+        filename = self.tims_raw_dir_location + "/"+  f"TIMS-raw-snapshot-{timestamp}.json"
 
         # Write to file
         with open(filename, "w") as f:
@@ -62,7 +65,7 @@ class LakeManager:
     def write_TIMS_transformed_snapshot(self, transformed_data):
         # Create the filename
         timestamp = datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
-        filename = self.tims_transformed_dir_location + "/" + f"transformed-snapshot-{timestamp}.json"
+        filename = self.tims_transformed_dir_location + "/" + f"TIMS-transformed-snapshot-{timestamp}.json"
 
         # Write to file
         with open(filename, "w") as f:
@@ -97,4 +100,34 @@ class LakeManager:
         new_filename = "PROCESSED-" + filename
         processed_path = self.processed_dir + "/" + new_filename
         shutil.move(filepath, processed_path)
+
+    def retain_snapshot_window(self):
+        # Goes through the processed snapshots, retains the n latest ones, deletes the rest 
+        # Keeps a window of snapshots
+
+        snapsots_names = os.listdir(self.processed_dir)
+        raw_snapshots_names = []
+        transformed_snapshots_names = []
+
+        for s in snapsots_names:
+            if "raw" in s:
+                raw_snapshots_names.append(s)
+            if "transformed" in s:
+                transformed_snapshots_names.append(s)
+
+
+        raw_snapshots_names.sort()
+        transformed_snapshots_names.sort()
+
+        num_raw = len(raw_snapshots_names)
+        if num_raw > self.retain_window_size:
+            for s in raw_snapshots_names[:num_raw - self.retain_window_size]:
+                os.remove(os.path.join(self.processed_dir, s))
+                shared_logger.log(f"Deleted old RAW snapshot: {s}")
+
+        num_trans = len(transformed_snapshots_names)
+        if num_trans > self.retain_window_size:
+            for s in transformed_snapshots_names[:num_trans - self.retain_window_size]:
+                os.remove(os.path.join(self.processed_dir, s))
+                shared_logger.log(f"Deleted old TRANSFORMED snapshot: {s}")
 

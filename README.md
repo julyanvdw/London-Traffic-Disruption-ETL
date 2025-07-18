@@ -25,17 +25,18 @@ stuff done during data transformation
 plan: 
 1. get disruptions into db ✅
 2. refactor to simulate datalake ✅
-4. write tests
-5. go and delete old snapshots
-6. write logs
-7. orchestrate (locally) - like build a dashboard for checking on the pipeline
-5. write service layer
-    - maybe an API which allows people to model their data usages
-9. build some dashboard
-10. build some visualisation
-11. try to do all of this on servers (hosted solutions)
-12. then, at the end, try to implement more data sources
-13. maybe expand the dataabse with more specific geospatial data
+4. write tests ✅
+5. go and delete old snapshots 
+6. write logs functionality
+7. orchestrate (locally) with orchestration script
+8. Host
+9. Add service layer
+    - API for self-service access
+    - Applet built env
+    - Example Data Science application 
+    - Example Visualisation
+10. build pipeline interface
+11. more data sources
 
 
 db stuff

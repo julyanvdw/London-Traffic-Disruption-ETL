@@ -4,8 +4,7 @@ Julyan van der Westhuizen
 
 This scripts loads the transformed data from the datalake into the data store (PostgreSQL database). 
 """
-import sys
-sys.path.append("../")
+
 import psycopg2
 import json
 from datalake_manager import LakeManager

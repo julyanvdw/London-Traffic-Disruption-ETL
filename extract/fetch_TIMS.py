@@ -5,18 +5,15 @@ Julyan van der Westhuizen
 A script for accessing an exposed API from the TRANSPORT FOR LONDON (TFL) server. 
 https://tfl.gov.uk/info-for/open-data-users/our-open-data
 
-Details on HTTP request structure for this API can be foudn at: https://api-portal.tfl.gov.uk/api-details#api=Road&operation=Road_DisruptionByPathIdsQueryStripContentQuerySeveritiesQueryCategoriesQuery
+Details on HTTP request structure for this API can be found at: https://api-portal.tfl.gov.uk/api-details#api=Road&operation=Road_DisruptionByPathIdsQueryStripContentQuerySeveritiesQueryCategoriesQuery
 
 This script accesses the API with the use of my API keys (as per registration with TFL). It works as follows: 
 1) Accesses the API with the relevant API key and API ID (as per registration with TFL)
 2) Fetches the data
 3) Saves the data as a JSON snapshot in a 'datalake' (via datalake manager) which stores all raw info
-
 """
 
 import requests
-import sys
-sys.path.append("../")
 from datalake_manager import LakeManager
 from pipeline_log_manager import shared_logger
 

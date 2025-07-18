@@ -20,7 +20,7 @@ def run_pipeline():
     
     # run the Transform Step
     shared_logger.log_pipeline_phase("=== TRANSFORM ===")
-    transformer.ingest_tims_data()
+    transformer.ingest()
 
     # run the Load Step
     shared_logger.log_pipeline_phase("=== LOAD ===")

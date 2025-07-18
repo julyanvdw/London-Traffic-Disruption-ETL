@@ -7,8 +7,6 @@ This script performs the ingestion of raw, collected data files:
 2) Data then undergoes validation and cleaning by parisng the JSON data with pydantic models defined in tims_models.py
 """
 
-import sys
-sys.path.append("../")
 from transform.tims_models import Disruption
 from datalake_manager import LakeManager
 from pipeline_log_manager import shared_logger
@@ -42,8 +40,13 @@ def ingest_tims_data():
     shared_logger.log("Successfully wrote transformed snapshot.")
 
 
-if __name__ == "__main__":
+def ingest():
     ingest_tims_data()
 
     # add other ingest streams here 
     # also we can do some data integration of applicable
+
+if __name__ == "__main__":
+    ingest()
+
+   

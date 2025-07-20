@@ -29,14 +29,17 @@ plan:
 5. go and delete old snapshots ✅
 6. write logs functionality ✅
 7. orchestrate (locally) with orchestration script ✅
-8. Host
-9. Add service layer
-    - API for self-service access
-    - Applet built env
-    - Example Data Science application 
-    - Example Visualisation
-10. build pipeline interface
-11. more data sources
+
+8. build a terminal interface
+9. build a service layer (rest API)
+10. try host (google)
+
+12. build an applicaiton (DS / VIS) which interfaces with the API
+13. build app creator env
+
+14. Add in another DS
+
+
 
 
 db stuff

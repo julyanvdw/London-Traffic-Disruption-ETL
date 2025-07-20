@@ -28,17 +28,17 @@ class Overview(Vertical):
         ┃Fetch Info:   ┃     ┃Validation Info:  ┃     ┃Items Loaded: ┃     |Total Rows:     |
         ┃[]            ┃     ┃[]                ┃     ┃[]            ┃     |[]              |
         ┗━━━━━━━━━━━━━━┛     ┗━━━━━━━━━━━━━━━━━━┛     ┗━━━━━━━━━━━━━━┛     +----------------+
-         Status:{extract_status}             Status:{transform_status}         Status:{load_status}         Status:{db_status}                                
+         Status: {test}             Status:                  Status:              Status:         
+
+              
     """
     
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-        # Init the animations variables so that the first frame can be rendered
-        self.extract_status = "Idle"
-        self.transform_status = "Idle"
-        self.load_status = "Idle"
-        self.db_status = "Idle"
+        # Init the animation variables so that the first frame can be rendered
+        self.test_start = "[-]"
+        self.stage_index = 0
 
     def compose(self) -> ComposeResult:
 
@@ -57,24 +57,24 @@ class Overview(Vertical):
         yield self.diagram_widget
 
     def render_diagram(self):
+        
+        # Helper pad function
         def pad(s, width=8):
             return str(s)[:width].ljust(width)
+        
+        # Make use of pythons fomratting to fill in placeholders
         return self.diagram_template.format(
-            extract_status=pad(self.extract_status),
-            transform_status=pad(self.transform_status),
-            load_status=pad(self.load_status),
-            db_status=pad(self.db_status)
+            test=pad(self.test_start),
         )
 
     def on_mount(self):
-        # Example: animate extract_status every second
+        # call the animate method every second
         self.set_interval(1, self.animate_status)
 
     def animate_status(self):
-        # Cycle through some example statuses
-        import random
-        statuses = ["Idle", "Running", "Success", "Error"]
-        self.extract_status = random.choice(statuses)
+        stages = ["[+]", "[-]"]
+        self.test_start = stages[self.stage_index]
+        self.stage_index = (self.stage_index + 1) % len(stages)
         self.diagram_widget.update(self.render_diagram())
 
 class PipelineTUI(App):

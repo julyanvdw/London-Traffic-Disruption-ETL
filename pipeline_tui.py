@@ -6,14 +6,21 @@ This is a Terminal User Interface for interacting with the pipeline.
 """
 
 from textual.app import App, ComposeResult
-from textual.containers import Container
-from textual.widgets import Tabs, Tab, Header, Static
+from textual.containers import Container, Center
+from textual.binding import Binding
+from textual.widgets import Tabs, Tab, Header, Static, Footer
 
 
 class PipelineTUI(App):
 
+    BINDINGS = [
+        Binding(key="^q", action="quit", description="Quit"),
+    ]
+
     def compose(self) -> ComposeResult:
+
         yield Header()
+
         yield Tabs(
             Tab("Overview", id="one"),
             Tab("Pipeline Control", id="two"),
@@ -22,26 +29,40 @@ class PipelineTUI(App):
             Tab("Audit", id="five"),
             Tab("Operation Logs", id="six"),
         )
+
         yield Container(
-            Static("Overview content", id="content-one"),
-            Static("Pipeline Control content", id="content-two"),
-            Static("Configuration content", id="content-three"),
-            Static("Alerts & Notifications content", id="content-four"),
-            Static("Audit content", id="content-five"),
-            Static("Operation Logs content", id="content-six"),
+            Center(
+                Static("Pipeline Control content", id="content-one"),
+                Static("Pipeline Control content", id="content-two"),
+                Static("Configuration content", id="content-three"),
+                Static("Alerts & Notifications content", id="content-four"),
+                Static("Audit content", id="content-five"),
+                Static("Operation Logs content", id="content-six"),
+            ),
             id="tab-content"
         )
 
+        yield Footer()
+
     def on_mount(self) -> None:
+
+        # General Style
+        self.theme = "flexoki"
+
+        # Header Fields
         self.title = "Pipeline Control Center"
         self.sub_title = "London Traffic ETL"
+        header = self.query_one(Header)
+        header.tall = True
+        header._show_clock = True
+        header.icon = "[+]"
 
+        
     def on_tabs_tab_activated(self, event) -> None:
         # Hide all content widgets, show only the active one
         for tab_id in ["one", "two", "three", "four", "five", "six"]:
             content = self.query_one(f"#content-{tab_id}", Static)
             content.display = (event.tab.id == tab_id)
-
 
 
 if __name__ == "__main__":

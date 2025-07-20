@@ -91,6 +91,42 @@ Things the pipeline interface could show
 Monitoring & Status
 --------------------
 
+Input Source
+
+Last fetch time
+Number of new records available
+Source status (reachable/unreachable, API health)
+Data source name (e.g., TfL API)
+Fetch interval (e.g., every 5 min)
+API rate limit info (remaining calls, reset time)
+Extraction Step
+
+Number of records extracted (last run, total)
+Extraction duration (last run)
+Extraction errors (count, last error message)
+Current extraction status (idle, running, failed)
+Data volume (MB/GB extracted)
+Snapshot/file count
+Transform Step
+
+Number of records transformed (last run, total)
+Transformation duration (last run)
+Transformation errors (count, last error message)
+Data validation stats (fields fixed, duplicates removed)
+Current transform status (idle, running, failed)
+Type conversions performed
+Unnecessary fields stripped
+Load Step
+
+Number of records loaded (last run, total)
+Load duration (last run)
+Load errors (count, last error message)
+Current load status (idle, running, failed)
+Database row count (total, new rows)
+Database health (connection status, space used)
+Last successful load time
+
+
 Pipeline run status (running, idle, failed, last run time)
 Recent logs and errors
 Health checks (DB connection, API availability)

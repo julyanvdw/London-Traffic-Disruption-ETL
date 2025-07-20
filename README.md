@@ -78,3 +78,49 @@ CREATE TABLE streets (
     segments JSONB,
     FOREIGN KEY (tims_id, snapshot_time) REFERENCES disruptions_history(tims_id, snapshot_time)
 );
+
+Things the pipeline interface could show
+
+Monitoring & Status
+--------------------
+
+Pipeline run status (running, idle, failed, last run time)
+Recent logs and errors
+Health checks (DB connection, API availability)
+Snapshot/file counts and sizes
+Database row counts
+Database info (space etc)
+
+Control & Operations
+--------------------
+
+Start/stop/restart the pipeline
+Trigger manual runs (on demand)
+Pause/resume scheduled runs
+Change scheduling interval (e.g., from 5 min to 10 min)
+Enable/disable specific pipeline steps (extract, transform, load)
+Clean up old logs or snapshots
+
+Configuration
+--------------------
+
+Edit pipeline settings (API keys, DB credentials, retain window size, etc.)
+Update environment variables or config files
+Manage pipeline parameters (e.g., filter criteria, deduplication rules)
+
+Alerts & Notifications
+--------------------
+
+Set up email/SMS/Slack alerts for failures or important events
+View and acknowledge alerts
+
+Audit & History
+--------------------
+
+View run history (success/failure, duration, data processed)
+Download logs or snapshots
+Track changes to configuration
+
+
+
+

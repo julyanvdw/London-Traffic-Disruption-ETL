@@ -27,11 +27,11 @@ def run_pipeline():
     shared_logger.log_pipeline_phase("LOAD")
     loader.load()
 
-    shared_logger.log_pipeline_phase("CLOSING PIPELINE")
-
     # maintain the snapshot window
     manager = LakeManager()
     manager.retain_snapshot_window()
+    
+    shared_logger.log_pipeline_phase("CLOSING PIPELINE")
 
 
 if __name__ == "__main__":

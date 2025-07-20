@@ -16,7 +16,7 @@ class PipelineLogger:
         project_root = os.path.dirname(os.path.abspath(__file__))
 
         self.logs_location =  f"{project_root}/pipeline_logs"
-        self.logs_filename = 'pipeline_logs.txt'
+        self.logs_filename = 'pipeline_logs.log'
 
         # Some settings
         self.verbose = verbose

@@ -10,6 +10,28 @@ from textual.containers import Container, Center
 from textual.binding import Binding
 from textual.widgets import Tabs, Tab, Header, Static, Footer
 
+class Overview(Static):
+    
+    pipeline_diagram = """
+        +-------------------+                                                                
+        |Data Source:       |                                                                
+        |TFL Disruptions API|                                                                
+        +-------------------+                                                                
+                |                                                                          
+                ▼                                                                          
+        ┏━━━━━━━┓━━━━━━┓     ┏━━━━━━━━━┓━━━━━━━━┓     ┏━━━━┓━━━━━━━━━┓     +----------------+
+        ┃EXTRACT┃      ┃     ┃TRANSFORM┃        ┃     ┃LOAD┃         ┃     |Database:       |
+        ┗━━━━━━━┛      ┃     ┗━━━━━━━━━┛        ┃     ┗━━━━┛         ┃     |                |
+        ┃Last Fetch:   ┃     ┃Data Transformed: ┃     ┃Last Load:    ┃     |Last added rows:|
+        ┃[]            ┃----►┃[]                ┃----►┃[]            ┃----►|[]              |
+        ┃Fetch Info:   ┃     ┃Validation Info:  ┃     ┃Items Loaded: ┃     |Total Rows:     |
+        ┃[]            ┃     ┃[]                ┃     ┃[]            ┃     |[]              |
+        ┗━━━━━━━━━━━━━━┛     ┗━━━━━━━━━━━━━━━━━━┛     ┗━━━━━━━━━━━━━━┛     +----------------+
+                                                                                            
+        """
+
+    def on_mount(self):
+        self.update(self.pipeline_diagram)
 
 class PipelineTUI(App):
 
@@ -31,14 +53,12 @@ class PipelineTUI(App):
         )
 
         yield Container(
-            Center(
-                Static("Pipeline Control content", id="content-one"),
-                Static("Pipeline Control content", id="content-two"),
-                Static("Configuration content", id="content-three"),
-                Static("Alerts & Notifications content", id="content-four"),
-                Static("Audit content", id="content-five"),
-                Static("Operation Logs content", id="content-six"),
-            ),
+            Center(Overview(id="content-one")),
+            Center(Static("Pipeline Control content", id="content-two")),
+            Center(Static("Configuration content", id="content-three")),
+            Center(Static("Alerts & Notifications content", id="content-four")),
+            Center(Static("Audit content", id="content-five")),
+            Center(Static("Operation Logs content", id="content-six")),
             id="tab-content"
         )
 

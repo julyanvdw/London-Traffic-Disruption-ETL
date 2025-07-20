@@ -31,13 +31,15 @@ plan:
 7. orchestrate (locally) with orchestration script ✅
 
 8. build a terminal interface
-9. build a service layer (rest API)
-10. try host (google)
+8. host the DB somewhere
+9. build a service layer (RESTful APIs)
 
 12. build an applicaiton (DS / VIS) which interfaces with the API
 13. build app creator env
 
 14. Add in another DS
+15. prep for easy demoing 
+10. try host (google)
 
 
 
@@ -83,6 +85,8 @@ CREATE TABLE streets (
 );
 
 Things the pipeline interface could show
+
+
 
 Monitoring & Status
 --------------------

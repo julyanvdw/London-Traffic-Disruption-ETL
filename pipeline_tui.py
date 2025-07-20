@@ -24,7 +24,7 @@ class Overview(Vertical):
         ┃EXTRACT┃      ┃     ┃TRANSFORM┃        ┃     ┃LOAD┃         ┃     |Database:       |
         ┗━━━━━━━┛      ┃     ┗━━━━━━━━━┛        ┃     ┗━━━━┛         ┃     |                |
         ┃Last Fetch:   ┃     ┃Data Transformed: ┃     ┃Last Load:    ┃     |Last added rows:|
-        ┃[]            ┃----►┃[]                ┃----►┃[]            ┃----►|[]              |
+        ┃[]            ┃{arr}┃[]                ┃----►┃[]            ┃----►|[]              |
         ┃Fetch Info:   ┃     ┃Validation Info:  ┃     ┃Items Loaded: ┃     |Total Rows:     |
         ┃[]            ┃     ┃[]                ┃     ┃[]            ┃     |[]              |
         ┗━━━━━━━━━━━━━━┛     ┗━━━━━━━━━━━━━━━━━━┛     ┗━━━━━━━━━━━━━━┛     +----------------+
@@ -38,7 +38,9 @@ class Overview(Vertical):
 
         # Init the animation variables so that the first frame can be rendered
         self.test_start = "[-]"
+        self.arrow_start = "----►"
         self.stage_index = 0
+        self.arrow_index_stage = 0
 
     def compose(self) -> ComposeResult:
 
@@ -65,6 +67,7 @@ class Overview(Vertical):
         # Make use of pythons fomratting to fill in placeholders
         return self.diagram_template.format(
             test=pad(self.test_start),
+            arr=pad(self.arrow_start)
         )
 
     def on_mount(self):
@@ -73,8 +76,11 @@ class Overview(Vertical):
 
     def animate_status(self):
         stages = ["[+]", "[-]"]
+        arrow_stages = [" - ►", "- -- "]
         self.test_start = stages[self.stage_index]
+        self.arrow_start = arrow_stages[self.arrow_index_stage]
         self.stage_index = (self.stage_index + 1) % len(stages)
+        self.arrow_index_stage = (self.arrow_index_stage + 1) % len(arrow_stages)
         self.diagram_widget.update(self.render_diagram())
 
 class PipelineTUI(App):

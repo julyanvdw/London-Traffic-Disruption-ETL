@@ -8,10 +8,12 @@ This is a Terminal User Interface for interacting with the pipeline.
 from textual.app import App, ComposeResult
 from textual.containers import Container, Center
 from textual.binding import Binding
-from textual.widgets import Tabs, Tab, Header, Static, Footer
+from textual.widgets import Tabs, Tab, Header, Static, Footer, Digits
 
-class Overview(Static):
-    
+from textual.widget import Widget
+
+from textual.containers import Vertical
+class Overview(Vertical):
     pipeline_diagram = """
         +-------------------+                                                                
         |Data Source:       |                                                                
@@ -27,13 +29,42 @@ class Overview(Static):
         ┃Fetch Info:   ┃     ┃Validation Info:  ┃     ┃Items Loaded: ┃     |Total Rows:     |
         ┃[]            ┃     ┃[]                ┃     ┃[]            ┃     |[]              |
         ┗━━━━━━━━━━━━━━┛     ┗━━━━━━━━━━━━━━━━━━┛     ┗━━━━━━━━━━━━━━┛     +----------------+
-                                                                                            
-        """
+         Status:              Status:                  Status:              Status:                                
+    """
 
-    def on_mount(self):
-        self.update(self.pipeline_diagram)
+    def compose(self) -> ComposeResult:
+        pi_group = Container(
+            Digits("3.141,592,653,5897", id="pi"),
+            Static("records added to the database", id="pi-caption"),
+            id="pi-group"
+        )
+        pi_group.border_title = "Database Entries"
+        yield pi_group
+
+        diagram_widget = Static(self.pipeline_diagram, id="diagram")
+        diagram_widget.border_title = "Pipeline Diagram"
+        yield diagram_widget
+
+
+    # No need for on_mount anymore since border_title is set in compose
 
 class PipelineTUI(App):
+    CSS = """
+    Screen {
+        align: center middle;
+    }
+    #pi-group {
+        width: auto;
+        border: round $primary;
+        align: center middle;
+        background: $primary-muted;
+    }
+    #diagram {
+        border: round white;
+        text-wrap: nowrap;
+        overflow: auto;
+    }
+    """
 
     BINDINGS = [
         Binding(key="^q", action="quit", description="Quit"),
@@ -67,7 +98,7 @@ class PipelineTUI(App):
     def on_mount(self) -> None:
 
         # General Style
-        self.theme = "flexoki"
+        self.theme = "monokai"
 
         # Header Fields
         self.title = "Pipeline Control Center"
@@ -81,7 +112,7 @@ class PipelineTUI(App):
     def on_tabs_tab_activated(self, event) -> None:
         # Hide all content widgets, show only the active one
         for tab_id in ["one", "two", "three", "four", "five", "six"]:
-            content = self.query_one(f"#content-{tab_id}", Static)
+            content = self.query_one(f"#content-{tab_id}")
             content.display = (event.tab.id == tab_id)
 
 

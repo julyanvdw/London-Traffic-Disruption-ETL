@@ -12,6 +12,10 @@ from textual.containers import Container, Center, Horizontal
 from textual.binding import Binding
 from textual.widgets import Tabs, Tab, Header, Static, Footer, Digits, Log, Label, Button, Switch
 from textual.containers import Vertical
+from extract import fetch_TIMS
+from transform import transformer
+from load import loader
+import pipeline_orchestrator
 
 
 class Overview(Vertical):
@@ -203,10 +207,24 @@ class PipelineControl(Vertical):
             id="controls-horizontal"
         )
 
-    def on_button_pressed(self, event: Button.Pressed) -> None:
-        print(f"Button {event.button.id} was pressed!")
+    def on_button_pressed(self, event: Button.Pressed):
+        if event.button.id == "control-button-1":
+            # Manually run the extraction
+            fetch_TIMS.fetch_tims_data()
 
-    def on_switch_changed(self, event: Switch.Changed) -> None:
+        elif event.button.id == "control-button-2":
+            # Manually run the transformer - ingest step 
+            transformer.ingest()
+
+        elif event.button.id == "control-button-3":
+            # Manually load data into the DB
+            loader.load()
+
+        elif event.button.id == "control-button-4":
+            # Manually run the full orchestration 
+            pipeline_orchestrator.run_pipeline()
+
+    def on_switch_changed(self, event: Switch.Changed):
         print(f"Switch state: {event.value}")
 
 

@@ -52,6 +52,8 @@ def fetch_tims_data():
         shared_logger.log_warning(f"TIMS Data Request Failed: {e}")
         shared_logger.last_run_info['Extract-status'] = 1
 
+    shared_logger.save_last_run_info()
+
 if __name__ == "__main__": 
     fetch_tims_data()
 

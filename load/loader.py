@@ -173,5 +173,7 @@ def load():
     cursor.close()
     conn.close()
 
+    shared_logger.save_last_run_info()
+
 if __name__ == "__main__":
     load()

@@ -33,7 +33,7 @@ def ingest_tims_data():
                 processed_data.append(disruption)
 
                 # update metric
-                fields_stripped_count += len(d) - len(disruption.__fields__)
+                fields_stripped_count += len(d) - len(Disruption.model_fields)
 
             except Exception as e:
                 shared_logger.log_warning(f"Could not parse data item in snapshot: {e}")

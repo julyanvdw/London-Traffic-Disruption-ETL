@@ -10,8 +10,7 @@ import json
 from textual.app import App, ComposeResult
 from textual.containers import Container, Center
 from textual.binding import Binding
-from textual.widgets import Tabs, Tab, Header, Static, Footer, Digits
-from textual.widget import Widget
+from textual.widgets import Tabs, Tab, Header, Static, Footer, Digits, Log
 from textual.containers import Vertical
 
 
@@ -124,6 +123,22 @@ class Overview(Vertical):
         except Exception:
             pass
 
+class LogsView(Vertical):
+    
+    def compose(self) -> ComposeResult:
+        yield Log(highlight=True, auto_scroll=True)
+    
+    def on_mount(self):
+        self.set_interval(1, self.update_log)  # refresh every second
+
+    def update_log(self):
+        log = self.query_one(Log)
+        filename = f"{shared_logger.logs_location}/{shared_logger.logs_filename}"
+        log.clear()
+        with open(filename, 'r') as f:
+            for line in f:
+                log.write_line(line.rstrip())
+
 
 class PipelineTUI(App):
     
@@ -170,7 +185,7 @@ class PipelineTUI(App):
             Center(Static("Configuration content", id="content-three")),
             Center(Static("Alerts & Notifications content", id="content-four")),
             Center(Static("Audit content", id="content-five")),
-            Center(Static("Operation Logs content", id="content-six")),
+            Center(LogsView(id="content-six")),
             id="tab-content"
         )
 

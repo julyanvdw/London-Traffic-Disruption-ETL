@@ -7,6 +7,7 @@ This is a Terminal User Interface for interacting with the pipeline.
 
 from pipeline_log_manager import shared_logger
 import json
+import os
 from textual.app import App, ComposeResult
 from textual.containers import Container, Center, Horizontal
 from textual.binding import Binding
@@ -147,6 +148,7 @@ class LogsView(Vertical):
                 log.write_line(line.rstrip())
 
 class PipelineControl(Vertical):
+    
     def compose(self) -> ComposeResult:
         
         # Creating three buttons for each stage of the pipeline - for manual running
@@ -225,7 +227,16 @@ class PipelineControl(Vertical):
             pipeline_orchestrator.run_pipeline()
 
     def on_switch_changed(self, event: Switch.Changed):
-        print(f"Switch state: {event.value}")
+        # Get the directory of this script
+        path = os.path.dirname(os.path.abspath(__file__))
+        flag_path = f"{path}/pipeline_enabled.flag"
+        if event.value:
+            # Create the flag - essentially enabling the pipeline 
+            open(flag_path, "w").close()
+        else:
+            # Remove the flag - disable the pipeline
+            if os.path.exists(flag_path):
+                os.remove(flag_path)
 
 
 class PipelineTUI(App):

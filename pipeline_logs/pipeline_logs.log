@@ -554,3 +554,57 @@
 [LOG]  2025-07-21 12:40:40  Deleted old TRANSFORMED snapshot: PROCESSED-TIMS-transformed-snapshot-2025-07-21-12-36-37.json
 [LOG]  2025-07-21 12:40:40  Deleted old TRANSFORMED snapshot: PROCESSED-TIMS-transformed-snapshot-2025-07-21-12-38-15.json
 [PIPELINE-PHASE: CLOSING PIPELINE]  2025-07-21 12:40:40  
+[PIPELINE-PHASE: STARTING PIPELINE]  2025-07-21 13:27:01  
+[PIPELINE-PHASE: EXTRACT]  2025-07-21 13:27:01  
+[LOG]  2025-07-21 13:27:01  Attempting to fetch data from TIMS API...
+[LOG]  2025-07-21 13:27:03  API Response Status Code: 200
+[LOG]  2025-07-21 13:27:03  Wrote RAW snapshot: /Users/julyanvanderwesthuizen/Desktop/London_Traffic_Incident_Data_Pipeline/datalake/raw/tims/TIMS-raw-snapshot-2025-07-21-13-27-03.json
+[LOG]  2025-07-21 13:27:03  Successfully wrote raw snapshot
+[PIPELINE-PHASE: TRANSFORM]  2025-07-21 13:27:03  
+[LOG]  2025-07-21 13:27:03  Read RAW snapshot: TIMS-raw-snapshot-2025-07-21-13-27-03.json
+[LOG]  2025-07-21 13:27:03  Wrote TRANSFORMED snapshot: /Users/julyanvanderwesthuizen/Desktop/London_Traffic_Incident_Data_Pipeline/datalake/transformed/tims/TIMS-transformed-snapshot-2025-07-21-13-27-03.json
+[LOG]  2025-07-21 13:27:03  Successfully wrote transformed snapshot.
+[PIPELINE-PHASE: LOAD]  2025-07-21 13:27:03  
+[LOG]  2025-07-21 13:27:03  Attempting to connect to DB...
+[LOG]  2025-07-21 13:27:03  Connected to DB
+[LOG]  2025-07-21 13:27:03  READ TRANSFORMED snapshot: TIMS-transformed-snapshot-2025-07-21-13-27-03.json
+[LOG]  2025-07-21 13:27:04  Succesfully loaded snapshot into DB.
+[LOG]  2025-07-21 13:27:04  Deleted old RAW snapshot: PROCESSED-TIMS-raw-snapshot-2025-07-21-12-39-39.json
+[LOG]  2025-07-21 13:27:04  Deleted old TRANSFORMED snapshot: PROCESSED-TIMS-transformed-snapshot-2025-07-21-12-39-59.json
+[PIPELINE-PHASE: CLOSING PIPELINE]  2025-07-21 13:27:04  
+[PIPELINE-PHASE: STARTING PIPELINE]  2025-07-21 13:28:00  
+[PIPELINE-PHASE: EXTRACT]  2025-07-21 13:28:00  
+[LOG]  2025-07-21 13:28:00  Attempting to fetch data from TIMS API...
+[LOG]  2025-07-21 13:28:00  API Response Status Code: 200
+[LOG]  2025-07-21 13:28:00  Wrote RAW snapshot: /Users/julyanvanderwesthuizen/Desktop/London_Traffic_Incident_Data_Pipeline/datalake/raw/tims/TIMS-raw-snapshot-2025-07-21-13-28-00.json
+[LOG]  2025-07-21 13:28:00  Successfully wrote raw snapshot
+[PIPELINE-PHASE: TRANSFORM]  2025-07-21 13:28:00  
+[LOG]  2025-07-21 13:28:00  Read RAW snapshot: TIMS-raw-snapshot-2025-07-21-13-28-00.json
+[LOG]  2025-07-21 13:28:00  Wrote TRANSFORMED snapshot: /Users/julyanvanderwesthuizen/Desktop/London_Traffic_Incident_Data_Pipeline/datalake/transformed/tims/TIMS-transformed-snapshot-2025-07-21-13-28-00.json
+[LOG]  2025-07-21 13:28:00  Successfully wrote transformed snapshot.
+[PIPELINE-PHASE: LOAD]  2025-07-21 13:28:00  
+[LOG]  2025-07-21 13:28:00  Attempting to connect to DB...
+[LOG]  2025-07-21 13:28:01  Connected to DB
+[LOG]  2025-07-21 13:28:01  READ TRANSFORMED snapshot: TIMS-transformed-snapshot-2025-07-21-13-28-00.json
+[LOG]  2025-07-21 13:28:01  Succesfully loaded snapshot into DB.
+[LOG]  2025-07-21 13:28:01  Deleted old RAW snapshot: PROCESSED-TIMS-raw-snapshot-2025-07-21-12-40-40.json
+[LOG]  2025-07-21 13:28:01  Deleted old TRANSFORMED snapshot: PROCESSED-TIMS-transformed-snapshot-2025-07-21-12-40-40.json
+[PIPELINE-PHASE: CLOSING PIPELINE]  2025-07-21 13:28:01  
+[PIPELINE-PHASE: STARTING PIPELINE]  2025-07-21 13:30:00  
+[PIPELINE-PHASE: EXTRACT]  2025-07-21 13:30:00  
+[LOG]  2025-07-21 13:30:00  Attempting to fetch data from TIMS API...
+[LOG]  2025-07-21 13:30:02  API Response Status Code: 200
+[LOG]  2025-07-21 13:30:02  Wrote RAW snapshot: /Users/julyanvanderwesthuizen/Desktop/London_Traffic_Incident_Data_Pipeline/datalake/raw/tims/TIMS-raw-snapshot-2025-07-21-13-30-02.json
+[LOG]  2025-07-21 13:30:02  Successfully wrote raw snapshot
+[PIPELINE-PHASE: TRANSFORM]  2025-07-21 13:30:02  
+[LOG]  2025-07-21 13:30:02  Read RAW snapshot: TIMS-raw-snapshot-2025-07-21-13-30-02.json
+[LOG]  2025-07-21 13:30:02  Wrote TRANSFORMED snapshot: /Users/julyanvanderwesthuizen/Desktop/London_Traffic_Incident_Data_Pipeline/datalake/transformed/tims/TIMS-transformed-snapshot-2025-07-21-13-30-02.json
+[LOG]  2025-07-21 13:30:02  Successfully wrote transformed snapshot.
+[PIPELINE-PHASE: LOAD]  2025-07-21 13:30:02  
+[LOG]  2025-07-21 13:30:02  Attempting to connect to DB...
+[LOG]  2025-07-21 13:30:02  Connected to DB
+[LOG]  2025-07-21 13:30:02  READ TRANSFORMED snapshot: TIMS-transformed-snapshot-2025-07-21-13-30-02.json
+[LOG]  2025-07-21 13:30:03  Succesfully loaded snapshot into DB.
+[LOG]  2025-07-21 13:30:03  Deleted old RAW snapshot: PROCESSED-TIMS-raw-snapshot-2025-07-21-13-27-03.json
+[LOG]  2025-07-21 13:30:03  Deleted old TRANSFORMED snapshot: PROCESSED-TIMS-transformed-snapshot-2025-07-21-13-27-03.json
+[PIPELINE-PHASE: CLOSING PIPELINE]  2025-07-21 13:30:03  

@@ -29,13 +29,25 @@ def get_disruption_data(number_of_items):
     conn = connect_to_db()
     cursor = conn.cursor(cursor_factory=RealDictCursor)
 
-    cursor.execute("SELECT * FROM disruptions_history WHERE id = 1 LIMIT %s;", (number_of_items,))
+    cursor.execute("SELECT * FROM disruptions_history LIMIT %s;", (number_of_items,))
     results = cursor.fetchall()
 
     cursor.close()
     conn.close()
 
     return results
+
+# Find Disruption by ID
+def get_disruption_by_id(disruption_id):
+    conn = connect_to_db()
+    cursor = conn.cursor(cursor_factory=RealDictCursor)
+    cursor.execute("SELECT * FROM disruptions_history WHERE id = %s;", (disruption_id,))
+    result = cursor.fetchone()
+
+    cursor.close()
+    conn.close()
+
+    return result
 
 
 

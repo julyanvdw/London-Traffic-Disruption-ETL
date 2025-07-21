@@ -97,9 +97,9 @@ class Overview(Vertical):
         ┃EXTRACT┃      ┃     ┃TRANSFORM┃        ┃     ┃LOAD┃         ┃     |Database:       |
         ┗━━━━━━━┛      ┃     ┗━━━━━━━━━┛        ┃     ┗━━━━┛         ┃     |                |
         ┃Last Fetch:   ┃     ┃Data Transformed: ┃     ┃Last Load:    ┃     |Last added rows:|
-        ┃{last_fetch}            ┃----►┃[]                ┃----►┃[]            ┃----►|[]              |
-        ┃Fetch Info:   ┃     ┃Validation Info:  ┃     ┃Items Loaded: ┃     |Total Rows:     |
-        ┃[]            ┃     ┃[]                ┃     ┃[]            ┃     |[]              |
+        ┃{last_fetch}           ┃----►┃ {data_transformed}               ┃----►┃{last_load}            ┃----►|{last_added_rows}              |
+        ┃Fetch count:  ┃     Fields Cleaned:  ┃     ┃Items Loaded: ┃     |Total Rows:     |
+        ┃{fetch_count}           ┃     ┃{fields_stripped}                ┃     ┃{items_loaded}          ┃     |{total_rows}              |
         ┗━━━━━━━━━━━━━━┛     ┗━━━━━━━━━━━━━━━━━━┛     ┗━━━━━━━━━━━━━━┛     +----------------+
          Status:              Status:                  Status:              Status:         
     """
@@ -122,7 +122,7 @@ class Overview(Vertical):
 
     def on_mount(self):
         # Run an update loop to get UI updates
-        self.set_interval(5, self.update_view)
+        self.set_interval(1, self.update_view)
 
     def update_view(self):
         # Try to read the data from the last_saved_info file to update the UI
@@ -132,8 +132,29 @@ class Overview(Vertical):
             with open(file_location, "r") as f:
                 data = json.load(f)
                 last_fetched = data['Last-fetch']
+                fetch_count = data['Fetch-count']
+                data_transformed = data['Data-transformed']
+                fields_stripped = data['Fields-stripped']
+                last_load = data["Last-load"]
+                items_loaded = data["Items-loaded"]
+                last_added_rows = data["Last-added-rows"]
+                total_rows = data["Total-rows"]
+
                 # update the view
-                diagram = self.diagram_template.format(last_fetch=last_fetched)
+                diagram = self.diagram_template.format(
+                        last_fetch=last_fetched,
+                        fetch_count=fetch_count,
+                        data_transformed=data_transformed,
+                        fields_stripped=fields_stripped,
+                        last_load=last_load,
+                        items_loaded=items_loaded,
+                        last_added_rows=last_added_rows,
+                        total_rows=total_rows
+                    )
+                
+                # update digits display
+                self.query_one("#pi", Digits).update(str(total_rows))
+
             self.diagram_widget.update(diagram)
         except Exception:
             pass

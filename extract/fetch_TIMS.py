@@ -40,6 +40,7 @@ def fetch_tims_data():
             data = response.json()
             manager = LakeManager()
             manager.write_TIMS_raw_snapshot(data)
+            shared_logger.last_run_info["Fetch-count"] = str(len(data))
             shared_logger.log("Successfully wrote raw snapshot")
 
         except Exception as e:

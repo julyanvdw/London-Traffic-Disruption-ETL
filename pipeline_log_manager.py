@@ -26,7 +26,14 @@ class PipelineLogger:
 
         # Information on last run 
         self.last_run_info =  {
-            "Last-fetch": ""
+            "Last-fetch": "",
+            "Fetch-count": "",
+            "Data-transformed": "",
+            "Fields-stripped": "",
+            "Last-load": "",
+            "Items-loaded": "",
+            "Last-added-rows":"",
+            "Total-rows":""
         }
 
         # Creates logs dir if it doesn't exist yet

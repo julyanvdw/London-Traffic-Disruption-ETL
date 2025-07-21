@@ -30,7 +30,7 @@ plan:
 6. write logs functionality ✅
 7. orchestrate (locally) with orchestration script ✅
 
-8. Complete the TUI
+8. Complete the TUI ✅
 9. Build the Service API layer (RESTful) - guided access to the DB
 10. Build an example application using the service layer
 
@@ -42,6 +42,10 @@ plan:
 2. host on google
 3. Build applet builder platform
 
+small todo:
+1) proper docs / comments
+2) DB / API credentials must not be hard coded
+3) comb through every file - see if the code looks clean
 
 
 
@@ -84,34 +88,6 @@ CREATE TABLE streets (
     segments JSONB,
     FOREIGN KEY (tims_id, snapshot_time) REFERENCES disruptions_history(tims_id, snapshot_time)
 );
-
-Things the pipeline interface could show
-
-
-What do I want the interface to do
-1. Show me how much data has been processed ✅
-3. Show the time / progress to the next ingestion period 
-4. Show last pipeline ingestion time 
-5. show overall pipeline health (errors, warnings) 
-
-1. ability to run a manual ingestion ✅
-2. ability to run pipeline componetns manyually ✅
-3. ahility to flush logs
-4. ability to start and stop the pipeline from running
-5. ability to change the scheduling interval 
-
-6. show operational logs ✅
-
-
-
-
-
-Audit & History
---------------------
-
-View run history (success/failure, duration, data processed)
-Download logs or snapshots
-Track changes to configuration
 
 
 

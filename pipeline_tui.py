@@ -97,9 +97,9 @@ class Overview(Vertical):
         ┃EXTRACT┃      ┃     ┃TRANSFORM┃        ┃     ┃LOAD┃         ┃     |Database:       |
         ┗━━━━━━━┛      ┃     ┗━━━━━━━━━┛        ┃     ┗━━━━┛         ┃     |                |
         ┃Last Fetch:   ┃     ┃Data Transformed: ┃     ┃Last Load:    ┃     |Last added rows:|
-        ┃{last_fetch}┃----►┃{data_transformed}    ┃----►┃{last_load}┃----►|{last_added_rows}  |
+        ┃[$text-secondary]{last_fetch}[/]┃----►┃[$text-accent]{data_transformed}[/]    ┃----►┃[$text-success]{last_load}[/]┃----►|[$text-secondary]{last_added_rows}[/]  |
         ┃Fetch count:  ┃     ┃Fields Cleaned:   ┃     ┃Items Loaded: ┃     |Total Rows:     |
-        ┃{fetch_count}┃     ┃{fields_stripped}    ┃     ┃{items_loaded}┃     |{total_rows}  |
+        ┃[$text-accent]{fetch_count}[/]┃     ┃[$text-success]{fields_stripped}[/]    ┃     ┃[$text-accent]{items_loaded}[/]┃     |[$text-success]{total_rows}[/]  |
         ┗━━━━━━━━━━━━━━┛     ┗━━━━━━━━━━━━━━━━━━┛     ┗━━━━━━━━━━━━━━┛     +----------------+
          Status:              Status:                  Status:              Status:         
     """

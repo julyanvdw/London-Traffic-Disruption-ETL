@@ -103,7 +103,7 @@ What do I want the interface to do
 4. ability to start and stop the pipeline from running
 5. ability to change the scheduling interval
 
-1. Edit pipeline settings - API keys, DB credentials, retain window sieze
+6. show operational logs
 
 
 

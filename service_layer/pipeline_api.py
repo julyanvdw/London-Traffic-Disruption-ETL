@@ -7,16 +7,22 @@ The aim is to provide a 'Sevice Layer' to the data pipeline - completing the ful
 """
 
 from fastapi import FastAPI
+from models.tims_models import Disruption
+from service_layer import database
+
 app = FastAPI()
 
 # 
 
 #  EXPOSED ENPOINTS
 
-@app.get("/data")
-def get_data():
-    # fetch n rows of data from the DB
-    return {"data": "data here"}
+@app.get("/disruption-data", response_model=list[Disruption])
+def get_data(n: int = 10):
+
+    # fetch n rows of data from the DB (10 default)
+    data = database.get_disruption_data(n)
+    disruptions = [Disruption(id=row["tims_id"]) for row in data]
+    return disruptions
 
 
 

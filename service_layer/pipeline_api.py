@@ -15,15 +15,18 @@ app = FastAPI()
 # 
 
 #  EXPOSED ENPOINTS
-
 @app.get("/disruption-data", response_model=list[Disruption])
 def get_data(n: int = 10):
 
-    # fetch n rows of data from the DB (10 default)
+    # convert database output to Disruption model for validation
     data = database.get_disruption_data(n)
-    disruptions = [Disruption(id=row["tims_id"]) for row in data]
-    return disruptions
+    disruptions = []
+    for d in data:
+        d.pop("id", None) #Gets rid of the database's auto-generated id field
+        d["id"] = d.pop("tims_id")  # Rename tims_id to id for pydantic model
+        disruptions.append(Disruption(**d))
 
+    return disruptions
 
 
 """

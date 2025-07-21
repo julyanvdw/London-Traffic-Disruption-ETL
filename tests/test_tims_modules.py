@@ -7,7 +7,7 @@ This scrip runs tests using PyTest to test all TIMS-related modules (unit testin
 
 import sys
 sys.path.append("../")
-from models import tims_models
+from transform import tims_models 
 from unittest.mock import patch, Mock
 import tempfile
 import os

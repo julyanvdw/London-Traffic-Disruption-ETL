@@ -30,7 +30,7 @@ def get_disruption_data(number_of_items):
     conn = connect_to_db()
     cursor = conn.cursor(cursor_factory=RealDictCursor)
 
-    cursor.execute("SELECT tims_id FROM disruptions_history LIMIT %s;", (number_of_items,))
+    cursor.execute("SELECT * FROM disruptions_history WHERE id = 1 LIMIT %s;", (number_of_items,))
     results = cursor.fetchall()
 
     cursor.close()

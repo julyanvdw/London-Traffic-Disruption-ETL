@@ -7,7 +7,7 @@ This script performs the ingestion of raw, collected data files:
 2) Data then undergoes validation and cleaning by parisng the JSON data with pydantic models defined in tims_models.py
 """
 
-from models.tims_models import Disruption
+from transform.tims_models import Disruption
 from datalake_manager import LakeManager
 from pipeline_log_manager import shared_logger
 

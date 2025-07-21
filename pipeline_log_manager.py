@@ -9,6 +9,7 @@ This file defines a simple class to collect logs throughout the system.
 
 from datetime import datetime 
 import os
+import json
 
 class PipelineLogger:
     def __init__(self, verbose = True, to_file = True):
@@ -17,10 +18,16 @@ class PipelineLogger:
 
         self.logs_location =  f"{project_root}/pipeline_logs"
         self.logs_filename = 'pipeline_logs.log'
+        self.last_run_info_filename = 'last_run_info.json'
 
         # Some settings
         self.verbose = verbose
         self.to_file = to_file
+
+        # Information on last run 
+        self.last_run_info =  {
+            "Last-fetch": ""
+        }
 
         # Creates logs dir if it doesn't exist yet
         os.makedirs(self.logs_location, exist_ok=True)
@@ -46,6 +53,14 @@ class PipelineLogger:
 
     def log_pipeline_phase(self, phase):
         self.log("", log_type=f"PIPELINE-PHASE: {phase}")
+
+    def save_last_run_info(self):
+        # This method writes a json file containing information from the last pipeline run. 
+        # This info will be read by the TUI and therefore update the user on the current stance of things. 
+
+        with open(f"{self.logs_location}/{self.last_run_info_filename}", "w") as f:
+            json.dump(self.last_run_info, f)
+
 
 # creating a shared logger
 shared_logger = PipelineLogger()

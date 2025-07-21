@@ -32,6 +32,7 @@ def run_pipeline():
     manager.retain_snapshot_window()
     
     shared_logger.log_pipeline_phase("CLOSING PIPELINE")
+    shared_logger.save_last_run_info()
 
 
 if __name__ == "__main__":

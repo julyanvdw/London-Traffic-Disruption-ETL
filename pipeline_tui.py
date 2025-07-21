@@ -185,8 +185,6 @@ class PipelineTUI(App):
         header._show_clock = True
         header.icon = "[+]"
 
-        
-        # Switching between tabs
     def on_tabs_tab_activated(self, event) -> None:
         # Hide all content widgets, show only the active one
         for tab_id in ["one", "two", "three", "four", "five", "six"]:

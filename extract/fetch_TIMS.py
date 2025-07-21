@@ -16,6 +16,7 @@ This script accesses the API with the use of my API keys (as per registration wi
 import requests
 from datalake_manager import LakeManager
 from pipeline_log_manager import shared_logger
+from datetime import datetime
 
 API_ID = "julyan-tims-pipeline"
 API_KEY = "cdfd168c1c934e259e8cbeafd3d00cdc"
@@ -30,6 +31,7 @@ def fetch_tims_data():
     try: 
         shared_logger.log("Attempting to fetch data from TIMS API...")
         response = requests.get(API_ENDPOINT, params=query_params) #note: this strips off the meta-data header and leaves us with a list of disruptions
+        shared_logger.last_run_info["Last-fetch"] = datetime.now().strftime("%H:%M:%S")
         response.raise_for_status()
         shared_logger.log(f"API Response Status Code: {response.status_code}")
 

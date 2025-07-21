@@ -94,44 +94,17 @@ What do I want the interface to do
 4. Show last pipeline ingestion time 
 5. show overall pipeline health (errors, warnings) 
 
-1. ability to run a manual ingestion
-2. ability to run pipeline componetns manyually 
+1. ability to run a manual ingestion ✅
+2. ability to run pipeline componetns manyually ✅
 3. ahility to flush logs
 4. ability to start and stop the pipeline from running
-5. ability to change the scheduling interval
+5. ability to change the scheduling interval 
 
 6. show operational logs ✅
 
 
 
 
-
-
-Monitoring & Status
---------------------
-
-Control & Operations
---------------------
-
-Start/stop/restart the pipeline
-Trigger manual runs (on demand)
-Pause/resume scheduled runs
-Change scheduling interval (e.g., from 5 min to 10 min)
-Enable/disable specific pipeline steps (extract, transform, load)
-Clean up old logs or snapshots
-
-Configuration
---------------------
-
-Edit pipeline settings (API keys, DB credentials, retain window size, etc.)
-Update environment variables or config files
-Manage pipeline parameters (e.g., filter criteria, deduplication rules)
-
-Alerts & Notifications
---------------------
-
-Set up email/SMS/Slack alerts for failures or important events
-View and acknowledge alerts
 
 Audit & History
 --------------------

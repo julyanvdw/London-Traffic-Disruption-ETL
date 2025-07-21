@@ -300,20 +300,16 @@ class PipelineTUI(App):
         yield Tabs(
             Tab("Overview", id="one"),
             Tab("Pipeline Control", id="two"),
-            Tab("Configuration", id="three"),
-            Tab("Alerts & Notifications", id="four"),
-            Tab("Audit", id="five"),
-            Tab("Operation Logs", id="six"),
+            Tab("Audit", id="three"),
+            Tab("Operation Logs", id="four"),
         )
 
         # Containers for the tabs
         yield Container(
             Center(Overview(id="content-one")),
             Center(PipelineControl(id="content-two")),
-            Center(Static("Configuration content", id="content-three")),
-            Center(Static("Alerts & Notifications content", id="content-four")),
-            Center(Static("Audit content", id="content-five")),
-            Center(LogsView(id="content-six")),
+            Center(Static("Audit content", id="content-three")),
+            Center(LogsView(id="content-four")),
             id="tab-content"
         )
 
@@ -335,7 +331,7 @@ class PipelineTUI(App):
 
     def on_tabs_tab_activated(self, event) -> None:
         # Hide all content widgets, show only the active one
-        for tab_id in ["one", "two", "three", "four", "five", "six"]:
+        for tab_id in ["one", "two", "three", "four"]:
             content = self.query_one(f"#content-{tab_id}")
             content.display = (event.tab.id == tab_id)
 

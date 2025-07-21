@@ -7,24 +7,20 @@ The aim is to provide a 'Sevice Layer' to the data pipeline - completing the ful
 """
 
 from fastapi import FastAPI
-from models.tims_models import Disruption
 from service_layer import database
+from service_layer.response_models import DisruptionResponse
 
 app = FastAPI()
 
-# 
-
 #  EXPOSED ENPOINTS
-@app.get("/disruption-data", response_model=list[Disruption])
+@app.get("/disruption-data", response_model=list[DisruptionResponse])
 def get_data(n: int = 10):
 
     # convert database output to Disruption model for validation
     data = database.get_disruption_data(n)
     disruptions = []
     for d in data:
-        d.pop("id", None) #Gets rid of the database's auto-generated id field
-        d["id"] = d.pop("tims_id")  # Rename tims_id to id for pydantic model
-        disruptions.append(Disruption(**d))
+        disruptions.append(DisruptionResponse(**d))
 
     return disruptions
 

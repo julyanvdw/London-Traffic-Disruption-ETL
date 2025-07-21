@@ -22,7 +22,6 @@ def connect_to_db():
         password=DB_PASSWORD
     )
 
-
 # DB METHODS - CONNECT TO ENDPOINTS
 
 # General get data method to dump the latest n data items

@@ -42,12 +42,15 @@ def fetch_tims_data():
             manager.write_TIMS_raw_snapshot(data)
             shared_logger.last_run_info["Fetch-count"] = str(len(data))
             shared_logger.log("Successfully wrote raw snapshot")
+            shared_logger.last_run_info['Extract-status'] = 0
 
         except Exception as e:
             shared_logger.log_warning(f"TIMS Data could not be obtained in JSON format: {e}")
+            shared_logger.last_run_info['Extract-status'] = 1
 
     except requests.RequestException as e: 
         shared_logger.log_warning(f"TIMS Data Request Failed: {e}")
+        shared_logger.last_run_info['Extract-status'] = 1
 
 if __name__ == "__main__": 
     fetch_tims_data()

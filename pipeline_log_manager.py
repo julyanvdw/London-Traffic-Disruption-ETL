@@ -33,7 +33,11 @@ class PipelineLogger:
             "Last-load": "",
             "Items-loaded": "",
             "Last-added-rows":"",
-            "Total-rows":""
+            "Total-rows":"",
+            "Extract-status": 0,
+            "Transform-status": 0,
+            "Load-status": 0,
+            "Database-status": 0
         }
 
         # Creates logs dir if it doesn't exist yet

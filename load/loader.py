@@ -141,22 +141,30 @@ def load_tims_data(conn, cursor):
             # Commit changes to DB
             conn.commit()
 
-
-
 def load():
     # SET UP DB CONNECTION
-    shared_logger.log("Attempting to connect to DB...")
-    conn = connect_to_db()
-    cursor = conn.cursor()
-    shared_logger.log("Connected to DB")
+    try: 
+        shared_logger.log("Attempting to connect to DB...")
+        conn = connect_to_db()
+        cursor = conn.cursor()
+        shared_logger.log("Connected to DB")
+        shared_logger.last_run_info["Database-status"] = 0
+    except Exception as e: 
+        shared_logger.log_warning(f"Could not connect to database: {e}")
+        shared_logger.last_run_info["Database-status"] = 1
 
     # time-keep the operation to detect new records
     start_time = datetime.now()
 
     # LOAD DATA FROM VARIOUS SOURCES
-    load_tims_data(conn=conn, cursor=cursor)
-    shared_logger.last_run_info["Last-load"] = datetime.now().strftime("%H:%M:%S")
-    shared_logger.log("Succesfully loaded snapshot into DB.")
+    try:
+        load_tims_data(conn=conn, cursor=cursor)
+        shared_logger.last_run_info["Last-load"] = datetime.now().strftime("%H:%M:%S")
+        shared_logger.log("Succesfully loaded snapshot into DB.")
+        shared_logger.last_run_info["Load-status"] = 0
+    except Exception as e:
+        shared_logger.log_warning(f"Could not load data to database: {e}")
+        shared_logger.last_run_info["Load-status"] = 1
 
     # Query the DB for logging info
     query_for_info(cursor, start_time)

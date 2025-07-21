@@ -14,76 +14,6 @@ from textual.widgets import Tabs, Tab, Header, Static, Footer, Digits
 from textual.widget import Widget
 from textual.containers import Vertical
 
-# class Overview(Vertical):
-#     diagram_template = """
-#         +-------------------+                                                                 
-#         |Data Source:       |                                                                 
-#         |TFL Disruptions API|                                                                 
-#         +-------------------+                                                                 
-#                 |                                                                                 
-#                 ▼                                                                                 
-#         ┏━━━━━━━┓━━━━━━┓     ┏━━━━━━━━━┓━━━━━━━━┓     ┏━━━━┓━━━━━━━━━┓     +----------------+
-#         ┃EXTRACT┃      ┃     ┃TRANSFORM┃        ┃     ┃LOAD┃         ┃     |Database:       |
-#         ┗━━━━━━━┛      ┃     ┗━━━━━━━━━┛        ┃     ┗━━━━┛         ┃     |                |
-#         ┃Last Fetch:   ┃     ┃Data Transformed: ┃     ┃Last Load:    ┃     |Last added rows:|
-#         ┃[]            ┃{arr}┃[]                ┃----►┃[]            ┃----►|[]              |
-#         ┃Fetch Info:   ┃     ┃Validation Info:  ┃     ┃Items Loaded: ┃     |Total Rows:     |
-#         ┃[]            ┃     ┃[]                ┃     ┃[]            ┃     |[]              |
-#         ┗━━━━━━━━━━━━━━┛     ┗━━━━━━━━━━━━━━━━━━┛     ┗━━━━━━━━━━━━━━┛     +----------------+
-#          Status: {test}             Status:                  Status:              Status:         
-
-              
-#     """
-    
-#     def __init__(self, *args, **kwargs):
-#         super().__init__(*args, **kwargs)
-
-#         # Init the animation variables so that the first frame can be rendered
-#         self.test_start = "[-]"
-#         self.arrow_start = "----►"
-#         self.stage_index = 0
-#         self.arrow_index_stage = 0
-
-#     def compose(self) -> ComposeResult:
-
-#         # Creating the Entry counter with caption
-#         pi_group = Container(
-#             Digits("3.141,592,653,5897", id="pi"),
-#             Static("records added to the database", id="pi-caption"),
-#             id="pi-group"
-#         )
-#         pi_group.border_title = "Database Entries"
-#         yield pi_group
-
-#         # Creating the diagram 
-#         self.diagram_widget = Static(self.render_diagram(), id="diagram")
-#         self.diagram_widget.border_title = "Pipeline Live Architecture"
-#         yield self.diagram_widget
-
-#     def render_diagram(self):
-        
-#         # Helper pad function
-#         def pad(s, width=8):
-#             return str(s)[:width].ljust(width)
-        
-#         # Make use of pythons fomratting to fill in placeholders
-#         return self.diagram_template.format(
-#             test=pad(self.test_start),
-#             arr=pad(self.arrow_start)
-#         )
-
-#     def on_mount(self):
-#         # call the animate method every second
-#         self.set_interval(1, self.animate_status)
-
-#     def animate_status(self):
-#         stages = ["[+]", "[-]"]
-#         arrow_stages = [" - ►", "- -- "]
-#         self.test_start = stages[self.stage_index]
-#         self.arrow_start = arrow_stages[self.arrow_index_stage]
-#         self.stage_index = (self.stage_index + 1) % len(stages)
-#         self.arrow_index_stage = (self.arrow_index_stage + 1) % len(arrow_stages)
-#         self.diagram_widget.update(self.render_diagram())
 
 class Overview(Vertical):
     diagram_template = """
@@ -97,11 +27,11 @@ class Overview(Vertical):
         ┃EXTRACT┃      ┃     ┃TRANSFORM┃        ┃     ┃LOAD┃         ┃     |Database:       |
         ┗━━━━━━━┛      ┃     ┗━━━━━━━━━┛        ┃     ┗━━━━┛         ┃     |                |
         ┃Last Fetch:   ┃     ┃Data Transformed: ┃     ┃Last Load:    ┃     |Last added rows:|
-        ┃[$text-secondary]{last_fetch}[/]┃----►┃[$text-accent]{data_transformed}[/]    ┃----►┃[$text-success]{last_load}[/]┃----►|[$text-secondary]{last_added_rows}[/]  |
+        ┃[$text-success]{last_fetch}[/]┃----►┃[$text-accent]{data_transformed}[/]    ┃----►┃[$text-success]{last_load}[/]┃----►|[$text-secondary]{last_added_rows}[/]  |
         ┃Fetch count:  ┃     ┃Fields Cleaned:   ┃     ┃Items Loaded: ┃     |Total Rows:     |
-        ┃[$text-accent]{fetch_count}[/]┃     ┃[$text-success]{fields_stripped}[/]    ┃     ┃[$text-accent]{items_loaded}[/]┃     |[$text-success]{total_rows}[/]  |
+        ┃[$text-accent]{fetch_count}[/]┃     ┃[$text-success]{fields_stripped}[/]    ┃     ┃[$text-secondary]{items_loaded}[/]┃     |[$text-success]{total_rows}[/]  |
         ┗━━━━━━━━━━━━━━┛     ┗━━━━━━━━━━━━━━━━━━┛     ┗━━━━━━━━━━━━━━┛     +----------------+
-         Status:              Status:                  Status:              Status:         
+         Status:{extract_status}Status:{transform_status}    Status:{load_status}Status:{database_status}         
     """
 
     def compose(self) -> ComposeResult:
@@ -144,6 +74,33 @@ class Overview(Vertical):
                 last_added_rows = data["Last-added-rows"]
                 total_rows = data["Total-rows"]
 
+                extract_status = data["Extract-status"]
+                transform_status = data["Transform-status"]
+                load_status = data["Load-status"]
+                database_status = data["Database-status"]
+
+                # Status set up
+                if extract_status == 0:
+                    extract_status_msg = " OK [*]"
+                elif extract_status == 1:
+                    extract_status_msg = " ERROR [!]"
+
+                if transform_status == 0:
+                    transform_status_msg = " OK [*]"
+                elif transform_status == 1:
+                    transform_status_msg = " ERROR [!]"
+
+                if load_status == 0:
+                    load_status_msg = " OK [*]"
+                elif load_status == 1:
+                    load_status_msg = " ERROR [!]"
+
+                if database_status == 0:
+                    database_status_msg = " OK [*]"
+                elif database_status == 1:
+                    database_status_msg = " ERROR [!]"
+                                
+
                 # update the view
                 diagram = self.diagram_template.format(
                     last_fetch=pad(last_fetched),
@@ -153,7 +110,11 @@ class Overview(Vertical):
                     last_load=pad(last_load),
                     items_loaded=pad(items_loaded),
                     last_added_rows=pad(last_added_rows),
-                    total_rows=pad(total_rows)
+                    total_rows=pad(total_rows),
+                    extract_status=pad(extract_status_msg),
+                    transform_status=pad(transform_status_msg),
+                    load_status=pad(load_status_msg),
+                    database_status=pad(database_status_msg)
                 )
                 
                 # update digits display

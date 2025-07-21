@@ -20,6 +20,9 @@ def ingest_tims_data():
 
     fields_stripped_count = 0
 
+    # Set to OK (code 0) by default
+    shared_logger.last_run_info["Transform-status"] = 0
+
     # note: files_data represnets data in the format [file_in_raw_tims_dir][data_item_for_that_file]
     for data in files_data:
         # data represetns a collection of data items (disruptions)
@@ -34,6 +37,7 @@ def ingest_tims_data():
 
             except Exception as e:
                 shared_logger.log_warning(f"Could not parse data item in snapshot: {e}")
+                shared_logger.last_run_info["Transform-status"] = 1
             
     # remove possible duplicates in the data
     seen = {}

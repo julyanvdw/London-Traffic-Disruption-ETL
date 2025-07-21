@@ -90,12 +90,9 @@ Things the pipeline interface could show
 
 What do I want the interface to do
 1. Show me how much data has been processed ✅
-2. Show me status / mapping of the pipeline (animated) 
-    actually pull stuff from the logs
-    display it dynamically
-3. Show the time / progress to the next ingestion period
-4. Show last pipeline ingestion time
-5. show overall pipeline health (errors, warnings)
+3. Show the time / progress to the next ingestion period 
+4. Show last pipeline ingestion time 
+5. show overall pipeline health (errors, warnings) 
 
 1. ability to run a manual ingestion
 2. ability to run pipeline componetns manyually 
@@ -103,7 +100,7 @@ What do I want the interface to do
 4. ability to start and stop the pipeline from running
 5. ability to change the scheduling interval
 
-6. show operational logs
+6. show operational logs ✅
 
 
 

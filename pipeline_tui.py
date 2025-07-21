@@ -8,9 +8,9 @@ This is a Terminal User Interface for interacting with the pipeline.
 from pipeline_log_manager import shared_logger
 import json
 from textual.app import App, ComposeResult
-from textual.containers import Container, Center
+from textual.containers import Container, Center, Horizontal
 from textual.binding import Binding
-from textual.widgets import Tabs, Tab, Header, Static, Footer, Digits, Log
+from textual.widgets import Tabs, Tab, Header, Static, Footer, Digits, Log, Label, Button
 from textual.containers import Vertical
 
 
@@ -133,11 +133,51 @@ class LogsView(Vertical):
 
     def update_log(self):
         log = self.query_one(Log)
+        
+        # Get the filename from sharedlogger
         filename = f"{shared_logger.logs_location}/{shared_logger.logs_filename}"
         log.clear()
+
         with open(filename, 'r') as f:
             for line in f:
                 log.write_line(line.rstrip())
+
+class PipelineControl(Vertical):
+    def compose(self) -> ComposeResult:
+        # Create three control groups side by side in a Horizontal container
+        group1 = Container(
+            Label("Run EXTRACTION Manually", id="control-label-1"),
+            Button("Extract", id="control-button-1", variant="warning"),
+            id="control-group-1"
+        )
+        group1.border_title = "EXTRACT"
+        group1.border_style = "round"
+
+        group2 = Container(
+            Label("Run TRANSFORM Manually", id="control-label-2"),
+            Button("Transform", id="control-button-2", variant="warning"),
+            id="control-group-2"
+        )
+        group2.border_title = "TRANSFORM"
+        group2.border_style = "round"
+
+        group3 = Container(
+            Label("Run LOAD Manually", id="control-label-3"),
+            Button("Load", id="control-button-3", variant="warning"),
+            id="control-group-3"
+        )
+        group3.border_title = "LOAD"
+        group3.border_style = "round"
+
+        yield Horizontal(
+            group1,
+            group2,
+            group3,
+            id="controls-horizontal"
+        )
+
+    def on_button_pressed(self, event: Button.Pressed) -> None:
+        print(f"Button {event.button.id} was pressed!")
 
 
 class PipelineTUI(App):
@@ -156,6 +196,25 @@ class PipelineTUI(App):
         border: round white;
         text-wrap: nowrap;
         overflow: auto;
+    }
+    #controls-horizontal {
+        width: 100%;
+        align: center middle;
+        margin: 2;
+    }
+    #control-group-1, #control-group-2, #control-group-3 {
+        width: 1fr;
+        height: auto;
+        border: round white;
+        align: center middle;
+        padding: 1;
+        margin: 1;
+    }
+    #control-label-1, #control-label-2, #control-label-3 {
+        margin-bottom: 1;
+    }
+    #control-button-1, #control-button-2, #control-button-3 {
+        margin-top: 1;
     }
     """
 
@@ -181,7 +240,7 @@ class PipelineTUI(App):
         # Containers for the tabs
         yield Container(
             Center(Overview(id="content-one")),
-            Center(Static("Pipeline Control content", id="content-two")),
+            Center(PipelineControl(id="content-two")),
             Center(Static("Configuration content", id="content-three")),
             Center(Static("Alerts & Notifications content", id="content-four")),
             Center(Static("Audit content", id="content-five")),

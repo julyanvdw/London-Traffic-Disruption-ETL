@@ -10,7 +10,7 @@ import json
 from textual.app import App, ComposeResult
 from textual.containers import Container, Center, Horizontal
 from textual.binding import Binding
-from textual.widgets import Tabs, Tab, Header, Static, Footer, Digits, Log, Label, Button
+from textual.widgets import Tabs, Tab, Header, Static, Footer, Digits, Log, Label, Button, Switch
 from textual.containers import Vertical
 
 
@@ -144,7 +144,8 @@ class LogsView(Vertical):
 
 class PipelineControl(Vertical):
     def compose(self) -> ComposeResult:
-        # Create three control groups side by side in a Horizontal container
+        
+        # Creating three buttons for each stage of the pipeline - for manual running
         group1 = Container(
             Label("Run EXTRACTION Manually", id="control-label-1"),
             Button("Extract", id="control-button-1", variant="warning"),
@@ -169,6 +170,32 @@ class PipelineControl(Vertical):
         group3.border_title = "LOAD"
         group3.border_style = "round"
 
+        # Creating a button for entire pipeline running
+        group_full = Container(
+            Label("Run FULL PIPELINE Manually", id="control-label-4"),
+            Button("Run Pipeline", id="control-button-4", variant="primary"),
+            id="control-group-4"
+        )
+        group_full.border_title = "PIPELINE"
+        group_full.border_style = "round"
+
+        # Create a toggle switch group with border
+        group_toggle = Container(
+            Label("Activate / Deactivate Pipeline", id="toggle-label"),
+            Switch(id="toggle-switch", value=True),
+            id="toggle-group"
+        )
+        group_toggle.border_title = "MODE"
+        group_toggle.border_style = "round"
+
+        # Horizontal container for group_full and toggle switch group
+        yield Horizontal(
+            group_toggle,
+            group_full,
+            id="full-controls-horizontal"
+        )
+
+        # Horizontal container for the three stage groups
         yield Horizontal(
             group1,
             group2,
@@ -178,6 +205,9 @@ class PipelineControl(Vertical):
 
     def on_button_pressed(self, event: Button.Pressed) -> None:
         print(f"Button {event.button.id} was pressed!")
+
+    def on_switch_changed(self, event: Switch.Changed) -> None:
+        print(f"Switch state: {event.value}")
 
 
 class PipelineTUI(App):
@@ -202,18 +232,39 @@ class PipelineTUI(App):
         align: center middle;
         margin: 2;
     }
-    #control-group-1, #control-group-2, #control-group-3 {
+    #full-controls-horizontal {
+        background: $primary-muted;
+        width: 100%;
+        align: center middle;
+        margin: 2;
+    }
+    #control-group-1, #control-group-2, #control-group-3, #control-group-4, #toggle-group {
         width: 1fr;
+        min-width: 20;
         height: auto;
         border: round white;
         align: center middle;
         padding: 1;
         margin: 1;
     }
-    #control-label-1, #control-label-2, #control-label-3 {
+    #toggle-group {
+        background: $accent-muted;
+        border: round $accent;
+        margin-left: 1;
+        margin-right: 1;
+        margin-top: 1;
+        padding: 1;
+    }
+    #toggle-label {
         margin-bottom: 1;
     }
-    #control-button-1, #control-button-2, #control-button-3 {
+    #toggle-switch {
+        margin-top: 1;
+    }
+    #control-label-1, #control-label-2, #control-label-3, #control-label-4 {
+        margin-bottom: 1;
+    }
+    #control-button-1, #control-button-2, #control-button-3, #control-button-4 {
         margin-top: 1;
     }
     """

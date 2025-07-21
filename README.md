@@ -23,23 +23,24 @@ stuff done during data transformation
 
 
 plan: 
-1. get disruptions into db ✅
+. get disruptions into db ✅
 2. refactor to simulate datalake ✅
 4. write tests ✅
 5. go and delete old snapshots ✅
 6. write logs functionality ✅
 7. orchestrate (locally) with orchestration script ✅
 
-8. build a terminal interface
-8. host the DB somewhere
-9. build a service layer (RESTful APIs)
+8. Complete the TUI
+9. Build the Service API layer (RESTful) - guided access to the DB
+10. Build an example application using the service layer
 
-12. build an applicaiton (DS / VIS) which interfaces with the API
-13. build app creator env
+11. Host the DB somewhere
+12. Wrap up with a virtual env / makefile - make sure thet can clone the pipeline and run it
 
-14. Add in another DS
-15. prep for easy demoing 
-10. try host (google)
+--- core complete --- now for extras
+1. Add in another DS (and alter DB / Application / TUI)
+2. host on google
+3. Build applet builder platform
 
 
 

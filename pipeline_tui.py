@@ -5,6 +5,8 @@ Julyan van der Westhuizen
 This is a Terminal User Interface for interacting with the pipeline.
 """
 
+from pipeline_log_manager import shared_logger
+import json
 from textual.app import App, ComposeResult
 from textual.containers import Container, Center
 from textual.binding import Binding
@@ -95,7 +97,7 @@ class Overview(Vertical):
         ┃EXTRACT┃      ┃     ┃TRANSFORM┃        ┃     ┃LOAD┃         ┃     |Database:       |
         ┗━━━━━━━┛      ┃     ┗━━━━━━━━━┛        ┃     ┗━━━━┛         ┃     |                |
         ┃Last Fetch:   ┃     ┃Data Transformed: ┃     ┃Last Load:    ┃     |Last added rows:|
-        ┃[]            ┃----►┃[]                ┃----►┃[]            ┃----►|[]              |
+        ┃{last_fetch}            ┃----►┃[]                ┃----►┃[]            ┃----►|[]              |
         ┃Fetch Info:   ┃     ┃Validation Info:  ┃     ┃Items Loaded: ┃     |Total Rows:     |
         ┃[]            ┃     ┃[]                ┃     ┃[]            ┃     |[]              |
         ┗━━━━━━━━━━━━━━┛     ┗━━━━━━━━━━━━━━━━━━┛     ┗━━━━━━━━━━━━━━┛     +----------------+
@@ -118,6 +120,23 @@ class Overview(Vertical):
         self.diagram_widget.border_title = "Pipeline Live Architecture"
         yield self.diagram_widget
 
+    def on_mount(self):
+        # Run an update loop to get UI updates
+        self.set_interval(5, self.update_view)
+
+    def update_view(self):
+        # Try to read the data from the last_saved_info file to update the UI
+        file_location = f"{shared_logger.logs_location}/{shared_logger.last_run_info_filename}"
+
+        try:
+            with open(file_location, "r") as f:
+                data = json.load(f)
+                last_fetched = data['Last-fetch']
+                # update the view
+                diagram = self.diagram_template.format(last_fetch=last_fetched)
+            self.diagram_widget.update(diagram)
+        except Exception:
+            pass
 
 
 class PipelineTUI(App):

@@ -41,6 +41,7 @@ def get_disruption_data(number_of_items):
 def get_disruption_by_id(disruption_id):
     conn = connect_to_db()
     cursor = conn.cursor(cursor_factory=RealDictCursor)
+
     cursor.execute("SELECT * FROM disruptions_history WHERE id = %s;", (disruption_id,))
     result = cursor.fetchone()
 

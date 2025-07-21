@@ -15,7 +15,7 @@ app = FastAPI()
 
 @app.get("/data")
 def get_data():
-    # fetch the data from the DB
+    # fetch n rows of data from the DB
     return {"data": "data here"}
 
 

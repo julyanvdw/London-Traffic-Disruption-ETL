@@ -7,6 +7,7 @@ This scrip runs tests using PyTest to test all TIMS-related modules (unit testin
 
 import sys
 sys.path.append("../")
+from models import tims_models
 from unittest.mock import patch, Mock
 import tempfile
 import os
@@ -14,7 +15,7 @@ import json
 import pytest
 from extract import fetch_TIMS
 from datalake_manager import LakeManager
-from transform import tims_models, transformer
+from transform import transformer
 from load import loader
 from pipeline_log_manager import shared_logger
 

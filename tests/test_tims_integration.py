@@ -4,7 +4,6 @@ Julyan van der Westhuizen
 
 This scrip runs tests using PyTest to test all TIMS-related integrations
 """
-
 import sys
 sys.path.append("../")
 import requests

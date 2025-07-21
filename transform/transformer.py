@@ -59,7 +59,6 @@ def ingest():
 
     # add other ingest streams here 
     # also we can do some data integration of applicable
-    shared_logger.save_last_run_info()
 
 if __name__ == "__main__":
     ingest()

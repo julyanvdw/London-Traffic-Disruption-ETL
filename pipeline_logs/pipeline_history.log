@@ -1,0 +1,32 @@
+[PIPELINE HISTORY SLICE OPEN]
+[EXTRACT ENTRY:]  13:50:51
+Items Fetched:  80
+[TRANSFORM ENTRY]
+Data transformed:  80
+Fields stripped:  297
+[LOAD ENTRY:]  13:50:51
+Items loaded:  135
+[DATABASE ENTRY]
+Most recent rows added:  135
+Total DB rows:  39183
+[STATUS - Extract:] OK
+[STATUS - Transform:] OK
+[STATUS - Load:] OK
+[STATUS - Database:] OK
+[PIPELINE HISTORY SLICE CLOSE]
+[PIPELINE HISTORY SLICE OPEN]
+[EXTRACT ENTRY:]  13:52:20
+Items Fetched:  80
+[TRANSFORM ENTRY]
+Data transformed:  80
+Fields stripped:  297
+[LOAD ENTRY:]  13:52:21
+Items loaded:  135
+[DATABASE ENTRY]
+Most recent rows added:  135
+Total DB rows:  39318
+[STATUS - Extract:] OK
+[STATUS - Transform:] OK
+[STATUS - Load:] OK
+[STATUS - Database:] OK
+[PIPELINE HISTORY SLICE CLOSE]

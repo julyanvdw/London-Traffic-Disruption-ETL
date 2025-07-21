@@ -18,6 +18,7 @@ class PipelineLogger:
 
         self.logs_location =  f"{project_root}/pipeline_logs"
         self.logs_filename = 'pipeline_logs.log'
+        self.history_filename = 'pipeline_history.log'
         self.last_run_info_filename = 'last_run_info.json'
 
         # Some settings
@@ -71,6 +72,25 @@ class PipelineLogger:
 
         with open(f"{self.logs_location}/{self.last_run_info_filename}", "w") as f:
             json.dump(self.last_run_info, f)
+
+        # Write pipeline history
+        with open(f"{self.logs_location}/{self.history_filename}", "a") as f:
+            f.write("[PIPELINE HISTORY SLICE OPEN]\n")
+            f.write(f"[EXTRACT ENTRY:]  {self.last_run_info["Last-fetch"]}\n")
+            f.write(f"Items Fetched:  {self.last_run_info["Fetch-count"]}\n")
+            f.write(f"[TRANSFORM ENTRY]\n")
+            f.write(f"Data transformed:  {self.last_run_info["Data-transformed"]}\n")
+            f.write(f"Fields stripped:  {self.last_run_info["Fields-stripped"]}\n")
+            f.write(f"[LOAD ENTRY:]  {self.last_run_info["Last-load"]}\n")
+            f.write(f"Items loaded:  {self.last_run_info["Items-loaded"]}\n")
+            f.write(f"[DATABASE ENTRY]\n")
+            f.write(f"Most recent rows added:  {self.last_run_info["Last-added-rows"]}\n")
+            f.write(f"Total DB rows:  {self.last_run_info["Total-rows"]}\n")
+            f.write(f"[STATUS - Extract:] {"OK" if self.last_run_info["Extract-status"] == 0 else "ERROR"}\n")
+            f.write(f"[STATUS - Transform:] {"OK" if self.last_run_info["Transform-status"] == 0 else "ERROR"}\n")
+            f.write(f"[STATUS - Load:] {"OK" if self.last_run_info["Load-status"] == 0 else "ERROR"}\n")
+            f.write(f"[STATUS - Database:] {"OK" if self.last_run_info["Database-status"] == 0 else "ERROR"}\n")
+            f.write("[PIPELINE HISTORY SLICE CLOSE]\n")
 
 
 # creating a shared logger

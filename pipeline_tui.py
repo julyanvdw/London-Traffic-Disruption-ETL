@@ -238,6 +238,23 @@ class PipelineControl(Vertical):
             if os.path.exists(flag_path):
                 os.remove(flag_path)
 
+class HistoryView(Vertical):
+    def compose(self) -> ComposeResult:
+        yield Log(highlight=True, auto_scroll=True)
+    
+    def on_mount(self):
+        self.set_interval(1, self.update_log) 
+
+    def update_log(self):
+        log = self.query_one(Log)
+        
+        # Get the filename from sharedlogger
+        filename = f"{shared_logger.logs_location}/{shared_logger.history_filename}"
+        log.clear()
+
+        with open(filename, 'r') as f:
+            for line in f:
+                log.write_line(line.rstrip())
 
 class PipelineTUI(App):
     
@@ -311,7 +328,7 @@ class PipelineTUI(App):
         yield Tabs(
             Tab("Overview", id="one"),
             Tab("Pipeline Control", id="two"),
-            Tab("Audit", id="three"),
+            Tab("Pipeline History", id="three"),
             Tab("Operation Logs", id="four"),
         )
 
@@ -319,7 +336,7 @@ class PipelineTUI(App):
         yield Container(
             Center(Overview(id="content-one")),
             Center(PipelineControl(id="content-two")),
-            Center(Static("Audit content", id="content-three")),
+            Center(HistoryView(id="content-three")),
             Center(LogsView(id="content-four")),
             id="tab-content"
         )
@@ -337,7 +354,6 @@ class PipelineTUI(App):
         self.sub_title = "London Traffic ETL"
         header = self.query_one(Header)
         header.tall = True
-        header._show_clock = True
         header.icon = "[+]"
 
     def on_tabs_tab_activated(self, event) -> None:

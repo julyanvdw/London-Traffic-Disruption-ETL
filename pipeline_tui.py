@@ -97,9 +97,9 @@ class Overview(Vertical):
         ┃EXTRACT┃      ┃     ┃TRANSFORM┃        ┃     ┃LOAD┃         ┃     |Database:       |
         ┗━━━━━━━┛      ┃     ┗━━━━━━━━━┛        ┃     ┗━━━━┛         ┃     |                |
         ┃Last Fetch:   ┃     ┃Data Transformed: ┃     ┃Last Load:    ┃     |Last added rows:|
-        ┃{last_fetch}           ┃----►┃ {data_transformed}               ┃----►┃{last_load}            ┃----►|{last_added_rows}              |
-        ┃Fetch count:  ┃     Fields Cleaned:  ┃     ┃Items Loaded: ┃     |Total Rows:     |
-        ┃{fetch_count}           ┃     ┃{fields_stripped}                ┃     ┃{items_loaded}          ┃     |{total_rows}              |
+        ┃{last_fetch}┃----►┃{data_transformed}    ┃----►┃{last_load}┃----►|{last_added_rows}  |
+        ┃Fetch count:  ┃     ┃Fields Cleaned:   ┃     ┃Items Loaded: ┃     |Total Rows:     |
+        ┃{fetch_count}┃     ┃{fields_stripped}    ┃     ┃{items_loaded}┃     |{total_rows}  |
         ┗━━━━━━━━━━━━━━┛     ┗━━━━━━━━━━━━━━━━━━┛     ┗━━━━━━━━━━━━━━┛     +----------------+
          Status:              Status:                  Status:              Status:         
     """
@@ -108,7 +108,7 @@ class Overview(Vertical):
 
         # Creating the Entry counter with caption
         pi_group = Container(
-            Digits("3.141,592,653,5897", id="pi"),
+            Digits("0", id="pi"),
             Static("records added to the database", id="pi-caption"),
             id="pi-group"
         )
@@ -128,6 +128,10 @@ class Overview(Vertical):
         # Try to read the data from the last_saved_info file to update the UI
         file_location = f"{shared_logger.logs_location}/{shared_logger.last_run_info_filename}"
 
+        # little helper pad function
+        def pad(s, width=14):
+            return str(s)[:width].ljust(width)
+
         try:
             with open(file_location, "r") as f:
                 data = json.load(f)
@@ -142,15 +146,15 @@ class Overview(Vertical):
 
                 # update the view
                 diagram = self.diagram_template.format(
-                        last_fetch=last_fetched,
-                        fetch_count=fetch_count,
-                        data_transformed=data_transformed,
-                        fields_stripped=fields_stripped,
-                        last_load=last_load,
-                        items_loaded=items_loaded,
-                        last_added_rows=last_added_rows,
-                        total_rows=total_rows
-                    )
+                    last_fetch=pad(last_fetched),
+                    fetch_count=pad(fetch_count),
+                    data_transformed=pad(data_transformed),
+                    fields_stripped=pad(fields_stripped),
+                    last_load=pad(last_load),
+                    items_loaded=pad(items_loaded),
+                    last_added_rows=pad(last_added_rows),
+                    total_rows=pad(total_rows)
+                )
                 
                 # update digits display
                 self.query_one("#pi", Digits).update(str(total_rows))

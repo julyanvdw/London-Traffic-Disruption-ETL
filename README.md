@@ -21,74 +21,7 @@ stuff done during data transformation
 3. Field format validation
 4. Remove duplicates from a given snapshot
 
-
-plan: 
-. get disruptions into db ✅
-2. refactor to simulate datalake ✅
-4. write tests ✅
-5. go and delete old snapshots ✅
-6. write logs functionality ✅
-7. orchestrate (locally) with orchestration script ✅
-
-8. Complete the TUI ✅
-9. Build the Service API layer (RESTful) - guided access to the DB
-10. Build an example application using the service layer
-
-11. Host the DB somewhere
-12. Wrap up with a virtual env / makefile - make sure thet can clone the pipeline and run it
-
---- core complete --- now for extras
-1. Add in another DS (and alter DB / Application / TUI)
-2. host on google
-3. Build applet builder platform
-
-small todo:
-1) proper docs / comments
-2) DB / API credentials must not be hard coded
-3) comb through every file - see if the code looks clean
-
-
-
-db stuff
--- disruptions_history table
-CREATE TABLE disruptions_history (
-    id SERIAL PRIMARY KEY,
-    tims_id TEXT NOT NULL,
-    snapshot_time TIMESTAMP NOT NULL,
-    url TEXT,
-    severity TEXT,
-    ordinal INT,
-    category TEXT,
-    subCategory TEXT,
-    comments TEXT,
-    currentUpdate TEXT,
-    currentUpdateDateTime TIMESTAMP,
-    corridorIds JSONB,
-    startDateTime TIMESTAMP,
-    endDateTime TIMESTAMP,
-    lastModifiedTime TIMESTAMP,
-    levelOfInterest TEXT,
-    location TEXT,
-    status TEXT,
-    geography JSONB,
-    geometry JSONB,
-    isProvisional BOOLEAN,
-    hasClosures BOOLEAN,
-    UNIQUE (tims_id, snapshot_time)
-);
-
--- streets table
-CREATE TABLE streets (
-    id SERIAL PRIMARY KEY,
-    tims_id TEXT NOT NULL,
-    snapshot_time TIMESTAMP NOT NULL,
-    name TEXT,
-    closure TEXT,
-    directions TEXT,
-    segments JSONB,
-    FOREIGN KEY (tims_id, snapshot_time) REFERENCES disruptions_history(tims_id, snapshot_time)
-);
-
-
-
+small things I'd like to change
+1) move all of the connection-related info into some config file (like API connections / DB connections)
+2) go through and add proper documentation for every file and proper comments
 

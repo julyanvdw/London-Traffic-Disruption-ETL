@@ -7,8 +7,13 @@ This script outlines various methods called during API requests
 
 import psycopg2
 from psycopg2.extras import RealDictCursor
+from dotenv import load_dotenv #type: ignore
+import os
 
-DB_URL = "postgresql://postgres.stmxtgfmlvovmdomnhfq:julyanvdwlondonetl@aws-0-ap-south-1.pooler.supabase.com:5432/postgres"
+# Load the value from the .env file (note: there should be a .env file in the root dir)
+load_dotenv()
+
+DB_URL = os.getenv("DB_URL")
 
 # Connecting to the DB
 def connect_to_db():

@@ -14,13 +14,18 @@ This script accesses the API with the use of my API keys (as per registration wi
 """
 
 import requests
+from dotenv import load_dotenv #type: ignore
+import os
 from datalake_manager import LakeManager
 from pipeline_log_manager import shared_logger
 from datetime import datetime
 
-API_ID = "julyan-tims-pipeline"
-API_KEY = "cdfd168c1c934e259e8cbeafd3d00cdc"
-API_ENDPOINT = "https://api.tfl.gov.uk/Road/All/Disruption"
+# Load the values from the .env file (note: there should be a .env file in the root dir)
+load_dotenv()
+
+API_ID = os.getenv("API_ID")
+API_KEY = os.getenv("API_KEY")
+API_ENDPOINT = os.getenv("API_ENDPOINT")
 
 query_params = {
         "app_id": API_ID, 

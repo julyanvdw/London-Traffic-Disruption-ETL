@@ -718,3 +718,35 @@ Total DB rows:  117
 [STATUS - Load:] OK
 [STATUS - Database:] OK
 [PIPELINE HISTORY SLICE CLOSE]
+[PIPELINE HISTORY SLICE OPEN]
+[EXTRACT ENTRY:]  17:38:45
+Items Fetched:  71
+[TRANSFORM ENTRY]
+Data transformed:  71
+Fields stripped:  265
+[LOAD ENTRY:]  17:38:51
+Items loaded:  110
+[DATABASE ENTRY]
+Most recent rows added:  110
+Total DB rows:  227
+[STATUS - Extract:] OK
+[STATUS - Transform:] OK
+[STATUS - Load:] OK
+[STATUS - Database:] OK
+[PIPELINE HISTORY SLICE CLOSE]
+[PIPELINE HISTORY SLICE OPEN]
+[EXTRACT ENTRY:]  18:21:57
+Items Fetched:  71
+[TRANSFORM ENTRY]
+Data transformed:  71
+Fields stripped:  269
+[LOAD ENTRY:]  18:22:03
+Items loaded:  136
+[DATABASE ENTRY]
+Most recent rows added:  136
+Total DB rows:  363
+[STATUS - Extract:] OK
+[STATUS - Transform:] OK
+[STATUS - Load:] OK
+[STATUS - Database:] OK
+[PIPELINE HISTORY SLICE CLOSE]

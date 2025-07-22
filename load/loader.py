@@ -7,12 +7,17 @@ This scripts loads the transformed data from the datalake into the data store (P
 
 import psycopg2
 import json
+from dotenv import load_dotenv #type: ignore
+import os
 from datalake_manager import LakeManager
 from datetime import datetime
 from pipeline_log_manager import shared_logger
 from psycopg2.extras import execute_batch
 
-DB_URL = "postgresql://postgres.stmxtgfmlvovmdomnhfq:julyanvdwlondonetl@aws-0-ap-south-1.pooler.supabase.com:5432/postgres"
+# Load the value from the .env file (note: there should be a .env file in the root dir)
+load_dotenv()
+
+DB_URL = os.getenv("DB_URL")
 
 def connect_to_db():
     conn = psycopg2.connect(DB_URL)

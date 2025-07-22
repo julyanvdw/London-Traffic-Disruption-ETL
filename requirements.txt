@@ -1,0 +1,10 @@
+requests
+pydantic
+pytest
+pandas
+plotly
+psycopg2-binary
+fastapi
+textual
+uvicorn
+python-dotenv

@@ -11,11 +11,14 @@ For this example application, we'll be plotting disruptions in London over a per
 import pandas as pd
 import requests
 import plotly.express as px
-import plotly.graph_objects as go
+from dotenv import load_dotenv #type: ignore
+import os
 
 # CONNECTING TO MY LOCAL API
+# Load the value from the .env file (note: there should be a .env file in the root dir)
+load_dotenv()
 
-API_ENDPOINT = "http://127.0.0.1:8000/disruption-data/unique-tims-id"
+API_ENDPOINT = os.getenv("PIPELINE_API_ENDPOINT")
 
 try:
     response = requests.get(API_ENDPOINT)

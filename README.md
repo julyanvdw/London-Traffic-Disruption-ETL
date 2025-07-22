@@ -19,7 +19,7 @@ In general, the pipeline follows an Extract, Transform, Load (ETL) structure.
 #### 1. API Endpoint TFL
 This API endpoint is provided by Transport for London. Details of the endpoint connection process and data stream format can be found at: https://api-portal.tfl.gov.uk/api-details#api=Road&operation=Road_DisruptionByPathIdsQueryStripContentQuerySeveritiesQueryCategoriesQuery&definition=System-2. In addition, the data stream is live.
 
-### 2. Datalake
+#### 2. Datalake
 The datalake component (managed by datalake_manager.py) acts as an intermediate storage layer between each ETL step. After each processing stage—Extract, Transform, or Load—a snapshot of the data is saved to disk. This approach prevents large datasets from being held in memory and allows for easier debugging, recovery, and auditing of pipeline stages. The datalake_manager module abstracts all file operations (opening, reading, writing, and moving files), so other classes can interact with the datalake using simple, clean read and write methods, without worrying about file system details. This design simulates the behavior of production-grade datalake solutions in a lightweight, Pythonic way.
 
 #### 3. Extract

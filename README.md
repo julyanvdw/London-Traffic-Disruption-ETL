@@ -42,7 +42,7 @@ The API server is built with FastAPI and exposes RESTful endpoints for querying,
 
 | API endpoints | Database |
 |----------|----------|
-| ![API Endpoints](./screenshots/api-endpoints.png) | ![Database](./screenshots/database.png) |
+| ![API Endpoints](./screenshots/api-endpoints.png) | ![Database](./screenshots/db.png) |
 
 ---
 

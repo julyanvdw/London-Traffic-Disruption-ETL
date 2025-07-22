@@ -69,3 +69,13 @@ def export_json(n: int = 10):
     
     return JSONResponse(content=results, headers={"Content-Disposition": "attachment; filename=disruptions.json"})
 
+# Get all the unique disruptions from the DB per tims_id
+@app.get("/disruption-data/unique-tims-id", response_model=list[DisruptionResponse])
+def get_unique_disruptions():
+
+    data = database.get_unique_disruptions()
+    disruptions = []
+    for d in data:
+        disruptions.append(DisruptionResponse(**d))
+    
+    return disruptions

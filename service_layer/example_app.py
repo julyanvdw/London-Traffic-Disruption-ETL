@@ -14,7 +14,7 @@ import plotly.express as px
 
 # CONNECTING TO MY LOCAL API
 
-API_ENDPOINT = "http://127.0.0.1:8000/disruption-data?n=10" 
+API_ENDPOINT = "http://127.0.0.1:8000/disruption-data/unique-tims-id"
 
 try:
     response = requests.get(API_ENDPOINT)
@@ -25,29 +25,37 @@ except requests.RequestException as e:
 # LOAD THE DATA INTO A PANDAS DF
 df = pd.DataFrame(data)
 
-# Extract lat and long from the nested structure, add to the df using a normal for loop
-df["longitude"] = None
-df["latitude"] = None
-for index in df.index:
-    coords = df.at[index, "geography"]["coordinates"]
-    df.at[index, "longitude"] = coords[0]
-    df.at[index, "latitude"] = coords[1]
+print(df)
 
-# PLOT USING PLOTLY
+# # Extract lat and long from the nested structure, add to the df using a normal for loop
+# df["longitude"] = None
+# df["latitude"] = None
+# for index in df.index:
+#     coords = df.at[index, "geography"]["coordinates"]
+#     df.at[index, "longitude"] = coords[0]
+#     df.at[index, "latitude"] = coords[1]
 
-fig = px.scatter_mapbox(
-    df,
-    lat="latitude",
-    lon="longitude",
-    hover_name="tims_id" if "tims_id" in df.columns else None,
-    hover_data=["snapshot_time", "severity", "category", "subcategory", "comments", "currentupdate", "levelofinterest", "location", "status"],  # add your columns here
-    color="status" if "status" in df.columns else None,
-    zoom=10,
-    height=600
-)
+# # Convert time so that it can be used for animation
+# df["snapshot_time"] = pd.to_datetime(df["snapshot_time"])
+# df["snapshot_minute"] = df["snapshot_time"].dt.strftime('%Y-%m-%d %H:%M')
 
-fig.update_traces(marker=dict(size=15, color='red', opacity=0.8))
-fig.update_layout(mapbox_style="open-street-map")
-fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
-fig.show()
+
+# # PLOT USING PLOTLY WITH TIMELINE ANIMATION
+
+# fig = px.scatter_mapbox(
+#     df,
+#     lat="latitude",
+#     lon="longitude",
+#     hover_name="tims_id" if "tims_id" in df.columns else None,
+#     hover_data=["snapshot_time", "severity", "category", "subcategory", "comments", "currentupdate", "levelofinterest", "location", "status"],
+#     color="status" if "status" in df.columns else None,
+#     animation_frame="snapshot_minute",
+#     zoom=10,
+#     height=600
+# )
+
+# fig.update_traces(marker=dict(size=15, color='red', opacity=0.8))
+# fig.update_layout(mapbox_style="open-street-map")
+# fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
+# fig.show()
 

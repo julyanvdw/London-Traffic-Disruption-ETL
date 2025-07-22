@@ -76,4 +76,15 @@ def get_disruptions_in_time_range(start_datetime, end_datetime):
 
     return results
 
+# Select all the unique values based on tims_id
+def get_unique_disruptions():
+    conn = connect_to_db()
+    cursor = conn.cursor(cursor_factory=RealDictCursor)
 
+    cursor.execute("SELECT DISTINCT ON (tims_id) * FROM disruptions_history ORDER BY tims_id, snapshot_time ASC;")
+    results = cursor.fetchall()
+
+    cursor.close()
+    conn.close()
+
+    return results

@@ -152,6 +152,7 @@ def load():
     except Exception as e: 
         shared_logger.log_warning(f"Could not connect to database: {e}")
         shared_logger.last_run_info["Database-status"] = 1
+        return
 
     # time-keep the operation to detect new records
     start_time = datetime.now()

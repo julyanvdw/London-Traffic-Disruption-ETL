@@ -50,7 +50,8 @@ hover_data=[
     "currentupdate", "levelofinterest", "location", "status"
 ]
 
-fig = px.scatter_map(
+
+fig = px.scatter_mapbox(
     df,
     lat="latitude",
     lon="longitude",
@@ -58,16 +59,18 @@ fig = px.scatter_map(
     animation_frame="start_minute",
     zoom=10,
     height=800,
+    mapbox_style="open-street-map"
 )
 
 # Create a static figure with all points - toggled by the btn
-static_fig = px.scatter_map(
+static_fig = px.scatter_mapbox(
     df,
     lat="latitude",
     lon="longitude",
     hover_data=hover_data,
     zoom=10,
-    height=700
+    height=700,
+    mapbox_style="open-street-map"
 )
 
 fig.update_traces(marker=dict(size=15, opacity=0.8))

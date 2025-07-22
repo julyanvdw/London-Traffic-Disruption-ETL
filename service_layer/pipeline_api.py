@@ -8,9 +8,11 @@ The aim is to provide a 'Sevice Layer' to the data pipeline - completing the ful
 
 
 from fastapi import FastAPI, HTTPException
+from fastapi.responses import JSONResponse
 from service_layer import database
 from service_layer.response_models import DisruptionResponse
 from datetime import datetime
+import json
 
 app = FastAPI()
 
@@ -28,7 +30,7 @@ def get_data(n: int = 10):
 
 # Get the latest n number of data items from the DB
 @app.get("/disruptions-data/latest-n-data", response_model=list[DisruptionResponse])
-def get_latest_n_data(n: int=10):
+def get_latest_n_data(n: int = 10):
 
     data = database.get_latest_n_data(n)
     disruptions = []
@@ -57,10 +59,19 @@ def get_disruptions_in_time_range(start_datetime: datetime, end_datetime: dateti
     
     return disruptions
 
+# Bulk data download JSON for n data items
+@app.get("/disruption-data/export-latest-json")
+def export_json(n: int = 10):
+    # resuse the latest n database method
+    data = database.get_latest_n_data(n) 
+    # Make sure the pydantic model can serialize the datetime fields by setting the mode to json
+    results = []
+    for d in data:
+        results.append(DisruptionResponse(**d).model_dump(mode="json"))
+    
+    return JSONResponse(content=results, headers={"Content-Disposition": "attachment; filename=disruptions.json"})
 
-# Get data within the last n minutes or something
 
-# Bulk data download CSV / JSON for n data items
 
 # Filter by attributes
 

@@ -100,7 +100,8 @@ The pipeline is architected in such a way that it can easily be extended. Two ar
 > 5) run_pipeline.sh - used when scheduling pipeline runs
 > Please ensure that all these files are present
 
-> Note: the pipeline depends on its connection to a hosted DB as well as its connection to the TFL endpoint. Details relating to these are specified within the .env file in the root directory. Please ensure that this is filled out (if not by default) **before** attempting to run the pipeline. 
+> Note: the pipeline depends on its connection to a hosted DB as well as its connection to the TFL endpoint. Details relating to these are specified within the .env file in the root directory.
+> Please ensure that this is filled out (if not by default) **before** attempting to run the pipeline. 
 
 ---
 
@@ -123,6 +124,8 @@ The pipeline is architected in such a way that it can easily be extended. Two ar
 When finished:
 11. run `make clean` to remove the virtual environment
 12. run `deactivate` to return to normal shell.
+
+> Note: A bash script run_pipeline.sh has been provided. When using an external scheduler, schedule this script to be run and not the pipeline directly - this allows for the toggle switch in the TUI to work properly.
 
 ---
 

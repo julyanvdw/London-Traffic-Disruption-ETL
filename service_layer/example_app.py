@@ -1,4 +1,3 @@
-
 """
 Julyan van der Westhuizen
 22/07/25
@@ -40,11 +39,14 @@ fig = px.scatter_mapbox(
     df,
     lat="latitude",
     lon="longitude",
-    hover_name="description" if "description" in df.columns else None,
+    hover_name="tims_id" if "tims_id" in df.columns else None,
+    hover_data=["snapshot_time", "severity", "category", "subcategory", "comments", "currentupdate", "levelofinterest", "location", "status"],  # add your columns here
     color="status" if "status" in df.columns else None,
     zoom=10,
     height=600
 )
+
+fig.update_traces(marker=dict(size=15, color='red', opacity=0.8))
 fig.update_layout(mapbox_style="open-street-map")
 fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
 fig.show()

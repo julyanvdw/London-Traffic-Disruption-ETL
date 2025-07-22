@@ -26,6 +26,26 @@ def get_data(n: int = 10):
 
     return disruptions
 
+# Get the latest n number of data items from the DB
+@app.get("/disruptions-data/latest-n-data", response_model=list[DisruptionResponse])
+def get_latest_n_data(n: int=10):
+
+    data = database.get_latest_n_data(n)
+    disruptions = []
+    for d in data:
+        disruptions.append(DisruptionResponse(**d))
+
+    return disruptions
+
+# Query by ID
+@app.get("/disruption-data/filter-id/{disruption_id}", response_model=DisruptionResponse)
+def get_disruption(disruption_id: int):
+    # Find the data item according to the passed ID.
+    data = database.get_disruption_by_id(disruption_id)
+    if data is None:
+        raise HTTPException(status_code=404, detail="Disruption not found - ID does not exist")
+    return DisruptionResponse(**data)
+
 # Get data within a time range (date and time)
 @app.get("/disruption-data/by-snapshot-date", response_model=list[DisruptionResponse])
 def get_disruptions_in_time_range(start_datetime: datetime, end_datetime: datetime):
@@ -36,18 +56,6 @@ def get_disruptions_in_time_range(start_datetime: datetime, end_datetime: dateti
         disruptions.append(DisruptionResponse(**d))
     
     return disruptions
-
-# Query by ID
-@app.get("/disruption-data/{disruption_id}", response_model=DisruptionResponse)
-def get_disruption(disruption_id: int):
-    # Find the data item according to the passed ID.
-    data = database.get_disruption_by_id(disruption_id)
-    if data is None:
-        raise HTTPException(status_code=404, detail="Disruption not found - ID does not exist")
-    return DisruptionResponse(**data)
-
-
-
 
 
 # Get data within the last n minutes or something

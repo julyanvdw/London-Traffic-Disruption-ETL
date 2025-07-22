@@ -24,12 +24,25 @@ def connect_to_db():
 
 # DB METHODS - CONNECT TO ENDPOINTS
 
-# General get data method to dump the latest n data items
+# General get data method to dump n data items (from the start of the DB)
 def get_disruption_data(number_of_items):
     conn = connect_to_db()
     cursor = conn.cursor(cursor_factory=RealDictCursor)
 
     cursor.execute("SELECT * FROM disruptions_history LIMIT %s;", (number_of_items,))
+    results = cursor.fetchall()
+
+    cursor.close()
+    conn.close()
+
+    return results
+
+# Find the latest n data items
+def get_latest_n_data(n):
+    conn = connect_to_db()
+    cursor = conn.cursor(cursor_factory=RealDictCursor)
+
+    cursor.execute("SELECT * FROM disruptions_history ORDER BY snapshot_time DESC LIMIT %s;", (n,))
     results = cursor.fetchall()
 
     cursor.close()
@@ -62,4 +75,5 @@ def get_disruptions_in_time_range(start_datetime, end_datetime):
     conn.close()
 
     return results
+
 

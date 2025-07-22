@@ -98,6 +98,7 @@ The pipeline is architected in such a way that it can easily be extended. Two ar
 > 3) requirements.txt - used when setting up
 > 4) pipeline_enabled.flag - used when scheduling pipeline runs
 > 5) run_pipeline.sh - used when scheduling pipeline runs
+
 > Please ensure that all these files are present
 
 > Note: the pipeline depends on its connection to a hosted DB as well as its connection to the TFL endpoint. Details relating to these are specified within the .env file in the root directory.

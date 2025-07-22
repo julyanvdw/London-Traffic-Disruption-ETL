@@ -702,3 +702,19 @@ Total DB rows:  353
 [STATUS - Load:] OK
 [STATUS - Database:] OK
 [PIPELINE HISTORY SLICE CLOSE]
+[PIPELINE HISTORY SLICE OPEN]
+[EXTRACT ENTRY:]  15:13:18
+Items Fetched:  74
+[TRANSFORM ENTRY]
+Data transformed:  74
+Fields stripped:  280
+[LOAD ENTRY:]  15:13:22
+Items loaded:  117
+[DATABASE ENTRY]
+Most recent rows added:  117
+Total DB rows:  117
+[STATUS - Extract:] OK
+[STATUS - Transform:] OK
+[STATUS - Load:] OK
+[STATUS - Database:] OK
+[PIPELINE HISTORY SLICE CLOSE]

@@ -7,14 +7,14 @@
     "category": "Collisions",
     "subCategory": "Vehicle collision",
     "comments": "[A30] Great South West Road (Westbound) at the junction of Faggs Road - Westbound on Great South West Road is Blocked blocked, North and Southbound on Faggs Road is blocked due to a collision. ",
-    "currentUpdate": "Use an alternative route, traffic is currently flowing well on the diversion route. ",
-    "currentUpdateDateTime": "2025-07-22 12:20:23+00:00",
+    "currentUpdate": "Crossover implemented allowing eastbound carriageway to reopen. Traffic westbound is still restricted by closures. Faggs Road remains closed. ",
+    "currentUpdateDateTime": "2025-07-22 13:09:20+00:00",
     "corridorIds": [
       "a4"
     ],
     "startDateTime": "2025-07-22 12:16:27+00:00",
     "endDateTime": "2025-07-22 23:59:59+00:00",
-    "lastModifiedTime": "2025-07-22 12:22:33+00:00",
+    "lastModifiedTime": "2025-07-22 13:09:20+00:00",
     "levelOfInterest": "High",
     "location": "[A30] GREAT SOUTH WEST ROAD (TW14 ,TW6 ) (Hillingdon)",
     "status": "Active",
@@ -228,7 +228,7 @@
       {
         "name": "[A30] GREAT SOUTH WEST ROAD (TW14 ,TW6 )",
         "closure": "Closed",
-        "directions": "Westbound",
+        "directions": "Both directions",
         "segments": [
           {
             "toid": "0",
@@ -3228,11 +3228,11 @@
     "subCategory": "Borough works",
     "comments": "Battersea Bridge scheme. - [A3220] Beaufort Street (All approaches) between [A3220] Cheyne Walk and [A3220] Battersea Bridge Road - There are temporary signals in place to facilitate works for the Battersea Bridge scheme.",
     "currentUpdate": "Traffic is flowing well.",
-    "currentUpdateDateTime": "2025-07-22 09:40:48+00:00",
+    "currentUpdateDateTime": "2025-07-22 13:08:06+00:00",
     "corridorIds": [],
     "startDateTime": "2025-06-19 11:00:00+00:00",
     "endDateTime": "2025-10-03 22:59:00+00:00",
-    "lastModifiedTime": "2025-07-22 09:41:00+00:00",
+    "lastModifiedTime": "2025-07-22 13:08:57+00:00",
     "levelOfInterest": "High",
     "location": "[A3220] BEAUFORT STREET (SW10 ,SW3 ) (Kensington & Chelsea)",
     "status": "Active",
@@ -3464,13 +3464,13 @@
     "subCategory": "Utility works",
     "comments": "[A22] Godstone Road (Both directions) at the junction of Foxley Hill Road - Two-way temporary signals to facilitate emergency SGN works to repair a ruptured gas main at location.  In addition Foxley Hill Road is closed between Godstone Road and Beaumont Road",
     "currentUpdate": "Traffic is slow on approach in both directions, the southbound tailbacks are affecting Purley Cross and the A23. There are delays to bus services, there are some local road closures, expect delays in the area.",
-    "currentUpdateDateTime": "2025-07-22 12:23:45+00:00",
+    "currentUpdateDateTime": "2025-07-22 13:01:51+00:00",
     "corridorIds": [
       "a23"
     ],
     "startDateTime": "2025-07-21 13:40:00+00:00",
     "endDateTime": "2025-07-26 22:45:00+00:00",
-    "lastModifiedTime": "2025-07-22 12:23:45+00:00",
+    "lastModifiedTime": "2025-07-22 13:01:52+00:00",
     "levelOfInterest": "Medium",
     "location": "[A22] GODSTONE ROAD (CR8 ) (Croydon)",
     "status": "Active",
@@ -4539,13 +4539,13 @@
     "subCategory": "TfL works",
     "comments": "[A4202] Park Lane (Northbound) opposite South Street - Lane restrictions owing to Park Lane cycle island\r\nimprovement scheme.",
     "currentUpdate": "Traffic is flowing well.",
-    "currentUpdateDateTime": "2025-07-22 09:41:51+00:00",
+    "currentUpdateDateTime": "2025-07-22 13:09:05+00:00",
     "corridorIds": [
       "inner ring"
     ],
     "startDateTime": "2025-07-03 06:50:00+00:00",
     "endDateTime": "2025-07-28 22:59:00+00:00",
-    "lastModifiedTime": "2025-07-22 09:42:10+00:00",
+    "lastModifiedTime": "2025-07-22 13:09:30+00:00",
     "levelOfInterest": "Medium",
     "location": "[A4202] PARK LANE (W1J ,W1K ,W2 ) (Westminster)",
     "status": "Active",
@@ -8037,12 +8037,12 @@
     "category": "Breakdowns",
     "subCategory": "Vehicle breakdown",
     "comments": "[A4] Regent Street St Jamess (Northbound) at the junction of [A4] Piccadilly - Lane one (of two) is blocked due to a broken down vehicle.",
-    "currentUpdate": "Northbound traffic is slow on approach. Expect delays.",
-    "currentUpdateDateTime": "2025-07-22 12:31:14+00:00",
+    "currentUpdate": "Northbound traffic is slow on approach with queues back to the junction with Pall Mall. Expect delays.",
+    "currentUpdateDateTime": "2025-07-22 12:51:47+00:00",
     "corridorIds": [],
     "startDateTime": "2025-07-22 12:31:13+00:00",
     "endDateTime": "2025-07-22 23:59:59+00:00",
-    "lastModifiedTime": "2025-07-22 12:37:03+00:00",
+    "lastModifiedTime": "2025-07-22 12:51:47+00:00",
     "levelOfInterest": "Low",
     "location": "[A4] REGENT STREET ST JAMES'S (SW1Y ,W1J ) (Westminster)",
     "status": "Active",
@@ -9196,27 +9196,27 @@
     "hasClosures": false
   },
   {
-    "tims_id": "TIMS-212934",
-    "url": "/Road/All/Disruption/TIMS-212934",
+    "tims_id": "TIMS-214378",
+    "url": "/Road/All/Disruption/TIMS-214378",
     "severity": "Minimal",
     "ordinal": 50,
     "category": "Works",
     "subCategory": "Utility works",
-    "comments": "[A11] Mile End Road (Eastbound) at the junction of Rhondda Grove - Lane restriction in place to facilitate Thames Water works.",
-    "currentUpdate": "Delays are possible. ",
-    "currentUpdateDateTime": "2025-07-22 09:54:21+00:00",
+    "comments": "[A410] Uxbridge Road (Both directions) at the junction of Chartley Avenue - Road is closed due to a burst water main. ",
+    "currentUpdate": "Use an alternative route. There are no reported delays on diversion.",
+    "currentUpdateDateTime": "2025-07-22 12:23:10+00:00",
     "corridorIds": [],
-    "startDateTime": "2025-06-30 07:00:00+00:00",
-    "endDateTime": "2025-10-05 17:00:00+00:00",
-    "lastModifiedTime": "2025-07-22 09:54:32+00:00",
+    "startDateTime": "2025-07-19 04:15:00+00:00",
+    "endDateTime": "2025-07-24 22:59:00+00:00",
+    "lastModifiedTime": "2025-07-22 12:23:10+00:00",
     "levelOfInterest": "Low",
-    "location": "[A11] MILE END ROAD (E1 ,E3 ) (Tower Hamlets)",
+    "location": "[A410] UXBRIDGE ROAD (HA3 ,HA7 ) (Harrow)",
     "status": "Active",
     "geography": {
       "geo_type": "Point",
       "coordinates": [
-        -0.032883,
-        51.525484
+        -0.327865,
+        51.61411
       ],
       "crs": {
         "crs_type": "name",
@@ -9225,8 +9225,437 @@
         }
       }
     },
-    "geometry": null,
-    "streets": null,
+    "geometry": {
+      "geo_type": "Polygon",
+      "coordinates": [
+        [
+          [
+            -0.3309649926,
+            51.6137500671
+          ],
+          [
+            -0.3309417685,
+            51.6136272239
+          ],
+          [
+            -0.330844496,
+            51.6134919378
+          ],
+          [
+            -0.3307128032,
+            51.6133993229
+          ],
+          [
+            -0.3305089015,
+            51.6133228036
+          ],
+          [
+            -0.3301964276,
+            51.6132922253
+          ],
+          [
+            -0.3293482525,
+            51.613380956
+          ],
+          [
+            -0.3279740487,
+            51.6135968078
+          ],
+          [
+            -0.3267065184,
+            51.613833737
+          ],
+          [
+            -0.326533719,
+            51.6139100199
+          ],
+          [
+            -0.3263873266,
+            51.6140337321
+          ],
+          [
+            -0.3263215221,
+            51.6141590871
+          ],
+          [
+            -0.3263223112,
+            51.6143127446
+          ],
+          [
+            -0.3264245159,
+            51.6144761374
+          ],
+          [
+            -0.3266193784,
+            51.6146027434
+          ],
+          [
+            -0.3268772332,
+            51.6146732881
+          ],
+          [
+            -0.3271588241,
+            51.6146770314
+          ],
+          [
+            -0.3296234014,
+            51.6142634756
+          ],
+          [
+            -0.3304889642,
+            51.6141632466
+          ],
+          [
+            -0.3306538443,
+            51.6141103128
+          ],
+          [
+            -0.3308298685,
+            51.6140026007
+          ],
+          [
+            -0.3309177246,
+            51.6139008812
+          ],
+          [
+            -0.3309649926,
+            51.6137500671
+          ]
+        ]
+      ],
+      "crs": {
+        "crs_type": "name",
+        "properties": {
+          "name": "EPSG:4326"
+        }
+      }
+    },
+    "streets": [
+      {
+        "name": "[A410] UXBRIDGE ROAD (HA3 ,HA7 )",
+        "closure": "Closed",
+        "directions": "Both directions",
+        "segments": [
+          {
+            "toid": "0",
+            "coords": [
+              [
+                -0.330243,
+                51.613741
+              ],
+              [
+                -0.330171,
+                51.613749
+              ]
+            ],
+            "sourceSystemId": 0
+          },
+          {
+            "toid": "0",
+            "coords": [
+              [
+                -0.330171,
+                51.613749
+              ],
+              [
+                -0.329411,
+                51.613834
+              ]
+            ],
+            "sourceSystemId": 0
+          },
+          {
+            "toid": "0",
+            "coords": [
+              [
+                -0.329411,
+                51.613834
+              ],
+              [
+                -0.329198,
+                51.613868
+              ]
+            ],
+            "sourceSystemId": 0
+          },
+          {
+            "toid": "0",
+            "coords": [
+              [
+                -0.329198,
+                51.613868
+              ],
+              [
+                -0.32867,
+                51.613952
+              ]
+            ],
+            "sourceSystemId": 0
+          },
+          {
+            "toid": "0",
+            "coords": [
+              [
+                -0.328138,
+                51.614034
+              ],
+              [
+                -0.327847,
+                51.614093
+              ]
+            ],
+            "sourceSystemId": 0
+          },
+          {
+            "toid": "0",
+            "coords": [
+              [
+                -0.32867,
+                51.613952
+              ],
+              [
+                -0.328138,
+                51.614034
+              ]
+            ],
+            "sourceSystemId": 0
+          },
+          {
+            "toid": "0",
+            "coords": [
+              [
+                -0.327033,
+                51.614235
+              ],
+              [
+                -0.327847,
+                51.614093
+              ]
+            ],
+            "sourceSystemId": 0
+          }
+        ]
+      }
+    ],
+    "isProvisional": false,
+    "hasClosures": false
+  },
+  {
+    "tims_id": "TIMS-211848",
+    "url": "/Road/All/Disruption/TIMS-211848",
+    "severity": "Minimal",
+    "ordinal": 51,
+    "category": "Works",
+    "subCategory": "Borough works",
+    "comments": "[A107] Mare Street (All approaches) at the junction of [A1207] Graham Road - Temporary lights in operation for Borough works. ",
+    "currentUpdate": "Delays are possible. ",
+    "currentUpdateDateTime": "2025-07-22 09:55:01+00:00",
+    "corridorIds": [],
+    "startDateTime": "2025-05-24 07:28:00+00:00",
+    "endDateTime": "2025-08-28 11:00:00+00:00",
+    "lastModifiedTime": "2025-07-22 09:55:11+00:00",
+    "levelOfInterest": "Low",
+    "location": "[A107] MARE STREET (E8 ,E9 ) (Hackney)",
+    "status": "Active",
+    "geography": {
+      "geo_type": "Point",
+      "coordinates": [
+        -0.055078,
+        51.546635
+      ],
+      "crs": {
+        "crs_type": "name",
+        "properties": {
+          "name": "EPSG:4326"
+        }
+      }
+    },
+    "geometry": {
+      "geo_type": "Polygon",
+      "coordinates": [
+        [
+          [
+            -0.0614274473,
+            51.5463010014
+          ],
+          [
+            -0.0613670148,
+            51.5461276751
+          ],
+          [
+            -0.0611733133,
+            51.5459653751
+          ],
+          [
+            -0.0609243948,
+            51.5458794994
+          ],
+          [
+            -0.0606415727,
+            51.5458603631
+          ],
+          [
+            -0.0595933715,
+            51.546027277
+          ],
+          [
+            -0.0549561271,
+            51.546237977
+          ],
+          [
+            -0.0547273181,
+            51.5462950671
+          ],
+          [
+            -0.0545213151,
+            51.5464144374
+          ],
+          [
+            -0.0544132667,
+            51.5465525426
+          ],
+          [
+            -0.0543891984,
+            51.5467272459
+          ],
+          [
+            -0.054457891,
+            51.5468748165
+          ],
+          [
+            -0.0546023054,
+            51.5469993323
+          ],
+          [
+            -0.0548380778,
+            51.5470949222
+          ],
+          [
+            -0.0550791994,
+            51.5471267153
+          ],
+          [
+            -0.0597862744,
+            51.5469188876
+          ],
+          [
+            -0.0610582155,
+            51.5467002796
+          ],
+          [
+            -0.0612438111,
+            51.5466076521
+          ],
+          [
+            -0.0613455489,
+            51.5465160868
+          ],
+          [
+            -0.0614274473,
+            51.5463010014
+          ]
+        ]
+      ],
+      "crs": {
+        "crs_type": "name",
+        "properties": {
+          "name": "EPSG:4326"
+        }
+      }
+    },
+    "streets": [
+      {
+        "name": "[A1207] GRAHAM ROAD (E8 )",
+        "closure": "Open",
+        "directions": "Both directions",
+        "segments": [
+          {
+            "toid": "0",
+            "coords": [
+              [
+                -0.060432,
+                51.546354
+              ],
+              [
+                -0.060024,
+                51.546421
+              ]
+            ],
+            "sourceSystemId": 0
+          },
+          {
+            "toid": "0",
+            "coords": [
+              [
+                -0.056702,
+                51.546607
+              ],
+              [
+                -0.055106,
+                51.546678
+              ]
+            ],
+            "sourceSystemId": 0
+          },
+          {
+            "toid": "0",
+            "coords": [
+              [
+                -0.060707,
+                51.546308
+              ],
+              [
+                -0.060432,
+                51.546354
+              ]
+            ],
+            "sourceSystemId": 0
+          },
+          {
+            "toid": "0",
+            "coords": [
+              [
+                -0.060024,
+                51.546421
+              ],
+              [
+                -0.059888,
+                51.546444
+              ]
+            ],
+            "sourceSystemId": 0
+          },
+          {
+            "toid": "0",
+            "coords": [
+              [
+                -0.059888,
+                51.546444
+              ],
+              [
+                -0.058043,
+                51.546543
+              ]
+            ],
+            "sourceSystemId": 0
+          },
+          {
+            "toid": "0",
+            "coords": [
+              [
+                -0.058043,
+                51.546543
+              ],
+              [
+                -0.056702,
+                51.546607
+              ]
+            ],
+            "sourceSystemId": 0
+          }
+        ]
+      }
+    ],
     "isProvisional": false,
     "hasClosures": false
   },
@@ -9234,7 +9663,7 @@
     "tims_id": "TIMS-212391",
     "url": "/Road/All/Disruption/TIMS-212391",
     "severity": "Minimal",
-    "ordinal": 51,
+    "ordinal": 52,
     "category": "Works",
     "subCategory": "Collaborative works",
     "comments": "[A4020] Uxbridge Road (Eastbound) at the junction of [A402] Shepherds Bush Green - Cycle lane closure and no right turn onto Shepherds Bush Green (southside) due to C34 cycle lane scheme works.",
@@ -9364,80 +9793,10 @@
     "hasClosures": false
   },
   {
-    "tims_id": "TIMS-214492",
-    "url": "/Road/All/Disruption/TIMS-214492",
-    "severity": "Minimal",
-    "ordinal": 52,
-    "category": "Works",
-    "subCategory": "Utility works",
-    "comments": "[A11] Mile End Road (Eastbound) at the junction of Lawton Road - Lane closures are in place to facilitate essential Thames Water chamber repair works. The cycle lane will also be closed. ",
-    "currentUpdate": "Traffic is flowing well. ",
-    "currentUpdateDateTime": "2025-07-22 12:04:42+00:00",
-    "corridorIds": [],
-    "startDateTime": "2025-07-21 18:45:00+00:00",
-    "endDateTime": "2025-07-25 22:59:00+00:00",
-    "lastModifiedTime": "2025-07-22 12:05:36+00:00",
-    "levelOfInterest": "Low",
-    "location": "[A11] MILE END ROAD (E1 ,E3 ) (Tower Hamlets)",
-    "status": "Active",
-    "geography": {
-      "geo_type": "Point",
-      "coordinates": [
-        -0.035429,
-        51.524827
-      ],
-      "crs": {
-        "crs_type": "name",
-        "properties": {
-          "name": "EPSG:4326"
-        }
-      }
-    },
-    "geometry": null,
-    "streets": null,
-    "isProvisional": false,
-    "hasClosures": false
-  },
-  {
-    "tims_id": "TIMS-214505",
-    "url": "/Road/All/Disruption/TIMS-214505",
-    "severity": "Minimal",
-    "ordinal": 53,
-    "category": "Asset issues",
-    "subCategory": "Traffic signal fault",
-    "comments": "[A313] Hampton Road (Both directions) between [B358] Stanley Road, [A313] Broad Street and [B358] Queens Road - Traffic signals at the location are all out. ",
-    "currentUpdate": "Traffic is flowing well, use caution.",
-    "currentUpdateDateTime": "2025-07-22 09:55:52+00:00",
-    "corridorIds": [],
-    "startDateTime": "2025-07-22 06:12:51+00:00",
-    "endDateTime": "2025-07-22 23:59:59+00:00",
-    "lastModifiedTime": "2025-07-22 09:55:52+00:00",
-    "levelOfInterest": "Low",
-    "location": "[A313] HAMPTON ROAD (TW11 ) (Richmond upon Thames)",
-    "status": "Active",
-    "geography": {
-      "geo_type": "Point",
-      "coordinates": [
-        -0.339855,
-        51.426215
-      ],
-      "crs": {
-        "crs_type": "name",
-        "properties": {
-          "name": "EPSG:4326"
-        }
-      }
-    },
-    "geometry": null,
-    "streets": null,
-    "isProvisional": false,
-    "hasClosures": false
-  },
-  {
     "tims_id": "TIMS-214513",
     "url": "/Road/All/Disruption/TIMS-214513",
     "severity": "Minimal",
-    "ordinal": 54,
+    "ordinal": 53,
     "category": "Asset issues",
     "subCategory": "Asset fault",
     "comments": "[A503] Seven Sisters Road (All approaches) at the junction of [A103] Hornsey Road - The traffic signals at this location have an intermittent fault. ",
@@ -9455,6 +9814,41 @@
       "coordinates": [
         -0.115102,
         51.560176
+      ],
+      "crs": {
+        "crs_type": "name",
+        "properties": {
+          "name": "EPSG:4326"
+        }
+      }
+    },
+    "geometry": null,
+    "streets": null,
+    "isProvisional": false,
+    "hasClosures": false
+  },
+  {
+    "tims_id": "TIMS-212934",
+    "url": "/Road/All/Disruption/TIMS-212934",
+    "severity": "Minimal",
+    "ordinal": 54,
+    "category": "Works",
+    "subCategory": "Utility works",
+    "comments": "[A11] Mile End Road (Eastbound) at the junction of Rhondda Grove - Lane restriction in place to facilitate Thames Water works.",
+    "currentUpdate": "Delays are possible. ",
+    "currentUpdateDateTime": "2025-07-22 09:54:21+00:00",
+    "corridorIds": [],
+    "startDateTime": "2025-06-30 07:00:00+00:00",
+    "endDateTime": "2025-10-05 17:00:00+00:00",
+    "lastModifiedTime": "2025-07-22 09:54:32+00:00",
+    "levelOfInterest": "Low",
+    "location": "[A11] MILE END ROAD (E1 ,E3 ) (Tower Hamlets)",
+    "status": "Active",
+    "geography": {
+      "geo_type": "Point",
+      "coordinates": [
+        -0.032883,
+        51.525484
       ],
       "crs": {
         "crs_type": "name",
@@ -9736,27 +10130,27 @@
     "hasClosures": false
   },
   {
-    "tims_id": "TIMS-211848",
-    "url": "/Road/All/Disruption/TIMS-211848",
+    "tims_id": "TIMS-214492",
+    "url": "/Road/All/Disruption/TIMS-214492",
     "severity": "Minimal",
     "ordinal": 56,
     "category": "Works",
-    "subCategory": "Borough works",
-    "comments": "[A107] Mare Street (All approaches) at the junction of [A1207] Graham Road - Temporary lights in operation for Borough works. ",
-    "currentUpdate": "Delays are possible. ",
-    "currentUpdateDateTime": "2025-07-22 09:55:01+00:00",
+    "subCategory": "Utility works",
+    "comments": "[A11] Mile End Road (Eastbound) at the junction of Lawton Road - Lane closures are in place to facilitate essential Thames Water chamber repair works. The cycle lane will also be closed. ",
+    "currentUpdate": "Traffic is flowing well. ",
+    "currentUpdateDateTime": "2025-07-22 12:04:42+00:00",
     "corridorIds": [],
-    "startDateTime": "2025-05-24 07:28:00+00:00",
-    "endDateTime": "2025-08-28 11:00:00+00:00",
-    "lastModifiedTime": "2025-07-22 09:55:11+00:00",
+    "startDateTime": "2025-07-21 18:45:00+00:00",
+    "endDateTime": "2025-07-25 22:59:00+00:00",
+    "lastModifiedTime": "2025-07-22 12:05:36+00:00",
     "levelOfInterest": "Low",
-    "location": "[A107] MARE STREET (E8 ,E9 ) (Hackney)",
+    "location": "[A11] MILE END ROAD (E1 ,E3 ) (Tower Hamlets)",
     "status": "Active",
     "geography": {
       "geo_type": "Point",
       "coordinates": [
-        -0.055078,
-        51.546635
+        -0.035429,
+        51.524827
       ],
       "crs": {
         "crs_type": "name",
@@ -9765,192 +10159,8 @@
         }
       }
     },
-    "geometry": {
-      "geo_type": "Polygon",
-      "coordinates": [
-        [
-          [
-            -0.0614274473,
-            51.5463010014
-          ],
-          [
-            -0.0613670148,
-            51.5461276751
-          ],
-          [
-            -0.0611733133,
-            51.5459653751
-          ],
-          [
-            -0.0609243948,
-            51.5458794994
-          ],
-          [
-            -0.0606415727,
-            51.5458603631
-          ],
-          [
-            -0.0595933715,
-            51.546027277
-          ],
-          [
-            -0.0549561271,
-            51.546237977
-          ],
-          [
-            -0.0547273181,
-            51.5462950671
-          ],
-          [
-            -0.0545213151,
-            51.5464144374
-          ],
-          [
-            -0.0544132667,
-            51.5465525426
-          ],
-          [
-            -0.0543891984,
-            51.5467272459
-          ],
-          [
-            -0.054457891,
-            51.5468748165
-          ],
-          [
-            -0.0546023054,
-            51.5469993323
-          ],
-          [
-            -0.0548380778,
-            51.5470949222
-          ],
-          [
-            -0.0550791994,
-            51.5471267153
-          ],
-          [
-            -0.0597862744,
-            51.5469188876
-          ],
-          [
-            -0.0610582155,
-            51.5467002796
-          ],
-          [
-            -0.0612438111,
-            51.5466076521
-          ],
-          [
-            -0.0613455489,
-            51.5465160868
-          ],
-          [
-            -0.0614274473,
-            51.5463010014
-          ]
-        ]
-      ],
-      "crs": {
-        "crs_type": "name",
-        "properties": {
-          "name": "EPSG:4326"
-        }
-      }
-    },
-    "streets": [
-      {
-        "name": "[A1207] GRAHAM ROAD (E8 )",
-        "closure": "Open",
-        "directions": "Both directions",
-        "segments": [
-          {
-            "toid": "0",
-            "coords": [
-              [
-                -0.060432,
-                51.546354
-              ],
-              [
-                -0.060024,
-                51.546421
-              ]
-            ],
-            "sourceSystemId": 0
-          },
-          {
-            "toid": "0",
-            "coords": [
-              [
-                -0.056702,
-                51.546607
-              ],
-              [
-                -0.055106,
-                51.546678
-              ]
-            ],
-            "sourceSystemId": 0
-          },
-          {
-            "toid": "0",
-            "coords": [
-              [
-                -0.060707,
-                51.546308
-              ],
-              [
-                -0.060432,
-                51.546354
-              ]
-            ],
-            "sourceSystemId": 0
-          },
-          {
-            "toid": "0",
-            "coords": [
-              [
-                -0.060024,
-                51.546421
-              ],
-              [
-                -0.059888,
-                51.546444
-              ]
-            ],
-            "sourceSystemId": 0
-          },
-          {
-            "toid": "0",
-            "coords": [
-              [
-                -0.059888,
-                51.546444
-              ],
-              [
-                -0.058043,
-                51.546543
-              ]
-            ],
-            "sourceSystemId": 0
-          },
-          {
-            "toid": "0",
-            "coords": [
-              [
-                -0.058043,
-                51.546543
-              ],
-              [
-                -0.056702,
-                51.546607
-              ]
-            ],
-            "sourceSystemId": 0
-          }
-        ]
-      }
-    ],
+    "geometry": null,
+    "streets": null,
     "isProvisional": false,
     "hasClosures": false
   },
@@ -10025,1388 +10235,10 @@
     "hasClosures": false
   },
   {
-    "tims_id": "TIMS-214297",
-    "url": "/Road/All/Disruption/TIMS-214297",
-    "severity": "Minimal",
-    "ordinal": 59,
-    "category": "Surface damage",
-    "subCategory": "Subsidence",
-    "comments": "[A3216] Chelsea Bridge Road (Both directions) at the junction of [A3212] Chelsea Embankment - Restrictions in place to facilitate pothole repairs.  ",
-    "currentUpdate": "Approach with caution. Traffic is flowing well. ",
-    "currentUpdateDateTime": "2025-07-22 09:43:19+00:00",
-    "corridorIds": [],
-    "startDateTime": "2025-07-17 18:48:44+00:00",
-    "endDateTime": "2025-07-17 23:59:59+00:00",
-    "lastModifiedTime": "2025-07-22 09:43:27+00:00",
-    "levelOfInterest": "Low",
-    "location": "[A3216] CHELSEA BRIDGE ROAD (SW11 ,SW1W ,SW3 ) (Kensington & Chelsea,Westminster)",
-    "status": "Active",
-    "geography": {
-      "geo_type": "Point",
-      "coordinates": [
-        -0.150552,
-        51.486312
-      ],
-      "crs": {
-        "crs_type": "name",
-        "properties": {
-          "name": "EPSG:4326"
-        }
-      }
-    },
-    "geometry": null,
-    "streets": null,
-    "isProvisional": false,
-    "hasClosures": false
-  },
-  {
-    "tims_id": "TIMS-213815",
-    "url": "/Road/All/Disruption/TIMS-213815",
-    "severity": "Minimal",
-    "ordinal": 60,
-    "category": "Works",
-    "subCategory": "Borough works",
-    "comments": "[A118] Romford Road (Both directions) at the junction of Dyson Road - Lane restrictions in place for resurfacing works. ",
-    "currentUpdate": "Traffic is flowing well.",
-    "currentUpdateDateTime": "2025-07-22 12:09:14+00:00",
-    "corridorIds": [],
-    "startDateTime": "2025-07-21 07:00:00+00:00",
-    "endDateTime": "2025-07-27 15:00:00+00:00",
-    "lastModifiedTime": "2025-07-22 12:09:43+00:00",
-    "levelOfInterest": "Low",
-    "location": "[A118] ROMFORD ROAD (E15 ,E7 ) (Newham)",
-    "status": "Active",
-    "geography": {
-      "geo_type": "Point",
-      "coordinates": [
-        0.014428,
-        51.544179
-      ],
-      "crs": {
-        "crs_type": "name",
-        "properties": {
-          "name": "EPSG:4326"
-        }
-      }
-    },
-    "geometry": null,
-    "streets": null,
-    "isProvisional": false,
-    "hasClosures": false
-  },
-  {
-    "tims_id": "TIMS-214519",
-    "url": "/Road/All/Disruption/TIMS-214519",
-    "severity": "Minimal",
-    "ordinal": 61,
-    "category": "Hazards",
-    "subCategory": "Fire",
-    "comments": "[A209] Upper Wickham Lane (Northbound) at the junction of Anthony Road - Road has been closed northbound due to a building fire.",
-    "currentUpdate": "Use other route whilst the road is closed by emergency services.",
-    "currentUpdateDateTime": "2025-07-22 12:20:35+00:00",
-    "corridorIds": [],
-    "startDateTime": "2025-07-22 12:20:34+00:00",
-    "endDateTime": "2025-07-22 23:59:59+00:00",
-    "lastModifiedTime": "2025-07-22 12:22:53+00:00",
-    "levelOfInterest": "Low",
-    "location": "[A209] UPPER WICKHAM LANE (DA16 ) (Bexley,Greenwich)",
-    "status": "Active",
-    "geography": {
-      "geo_type": "Point",
-      "coordinates": [
-        0.110305,
-        51.469874
-      ],
-      "crs": {
-        "crs_type": "name",
-        "properties": {
-          "name": "EPSG:4326"
-        }
-      }
-    },
-    "geometry": {
-      "geo_type": "Polygon",
-      "coordinates": [
-        [
-          [
-            0.1098795356,
-            51.4710712666
-          ],
-          [
-            0.1099758351,
-            51.4708551726
-          ],
-          [
-            0.1102260537,
-            51.4706857972
-          ],
-          [
-            0.1105135286,
-            51.4706152725
-          ],
-          [
-            0.1108712488,
-            51.4706364101
-          ],
-          [
-            0.111132444,
-            51.4707393554
-          ],
-          [
-            0.1113004787,
-            51.4709012027
-          ],
-          [
-            0.1114179102,
-            51.4712007453
-          ],
-          [
-            0.1113761811,
-            51.471410835
-          ],
-          [
-            0.1112099234,
-            51.4715709951
-          ],
-          [
-            0.1109840311,
-            51.4716657402
-          ],
-          [
-            0.110717956,
-            51.471701327
-          ],
-          [
-            0.1104497453,
-            51.4716726669
-          ],
-          [
-            0.1102435581,
-            51.4715978894
-          ],
-          [
-            0.1100878153,
-            51.4714851397
-          ],
-          [
-            0.1099316544,
-            51.4712737723
-          ],
-          [
-            0.1098795356,
-            51.4710712666
-          ]
-        ]
-      ],
-      "crs": {
-        "crs_type": "name",
-        "properties": {
-          "name": "EPSG:4326"
-        }
-      }
-    },
-    "streets": [
-      {
-        "name": "[A209] UPPER WICKHAM LANE (DA16 )",
-        "closure": "Closed",
-        "directions": "Northbound",
-        "segments": [
-          {
-            "toid": "0",
-            "coords": [
-              [
-                0.110509,
-                51.470618
-              ],
-              [
-                0.110481,
-                51.470514
-              ]
-            ],
-            "sourceSystemId": 0
-          },
-          {
-            "toid": "0",
-            "coords": [
-              [
-                0.110625,
-                51.471052
-              ],
-              [
-                0.110509,
-                51.470618
-              ]
-            ],
-            "sourceSystemId": 0
-          },
-          {
-            "toid": "0",
-            "coords": [
-              [
-                0.110625,
-                51.471052
-              ],
-              [
-                0.110667,
-                51.471168
-              ]
-            ],
-            "sourceSystemId": 0
-          },
-          {
-            "toid": "0",
-            "coords": [
-              [
-                0.110481,
-                51.470514
-              ],
-              [
-                0.110451,
-                51.470399
-              ]
-            ],
-            "sourceSystemId": 0
-          },
-          {
-            "toid": "0",
-            "coords": [
-              [
-                0.110451,
-                51.470399
-              ],
-              [
-                0.110444,
-                51.470372
-              ]
-            ],
-            "sourceSystemId": 0
-          },
-          {
-            "toid": "0",
-            "coords": [
-              [
-                0.110703,
-                51.471252
-              ],
-              [
-                0.110667,
-                51.471168
-              ]
-            ],
-            "sourceSystemId": 0
-          },
-          {
-            "toid": "0",
-            "coords": [
-              [
-                0.110444,
-                51.470372
-              ],
-              [
-                0.110335,
-                51.469954
-              ]
-            ],
-            "sourceSystemId": 0
-          }
-        ]
-      }
-    ],
-    "isProvisional": false,
-    "hasClosures": false
-  },
-  {
-    "tims_id": "TIMS-213635",
-    "url": "/Road/All/Disruption/TIMS-213635",
-    "severity": "Minimal",
-    "ordinal": 62,
-    "category": "Works",
-    "subCategory": "Borough works",
-    "comments": "[A504] Hendon Lane (Both directions) at the junction of Arden Road - Temporary traffic signals in operation to facilitate tree pruning works.",
-    "currentUpdate": "Some delays maybe experienced while this work takes place.",
-    "currentUpdateDateTime": "2025-07-22 12:18:54+00:00",
-    "corridorIds": [],
-    "startDateTime": "2025-07-22 07:30:00+00:00",
-    "endDateTime": "2025-07-22 15:00:00+00:00",
-    "lastModifiedTime": "2025-07-22 12:19:04+00:00",
-    "levelOfInterest": "Low",
-    "location": "[A504] HENDON LANE (N3 ) (Barnet)",
-    "status": "Active",
-    "geography": {
-      "geo_type": "Point",
-      "coordinates": [
-        -0.205014,
-        51.595149
-      ],
-      "crs": {
-        "crs_type": "name",
-        "properties": {
-          "name": "EPSG:4326"
-        }
-      }
-    },
-    "geometry": null,
-    "streets": null,
-    "isProvisional": false,
-    "hasClosures": false
-  },
-  {
-    "tims_id": "TIMS-213890",
-    "url": "/Road/All/Disruption/TIMS-213890",
-    "severity": "Minimal",
-    "ordinal": 63,
-    "category": "Works",
-    "subCategory": "Utility works",
-    "comments": "[A1205] Burdett Road (Both directions) at the junction of Portia Way - Lane restrictions in operation to facilitate Thames Water works.",
-    "currentUpdate": "Delays are possible. ",
-    "currentUpdateDateTime": "2025-07-22 09:52:31+00:00",
-    "corridorIds": [],
-    "startDateTime": "2025-07-14 07:00:00+00:00",
-    "endDateTime": "2025-11-14 19:00:00+00:00",
-    "lastModifiedTime": "2025-07-22 09:52:38+00:00",
-    "levelOfInterest": "Low",
-    "location": "[A1205] BURDETT ROAD (E1 ,E14 ,E3 ) (Tower Hamlets)",
-    "status": "Active",
-    "geography": {
-      "geo_type": "Point",
-      "coordinates": [
-        -0.031717,
-        51.520116
-      ],
-      "crs": {
-        "crs_type": "name",
-        "properties": {
-          "name": "EPSG:4326"
-        }
-      }
-    },
-    "geometry": null,
-    "streets": null,
-    "isProvisional": false,
-    "hasClosures": false
-  },
-  {
-    "tims_id": "TIMS-213941",
-    "url": "/Road/All/Disruption/TIMS-213941",
-    "severity": "Minimal",
-    "ordinal": 64,
-    "category": "Works",
-    "subCategory": "Utility works",
-    "comments": "[A310] Twickenham Road (Both directions) at the junction of Teesdale Gardens - Temporary traffic signals in operation to facilitate UKPN works.",
-    "currentUpdate": "Delays are possible. ",
-    "currentUpdateDateTime": "2025-07-22 09:19:45+00:00",
-    "corridorIds": [],
-    "startDateTime": "2025-07-10 13:30:00+00:00",
-    "endDateTime": "2025-07-22 17:00:00+00:00",
-    "lastModifiedTime": "2025-07-22 09:19:45+00:00",
-    "levelOfInterest": "Low",
-    "location": "[A310] TWICKENHAM ROAD (TW7 ) (Hounslow)",
-    "status": "Active",
-    "geography": {
-      "geo_type": "Point",
-      "coordinates": [
-        -0.32458,
-        51.47654
-      ],
-      "crs": {
-        "crs_type": "name",
-        "properties": {
-          "name": "EPSG:4326"
-        }
-      }
-    },
-    "geometry": null,
-    "streets": null,
-    "isProvisional": false,
-    "hasClosures": false
-  },
-  {
-    "tims_id": "TIMS-213943",
-    "url": "/Road/All/Disruption/TIMS-213943",
-    "severity": "Minimal",
-    "ordinal": 65,
-    "category": "Works",
-    "subCategory": "Borough works",
-    "comments": "Cycle Way Creation and Footpath Renewal Works - [A118] Romford Road (Both directions) at the junction of [B165] Little Ilford Lane - Temporary signals are in place for various pavement and cycle lane works being carried out at this location. ",
-    "currentUpdate": "Delays are possible.",
-    "currentUpdateDateTime": "2025-07-22 09:51:23+00:00",
-    "corridorIds": [],
-    "startDateTime": "2025-07-10 09:00:00+00:00",
-    "endDateTime": "2025-08-20 09:00:00+00:00",
-    "lastModifiedTime": "2025-07-22 09:51:31+00:00",
-    "levelOfInterest": "Low",
-    "location": "[A118] ROMFORD ROAD (E12 ) (Newham,Redbridge)",
-    "status": "Active",
-    "geography": {
-      "geo_type": "Point",
-      "coordinates": [
-        0.058498,
-        51.554449
-      ],
-      "crs": {
-        "crs_type": "name",
-        "properties": {
-          "name": "EPSG:4326"
-        }
-      }
-    },
-    "geometry": null,
-    "streets": null,
-    "isProvisional": false,
-    "hasClosures": false
-  },
-  {
-    "tims_id": "TIMS-214378",
-    "url": "/Road/All/Disruption/TIMS-214378",
-    "severity": "Minimal",
-    "ordinal": 66,
-    "category": "Works",
-    "subCategory": "Utility works",
-    "comments": "[A410] Uxbridge Road (Both directions) at the junction of Chartley Avenue - Road is closed due to a burst water main. ",
-    "currentUpdate": "Use an alternative route. There are no reported delays on diversion.",
-    "currentUpdateDateTime": "2025-07-22 12:23:10+00:00",
-    "corridorIds": [],
-    "startDateTime": "2025-07-19 04:15:00+00:00",
-    "endDateTime": "2025-07-24 22:59:00+00:00",
-    "lastModifiedTime": "2025-07-22 12:23:10+00:00",
-    "levelOfInterest": "Low",
-    "location": "[A410] UXBRIDGE ROAD (HA3 ,HA7 ) (Harrow)",
-    "status": "Active",
-    "geography": {
-      "geo_type": "Point",
-      "coordinates": [
-        -0.327865,
-        51.61411
-      ],
-      "crs": {
-        "crs_type": "name",
-        "properties": {
-          "name": "EPSG:4326"
-        }
-      }
-    },
-    "geometry": {
-      "geo_type": "Polygon",
-      "coordinates": [
-        [
-          [
-            -0.3309649926,
-            51.6137500671
-          ],
-          [
-            -0.3309417685,
-            51.6136272239
-          ],
-          [
-            -0.330844496,
-            51.6134919378
-          ],
-          [
-            -0.3307128032,
-            51.6133993229
-          ],
-          [
-            -0.3305089015,
-            51.6133228036
-          ],
-          [
-            -0.3301964276,
-            51.6132922253
-          ],
-          [
-            -0.3293482525,
-            51.613380956
-          ],
-          [
-            -0.3279740487,
-            51.6135968078
-          ],
-          [
-            -0.3267065184,
-            51.613833737
-          ],
-          [
-            -0.326533719,
-            51.6139100199
-          ],
-          [
-            -0.3263873266,
-            51.6140337321
-          ],
-          [
-            -0.3263215221,
-            51.6141590871
-          ],
-          [
-            -0.3263223112,
-            51.6143127446
-          ],
-          [
-            -0.3264245159,
-            51.6144761374
-          ],
-          [
-            -0.3266193784,
-            51.6146027434
-          ],
-          [
-            -0.3268772332,
-            51.6146732881
-          ],
-          [
-            -0.3271588241,
-            51.6146770314
-          ],
-          [
-            -0.3296234014,
-            51.6142634756
-          ],
-          [
-            -0.3304889642,
-            51.6141632466
-          ],
-          [
-            -0.3306538443,
-            51.6141103128
-          ],
-          [
-            -0.3308298685,
-            51.6140026007
-          ],
-          [
-            -0.3309177246,
-            51.6139008812
-          ],
-          [
-            -0.3309649926,
-            51.6137500671
-          ]
-        ]
-      ],
-      "crs": {
-        "crs_type": "name",
-        "properties": {
-          "name": "EPSG:4326"
-        }
-      }
-    },
-    "streets": [
-      {
-        "name": "[A410] UXBRIDGE ROAD (HA3 ,HA7 )",
-        "closure": "Closed",
-        "directions": "Both directions",
-        "segments": [
-          {
-            "toid": "0",
-            "coords": [
-              [
-                -0.330243,
-                51.613741
-              ],
-              [
-                -0.330171,
-                51.613749
-              ]
-            ],
-            "sourceSystemId": 0
-          },
-          {
-            "toid": "0",
-            "coords": [
-              [
-                -0.330171,
-                51.613749
-              ],
-              [
-                -0.329411,
-                51.613834
-              ]
-            ],
-            "sourceSystemId": 0
-          },
-          {
-            "toid": "0",
-            "coords": [
-              [
-                -0.329411,
-                51.613834
-              ],
-              [
-                -0.329198,
-                51.613868
-              ]
-            ],
-            "sourceSystemId": 0
-          },
-          {
-            "toid": "0",
-            "coords": [
-              [
-                -0.329198,
-                51.613868
-              ],
-              [
-                -0.32867,
-                51.613952
-              ]
-            ],
-            "sourceSystemId": 0
-          },
-          {
-            "toid": "0",
-            "coords": [
-              [
-                -0.328138,
-                51.614034
-              ],
-              [
-                -0.327847,
-                51.614093
-              ]
-            ],
-            "sourceSystemId": 0
-          },
-          {
-            "toid": "0",
-            "coords": [
-              [
-                -0.32867,
-                51.613952
-              ],
-              [
-                -0.328138,
-                51.614034
-              ]
-            ],
-            "sourceSystemId": 0
-          },
-          {
-            "toid": "0",
-            "coords": [
-              [
-                -0.327033,
-                51.614235
-              ],
-              [
-                -0.327847,
-                51.614093
-              ]
-            ],
-            "sourceSystemId": 0
-          }
-        ]
-      }
-    ],
-    "isProvisional": false,
-    "hasClosures": false
-  },
-  {
-    "tims_id": "TIMS-213960",
-    "url": "/Road/All/Disruption/TIMS-213960",
-    "severity": "Minimal",
-    "ordinal": 67,
-    "category": "Works",
-    "subCategory": "Utility works",
-    "comments": "[A3063] Wellington Road South (Southbound) at the junction of [A315] Staines Road - Lane closure southbound in operation to facilitate Cadent Gas works.",
-    "currentUpdate": "Traffic is flowing well.",
-    "currentUpdateDateTime": "2025-07-22 09:22:46+00:00",
-    "corridorIds": [],
-    "startDateTime": "2025-07-21 07:00:00+00:00",
-    "endDateTime": "2025-08-31 17:30:00+00:00",
-    "lastModifiedTime": "2025-07-22 09:22:46+00:00",
-    "levelOfInterest": "Low",
-    "location": "[A3063] WELLINGTON ROAD SOUTH (TW3 ,TW4 ) (Hounslow)",
-    "status": "Active",
-    "geography": {
-      "geo_type": "Point",
-      "coordinates": [
-        -0.378107,
-        51.465232
-      ],
-      "crs": {
-        "crs_type": "name",
-        "properties": {
-          "name": "EPSG:4326"
-        }
-      }
-    },
-    "geometry": null,
-    "streets": null,
-    "isProvisional": false,
-    "hasClosures": false
-  },
-  {
-    "tims_id": "TIMS-213462",
-    "url": "/Road/All/Disruption/TIMS-213462",
-    "severity": "Minimal",
-    "ordinal": 68,
-    "category": "Works",
-    "subCategory": "Utility works",
-    "comments": "[A215] Knights Hill (Both directions) at the junction of Rothschild Street - Temporary traffic lights in use to facilitate Thames Water work. Rothchild Street will also be closed.",
-    "currentUpdate": "Delays are possible.",
-    "currentUpdateDateTime": "2025-07-22 10:20:18+00:00",
-    "corridorIds": [],
-    "startDateTime": "2025-07-07 07:00:00+00:00",
-    "endDateTime": "2025-08-28 17:00:00+00:00",
-    "lastModifiedTime": "2025-07-22 10:20:37+00:00",
-    "levelOfInterest": "Low",
-    "location": "[A215] KNIGHTS HILL (SE27 ) (Lambeth)",
-    "status": "Active",
-    "geography": {
-      "geo_type": "Point",
-      "coordinates": [
-        -0.104383,
-        51.428809
-      ],
-      "crs": {
-        "crs_type": "name",
-        "properties": {
-          "name": "EPSG:4326"
-        }
-      }
-    },
-    "geometry": {
-      "geo_type": "Polygon",
-      "coordinates": [
-        [
-          [
-            -0.1051024716,
-            51.4288047245
-          ],
-          [
-            -0.1050674215,
-            51.428657439
-          ],
-          [
-            -0.1049573069,
-            51.4285253975
-          ],
-          [
-            -0.1047842172,
-            51.4284230957
-          ],
-          [
-            -0.1045671546,
-            51.4283617646
-          ],
-          [
-            -0.1014420086,
-            51.4282093152
-          ],
-          [
-            -0.100669934,
-            51.4282470682
-          ],
-          [
-            -0.1004041944,
-            51.4283032139
-          ],
-          [
-            -0.1001348918,
-            51.4284738836
-          ],
-          [
-            -0.1000440191,
-            51.4286847608
-          ],
-          [
-            -0.1000817513,
-            51.4288366029
-          ],
-          [
-            -0.1001991097,
-            51.4289716229
-          ],
-          [
-            -0.1003823744,
-            51.4290740355
-          ],
-          [
-            -0.1006101199,
-            51.4291318675
-          ],
-          [
-            -0.1014386982,
-            51.4291096658
-          ],
-          [
-            -0.1043712876,
-            51.4292456382
-          ],
-          [
-            -0.1046555003,
-            51.4292123412
-          ],
-          [
-            -0.1048695477,
-            51.4291275328
-          ],
-          [
-            -0.1050390182,
-            51.4289810746
-          ],
-          [
-            -0.1051024716,
-            51.4288047245
-          ]
-        ]
-      ],
-      "crs": {
-        "crs_type": "name",
-        "properties": {
-          "name": "EPSG:4326"
-        }
-      }
-    },
-    "streets": [
-      {
-        "name": "ROTHSCHILD STREET (SE27 )",
-        "closure": "Closed",
-        "directions": "Both directions",
-        "segments": [
-          {
-            "toid": "0",
-            "coords": [
-              [
-                -0.102803,
-                51.428729
-              ],
-              [
-                -0.100763,
-                51.428693
-              ]
-            ],
-            "sourceSystemId": 0
-          },
-          {
-            "toid": "0",
-            "coords": [
-              [
-                -0.104384,
-                51.428796
-              ],
-              [
-                -0.102803,
-                51.428729
-              ]
-            ],
-            "sourceSystemId": 0
-          }
-        ]
-      }
-    ],
-    "isProvisional": false,
-    "hasClosures": false
-  },
-  {
-    "tims_id": "TIMS-213997",
-    "url": "/Road/All/Disruption/TIMS-213997",
-    "severity": "Minimal",
-    "ordinal": 69,
-    "category": "Works",
-    "subCategory": "Borough works",
-    "comments": "[A5] West Hendon Broadway (All approaches) at the junction of [A504] Herbert Road - Various restrictions in place to facilitate change in carriageway works. ",
-    "currentUpdate": "Delays are possible",
-    "currentUpdateDateTime": "2025-07-22 09:17:26+00:00",
-    "corridorIds": [],
-    "startDateTime": "2025-07-11 21:00:00+00:00",
-    "endDateTime": "2026-05-31 22:59:00+00:00",
-    "lastModifiedTime": "2025-07-22 09:17:26+00:00",
-    "levelOfInterest": "Low",
-    "location": "[A5] WEST HENDON BROADWAY (NW10 ,NW9 ) (Barnet)",
-    "status": "Active",
-    "geography": {
-      "geo_type": "Point",
-      "coordinates": [
-        -0.240912,
-        51.578739
-      ],
-      "crs": {
-        "crs_type": "name",
-        "properties": {
-          "name": "EPSG:4326"
-        }
-      }
-    },
-    "geometry": null,
-    "streets": null,
-    "isProvisional": false,
-    "hasClosures": false
-  },
-  {
-    "tims_id": "TIMS-213308",
-    "url": "/Road/All/Disruption/TIMS-213308",
-    "severity": "Minimal",
-    "ordinal": 70,
-    "category": "Works",
-    "subCategory": "Borough works",
-    "comments": "[A598] Finchley Road (Both directions) at the junction of Monkville Avenue - Lane restrictions are in place to facilitate footway resurfacing works.",
-    "currentUpdate": "Traffic is flowing well.  ",
-    "currentUpdateDateTime": "2025-07-22 12:23:47+00:00",
-    "corridorIds": [],
-    "startDateTime": "2025-07-02 07:00:00+00:00",
-    "endDateTime": "2025-07-06 22:59:00+00:00",
-    "lastModifiedTime": "2025-07-22 12:23:47+00:00",
-    "levelOfInterest": "Low",
-    "location": "[A598] FINCHLEY ROAD (N3 ,NW11 ) (Barnet)",
-    "status": "Active",
-    "geography": {
-      "geo_type": "Point",
-      "coordinates": [
-        -0.19995,
-        51.587537
-      ],
-      "crs": {
-        "crs_type": "name",
-        "properties": {
-          "name": "EPSG:4326"
-        }
-      }
-    },
-    "geometry": null,
-    "streets": null,
-    "isProvisional": false,
-    "hasClosures": false
-  },
-  {
-    "tims_id": "TIMS-214159",
-    "url": "/Road/All/Disruption/TIMS-214159",
-    "severity": "Minimal",
-    "ordinal": 71,
-    "category": "Works",
-    "subCategory": "Borough works",
-    "comments": "[A104] Essex Road (Both directions) at the junction of Northampton Street - Temporary traffic signals in operation to facilitate resurfacing carriageway works,",
-    "currentUpdate": "There are no reported delays.",
-    "currentUpdateDateTime": "2025-07-22 12:23:27+00:00",
-    "corridorIds": [],
-    "startDateTime": "2025-07-21 07:00:00+00:00",
-    "endDateTime": "2025-07-22 16:00:00+00:00",
-    "lastModifiedTime": "2025-07-22 12:23:27+00:00",
-    "levelOfInterest": "Low",
-    "location": "[A104] ESSEX ROAD (N1 ) (Islington)",
-    "status": "Active",
-    "geography": {
-      "geo_type": "Point",
-      "coordinates": [
-        -0.09521,
-        51.541019
-      ],
-      "crs": {
-        "crs_type": "name",
-        "properties": {
-          "name": "EPSG:4326"
-        }
-      }
-    },
-    "geometry": null,
-    "streets": null,
-    "isProvisional": false,
-    "hasClosures": false
-  },
-  {
-    "tims_id": "TIMS-213307",
-    "url": "/Road/All/Disruption/TIMS-213307",
-    "severity": "Minimal",
-    "ordinal": 72,
-    "category": "Works",
-    "subCategory": "Collaborative works",
-    "comments": "Fleet Street (Eastbound) between [A4] Fetter Lane and [A201] Ludgate Circus - Road closure to facilitate works.",
-    "currentUpdate": "Use an alternative route. Delays are possible on diversion. ",
-    "currentUpdateDateTime": "2025-07-22 07:37:57+00:00",
-    "corridorIds": [],
-    "startDateTime": "2025-07-07 12:00:00+00:00",
-    "endDateTime": "2025-07-25 17:00:00+00:00",
-    "lastModifiedTime": "2025-07-22 07:37:57+00:00",
-    "levelOfInterest": "Low",
-    "location": "FLEET STREET (EC4A ,EC4Y ,WC2A ) (City of London,Westminster)",
-    "status": "Active",
-    "geography": {
-      "geo_type": "Point",
-      "coordinates": [
-        -0.106951,
-        51.514208
-      ],
-      "crs": {
-        "crs_type": "name",
-        "properties": {
-          "name": "EPSG:4326"
-        }
-      }
-    },
-    "geometry": {
-      "geo_type": "Polygon",
-      "coordinates": [
-        [
-          [
-            -0.1087373673,
-            51.5142118288
-          ],
-          [
-            -0.1087039447,
-            51.5140774658
-          ],
-          [
-            -0.1085860253,
-            51.5139371748
-          ],
-          [
-            -0.1083974157,
-            51.513831128
-          ],
-          [
-            -0.108161551,
-            51.5137725017
-          ],
-          [
-            -0.1073675176,
-            51.5137755822
-          ],
-          [
-            -0.1070548099,
-            51.5138480526
-          ],
-          [
-            -0.1068834718,
-            51.5137818215
-          ],
-          [
-            -0.1066707622,
-            51.513746514
-          ],
-          [
-            -0.10634068,
-            51.5137728094
-          ],
-          [
-            -0.1049836298,
-            51.513732544
-          ],
-          [
-            -0.1047086362,
-            51.5137686983
-          ],
-          [
-            -0.1044767484,
-            51.5138677602
-          ],
-          [
-            -0.104323268,
-            51.5140146491
-          ],
-          [
-            -0.1042715611,
-            51.5141870032
-          ],
-          [
-            -0.1043049372,
-            51.5143172304
-          ],
-          [
-            -0.104397464,
-            51.5144358051
-          ],
-          [
-            -0.1045692878,
-            51.514545889
-          ],
-          [
-            -0.1047568158,
-            51.5146067394
-          ],
-          [
-            -0.1052103601,
-            51.5146521362
-          ],
-          [
-            -0.1064532116,
-            51.5146746269
-          ],
-          [
-            -0.106696211,
-            51.5146538889
-          ],
-          [
-            -0.1069939954,
-            51.5145669927
-          ],
-          [
-            -0.1071577819,
-            51.5146311419
-          ],
-          [
-            -0.1073786185,
-            51.5146685802
-          ],
-          [
-            -0.1082549349,
-            51.5146369732
-          ],
-          [
-            -0.1084366798,
-            51.5145780553
-          ],
-          [
-            -0.1086049469,
-            51.514472461
-          ],
-          [
-            -0.1086983271,
-            51.5143587271
-          ],
-          [
-            -0.1087373673,
-            51.5142118288
-          ]
-        ]
-      ],
-      "crs": {
-        "crs_type": "name",
-        "properties": {
-          "name": "EPSG:4326"
-        }
-      }
-    },
-    "streets": [
-      {
-        "name": "FLEET STREET (EC4A ,EC4Y ,WC2A )",
-        "closure": "Closed",
-        "directions": "Eastbound",
-        "segments": [
-          {
-            "toid": "0",
-            "coords": [
-              [
-                -0.108851,
-                51.514177
-              ],
-              [
-                -0.109133,
-                51.51416
-              ]
-            ],
-            "sourceSystemId": 0
-          },
-          {
-            "toid": "0",
-            "coords": [
-              [
-                -0.106151,
-                51.514218
-              ],
-              [
-                -0.105242,
-                51.514203
-              ]
-            ],
-            "sourceSystemId": 0
-          },
-          {
-            "toid": "0",
-            "coords": [
-              [
-                -0.109454,
-                51.51413
-              ],
-              [
-                -0.109232,
-                51.514172
-              ]
-            ],
-            "sourceSystemId": 0
-          },
-          {
-            "toid": "0",
-            "coords": [
-              [
-                -0.109232,
-                51.514172
-              ],
-              [
-                -0.109133,
-                51.51416
-              ]
-            ],
-            "sourceSystemId": 0
-          },
-          {
-            "toid": "0",
-            "coords": [
-              [
-                -0.106248,
-                51.51422
-              ],
-              [
-                -0.106151,
-                51.514218
-              ]
-            ],
-            "sourceSystemId": 0
-          },
-          {
-            "toid": "0",
-            "coords": [
-              [
-                -0.108017,
-                51.514213
-              ],
-              [
-                -0.108272,
-                51.514206
-              ]
-            ],
-            "sourceSystemId": 0
-          },
-          {
-            "toid": "0",
-            "coords": [
-              [
-                -0.106594,
-                51.514193
-              ],
-              [
-                -0.106248,
-                51.51422
-              ]
-            ],
-            "sourceSystemId": 0
-          },
-          {
-            "toid": "0",
-            "coords": [
-              [
-                -0.104555,
-                51.51417
-              ],
-              [
-                -0.104739,
-                51.514175
-              ]
-            ],
-            "sourceSystemId": 0
-          },
-          {
-            "toid": "0",
-            "coords": [
-              [
-                -0.107754,
-                51.51422
-              ],
-              [
-                -0.108017,
-                51.514213
-              ]
-            ],
-            "sourceSystemId": 0
-          },
-          {
-            "toid": "0",
-            "coords": [
-              [
-                -0.107185,
-                51.514213
-              ],
-              [
-                -0.107455,
-                51.514222
-              ]
-            ],
-            "sourceSystemId": 0
-          },
-          {
-            "toid": "0",
-            "coords": [
-              [
-                -0.108272,
-                51.514206
-              ],
-              [
-                -0.108539,
-                51.514196
-              ]
-            ],
-            "sourceSystemId": 0
-          },
-          {
-            "toid": "0",
-            "coords": [
-              [
-                -0.107455,
-                51.514222
-              ],
-              [
-                -0.107754,
-                51.51422
-              ]
-            ],
-            "sourceSystemId": 0
-          },
-          {
-            "toid": "0",
-            "coords": [
-              [
-                -0.105242,
-                51.514203
-              ],
-              [
-                -0.104992,
-                51.514182
-              ]
-            ],
-            "sourceSystemId": 0
-          },
-          {
-            "toid": "0",
-            "coords": [
-              [
-                -0.104739,
-                51.514175
-              ],
-              [
-                -0.104992,
-                51.514182
-              ]
-            ],
-            "sourceSystemId": 0
-          },
-          {
-            "toid": "0",
-            "coords": [
-              [
-                -0.108539,
-                51.514196
-              ],
-              [
-                -0.108851,
-                51.514177
-              ]
-            ],
-            "sourceSystemId": 0
-          },
-          {
-            "toid": "0",
-            "coords": [
-              [
-                -0.106594,
-                51.514193
-              ],
-              [
-                -0.107185,
-                51.514213
-              ]
-            ],
-            "sourceSystemId": 0
-          }
-        ]
-      }
-    ],
-    "isProvisional": false,
-    "hasClosures": false
-  },
-  {
     "tims_id": "TIMS-213677",
     "url": "/Road/All/Disruption/TIMS-213677",
     "severity": "Minimal",
-    "ordinal": 73,
+    "ordinal": 59,
     "category": "Works",
     "subCategory": "Borough works",
     "comments": "[A308] Upper Sunbury Road (Westbound) at the junction of Percy Road - Road is closed westbound to facilitate Hampton barrier project works.",
@@ -11897,10 +10729,677 @@
     "hasClosures": false
   },
   {
+    "tims_id": "TIMS-213307",
+    "url": "/Road/All/Disruption/TIMS-213307",
+    "severity": "Minimal",
+    "ordinal": 60,
+    "category": "Works",
+    "subCategory": "Collaborative works",
+    "comments": "Fleet Street (Eastbound) between [A4] Fetter Lane and [A201] Ludgate Circus - Road closure to facilitate works.",
+    "currentUpdate": "Use an alternative route. Delays are possible on diversion. ",
+    "currentUpdateDateTime": "2025-07-22 07:37:57+00:00",
+    "corridorIds": [],
+    "startDateTime": "2025-07-07 12:00:00+00:00",
+    "endDateTime": "2025-07-25 17:00:00+00:00",
+    "lastModifiedTime": "2025-07-22 07:37:57+00:00",
+    "levelOfInterest": "Low",
+    "location": "FLEET STREET (EC4A ,EC4Y ,WC2A ) (City of London,Westminster)",
+    "status": "Active",
+    "geography": {
+      "geo_type": "Point",
+      "coordinates": [
+        -0.106951,
+        51.514208
+      ],
+      "crs": {
+        "crs_type": "name",
+        "properties": {
+          "name": "EPSG:4326"
+        }
+      }
+    },
+    "geometry": {
+      "geo_type": "Polygon",
+      "coordinates": [
+        [
+          [
+            -0.1087373673,
+            51.5142118288
+          ],
+          [
+            -0.1087039447,
+            51.5140774658
+          ],
+          [
+            -0.1085860253,
+            51.5139371748
+          ],
+          [
+            -0.1083974157,
+            51.513831128
+          ],
+          [
+            -0.108161551,
+            51.5137725017
+          ],
+          [
+            -0.1073675176,
+            51.5137755822
+          ],
+          [
+            -0.1070548099,
+            51.5138480526
+          ],
+          [
+            -0.1068834718,
+            51.5137818215
+          ],
+          [
+            -0.1066707622,
+            51.513746514
+          ],
+          [
+            -0.10634068,
+            51.5137728094
+          ],
+          [
+            -0.1049836298,
+            51.513732544
+          ],
+          [
+            -0.1047086362,
+            51.5137686983
+          ],
+          [
+            -0.1044767484,
+            51.5138677602
+          ],
+          [
+            -0.104323268,
+            51.5140146491
+          ],
+          [
+            -0.1042715611,
+            51.5141870032
+          ],
+          [
+            -0.1043049372,
+            51.5143172304
+          ],
+          [
+            -0.104397464,
+            51.5144358051
+          ],
+          [
+            -0.1045692878,
+            51.514545889
+          ],
+          [
+            -0.1047568158,
+            51.5146067394
+          ],
+          [
+            -0.1052103601,
+            51.5146521362
+          ],
+          [
+            -0.1064532116,
+            51.5146746269
+          ],
+          [
+            -0.106696211,
+            51.5146538889
+          ],
+          [
+            -0.1069939954,
+            51.5145669927
+          ],
+          [
+            -0.1071577819,
+            51.5146311419
+          ],
+          [
+            -0.1073786185,
+            51.5146685802
+          ],
+          [
+            -0.1082549349,
+            51.5146369732
+          ],
+          [
+            -0.1084366798,
+            51.5145780553
+          ],
+          [
+            -0.1086049469,
+            51.514472461
+          ],
+          [
+            -0.1086983271,
+            51.5143587271
+          ],
+          [
+            -0.1087373673,
+            51.5142118288
+          ]
+        ]
+      ],
+      "crs": {
+        "crs_type": "name",
+        "properties": {
+          "name": "EPSG:4326"
+        }
+      }
+    },
+    "streets": [
+      {
+        "name": "FLEET STREET (EC4A ,EC4Y ,WC2A )",
+        "closure": "Closed",
+        "directions": "Eastbound",
+        "segments": [
+          {
+            "toid": "0",
+            "coords": [
+              [
+                -0.108851,
+                51.514177
+              ],
+              [
+                -0.109133,
+                51.51416
+              ]
+            ],
+            "sourceSystemId": 0
+          },
+          {
+            "toid": "0",
+            "coords": [
+              [
+                -0.106151,
+                51.514218
+              ],
+              [
+                -0.105242,
+                51.514203
+              ]
+            ],
+            "sourceSystemId": 0
+          },
+          {
+            "toid": "0",
+            "coords": [
+              [
+                -0.109454,
+                51.51413
+              ],
+              [
+                -0.109232,
+                51.514172
+              ]
+            ],
+            "sourceSystemId": 0
+          },
+          {
+            "toid": "0",
+            "coords": [
+              [
+                -0.109232,
+                51.514172
+              ],
+              [
+                -0.109133,
+                51.51416
+              ]
+            ],
+            "sourceSystemId": 0
+          },
+          {
+            "toid": "0",
+            "coords": [
+              [
+                -0.106248,
+                51.51422
+              ],
+              [
+                -0.106151,
+                51.514218
+              ]
+            ],
+            "sourceSystemId": 0
+          },
+          {
+            "toid": "0",
+            "coords": [
+              [
+                -0.108017,
+                51.514213
+              ],
+              [
+                -0.108272,
+                51.514206
+              ]
+            ],
+            "sourceSystemId": 0
+          },
+          {
+            "toid": "0",
+            "coords": [
+              [
+                -0.106594,
+                51.514193
+              ],
+              [
+                -0.106248,
+                51.51422
+              ]
+            ],
+            "sourceSystemId": 0
+          },
+          {
+            "toid": "0",
+            "coords": [
+              [
+                -0.104555,
+                51.51417
+              ],
+              [
+                -0.104739,
+                51.514175
+              ]
+            ],
+            "sourceSystemId": 0
+          },
+          {
+            "toid": "0",
+            "coords": [
+              [
+                -0.107754,
+                51.51422
+              ],
+              [
+                -0.108017,
+                51.514213
+              ]
+            ],
+            "sourceSystemId": 0
+          },
+          {
+            "toid": "0",
+            "coords": [
+              [
+                -0.107185,
+                51.514213
+              ],
+              [
+                -0.107455,
+                51.514222
+              ]
+            ],
+            "sourceSystemId": 0
+          },
+          {
+            "toid": "0",
+            "coords": [
+              [
+                -0.108272,
+                51.514206
+              ],
+              [
+                -0.108539,
+                51.514196
+              ]
+            ],
+            "sourceSystemId": 0
+          },
+          {
+            "toid": "0",
+            "coords": [
+              [
+                -0.107455,
+                51.514222
+              ],
+              [
+                -0.107754,
+                51.51422
+              ]
+            ],
+            "sourceSystemId": 0
+          },
+          {
+            "toid": "0",
+            "coords": [
+              [
+                -0.105242,
+                51.514203
+              ],
+              [
+                -0.104992,
+                51.514182
+              ]
+            ],
+            "sourceSystemId": 0
+          },
+          {
+            "toid": "0",
+            "coords": [
+              [
+                -0.104739,
+                51.514175
+              ],
+              [
+                -0.104992,
+                51.514182
+              ]
+            ],
+            "sourceSystemId": 0
+          },
+          {
+            "toid": "0",
+            "coords": [
+              [
+                -0.108539,
+                51.514196
+              ],
+              [
+                -0.108851,
+                51.514177
+              ]
+            ],
+            "sourceSystemId": 0
+          },
+          {
+            "toid": "0",
+            "coords": [
+              [
+                -0.106594,
+                51.514193
+              ],
+              [
+                -0.107185,
+                51.514213
+              ]
+            ],
+            "sourceSystemId": 0
+          }
+        ]
+      }
+    ],
+    "isProvisional": false,
+    "hasClosures": false
+  },
+  {
+    "tims_id": "TIMS-214159",
+    "url": "/Road/All/Disruption/TIMS-214159",
+    "severity": "Minimal",
+    "ordinal": 61,
+    "category": "Works",
+    "subCategory": "Borough works",
+    "comments": "[A104] Essex Road (Both directions) at the junction of Northampton Street - Temporary traffic signals in operation to facilitate resurfacing carriageway works,",
+    "currentUpdate": "There are no reported delays.",
+    "currentUpdateDateTime": "2025-07-22 12:23:27+00:00",
+    "corridorIds": [],
+    "startDateTime": "2025-07-21 07:00:00+00:00",
+    "endDateTime": "2025-07-22 16:00:00+00:00",
+    "lastModifiedTime": "2025-07-22 12:23:27+00:00",
+    "levelOfInterest": "Low",
+    "location": "[A104] ESSEX ROAD (N1 ) (Islington)",
+    "status": "Active",
+    "geography": {
+      "geo_type": "Point",
+      "coordinates": [
+        -0.09521,
+        51.541019
+      ],
+      "crs": {
+        "crs_type": "name",
+        "properties": {
+          "name": "EPSG:4326"
+        }
+      }
+    },
+    "geometry": null,
+    "streets": null,
+    "isProvisional": false,
+    "hasClosures": false
+  },
+  {
+    "tims_id": "TIMS-213308",
+    "url": "/Road/All/Disruption/TIMS-213308",
+    "severity": "Minimal",
+    "ordinal": 62,
+    "category": "Works",
+    "subCategory": "Borough works",
+    "comments": "[A598] Finchley Road (Both directions) at the junction of Monkville Avenue - Lane restrictions are in place to facilitate footway resurfacing works.",
+    "currentUpdate": "Traffic is flowing well.  ",
+    "currentUpdateDateTime": "2025-07-22 12:23:47+00:00",
+    "corridorIds": [],
+    "startDateTime": "2025-07-02 07:00:00+00:00",
+    "endDateTime": "2025-07-06 22:59:00+00:00",
+    "lastModifiedTime": "2025-07-22 12:23:47+00:00",
+    "levelOfInterest": "Low",
+    "location": "[A598] FINCHLEY ROAD (N3 ,NW11 ) (Barnet)",
+    "status": "Active",
+    "geography": {
+      "geo_type": "Point",
+      "coordinates": [
+        -0.19995,
+        51.587537
+      ],
+      "crs": {
+        "crs_type": "name",
+        "properties": {
+          "name": "EPSG:4326"
+        }
+      }
+    },
+    "geometry": null,
+    "streets": null,
+    "isProvisional": false,
+    "hasClosures": false
+  },
+  {
+    "tims_id": "TIMS-213997",
+    "url": "/Road/All/Disruption/TIMS-213997",
+    "severity": "Minimal",
+    "ordinal": 63,
+    "category": "Works",
+    "subCategory": "Borough works",
+    "comments": "[A5] West Hendon Broadway (All approaches) at the junction of [A504] Herbert Road - Various restrictions in place to facilitate change in carriageway works. ",
+    "currentUpdate": "Delays are possible",
+    "currentUpdateDateTime": "2025-07-22 09:17:26+00:00",
+    "corridorIds": [],
+    "startDateTime": "2025-07-11 21:00:00+00:00",
+    "endDateTime": "2026-05-31 22:59:00+00:00",
+    "lastModifiedTime": "2025-07-22 09:17:26+00:00",
+    "levelOfInterest": "Low",
+    "location": "[A5] WEST HENDON BROADWAY (NW10 ,NW9 ) (Barnet)",
+    "status": "Active",
+    "geography": {
+      "geo_type": "Point",
+      "coordinates": [
+        -0.240912,
+        51.578739
+      ],
+      "crs": {
+        "crs_type": "name",
+        "properties": {
+          "name": "EPSG:4326"
+        }
+      }
+    },
+    "geometry": null,
+    "streets": null,
+    "isProvisional": false,
+    "hasClosures": false
+  },
+  {
+    "tims_id": "TIMS-213462",
+    "url": "/Road/All/Disruption/TIMS-213462",
+    "severity": "Minimal",
+    "ordinal": 64,
+    "category": "Works",
+    "subCategory": "Utility works",
+    "comments": "[A215] Knights Hill (Both directions) at the junction of Rothschild Street - Temporary traffic lights in use to facilitate Thames Water work. Rothchild Street will also be closed.",
+    "currentUpdate": "Delays are possible.",
+    "currentUpdateDateTime": "2025-07-22 10:20:18+00:00",
+    "corridorIds": [],
+    "startDateTime": "2025-07-07 07:00:00+00:00",
+    "endDateTime": "2025-08-28 17:00:00+00:00",
+    "lastModifiedTime": "2025-07-22 10:20:37+00:00",
+    "levelOfInterest": "Low",
+    "location": "[A215] KNIGHTS HILL (SE27 ) (Lambeth)",
+    "status": "Active",
+    "geography": {
+      "geo_type": "Point",
+      "coordinates": [
+        -0.104383,
+        51.428809
+      ],
+      "crs": {
+        "crs_type": "name",
+        "properties": {
+          "name": "EPSG:4326"
+        }
+      }
+    },
+    "geometry": {
+      "geo_type": "Polygon",
+      "coordinates": [
+        [
+          [
+            -0.1051024716,
+            51.4288047245
+          ],
+          [
+            -0.1050674215,
+            51.428657439
+          ],
+          [
+            -0.1049573069,
+            51.4285253975
+          ],
+          [
+            -0.1047842172,
+            51.4284230957
+          ],
+          [
+            -0.1045671546,
+            51.4283617646
+          ],
+          [
+            -0.1014420086,
+            51.4282093152
+          ],
+          [
+            -0.100669934,
+            51.4282470682
+          ],
+          [
+            -0.1004041944,
+            51.4283032139
+          ],
+          [
+            -0.1001348918,
+            51.4284738836
+          ],
+          [
+            -0.1000440191,
+            51.4286847608
+          ],
+          [
+            -0.1000817513,
+            51.4288366029
+          ],
+          [
+            -0.1001991097,
+            51.4289716229
+          ],
+          [
+            -0.1003823744,
+            51.4290740355
+          ],
+          [
+            -0.1006101199,
+            51.4291318675
+          ],
+          [
+            -0.1014386982,
+            51.4291096658
+          ],
+          [
+            -0.1043712876,
+            51.4292456382
+          ],
+          [
+            -0.1046555003,
+            51.4292123412
+          ],
+          [
+            -0.1048695477,
+            51.4291275328
+          ],
+          [
+            -0.1050390182,
+            51.4289810746
+          ],
+          [
+            -0.1051024716,
+            51.4288047245
+          ]
+        ]
+      ],
+      "crs": {
+        "crs_type": "name",
+        "properties": {
+          "name": "EPSG:4326"
+        }
+      }
+    },
+    "streets": [
+      {
+        "name": "ROTHSCHILD STREET (SE27 )",
+        "closure": "Closed",
+        "directions": "Both directions",
+        "segments": [
+          {
+            "toid": "0",
+            "coords": [
+              [
+                -0.102803,
+                51.428729
+              ],
+              [
+                -0.100763,
+                51.428693
+              ]
+            ],
+            "sourceSystemId": 0
+          },
+          {
+            "toid": "0",
+            "coords": [
+              [
+                -0.104384,
+                51.428796
+              ],
+              [
+                -0.102803,
+                51.428729
+              ]
+            ],
+            "sourceSystemId": 0
+          }
+        ]
+      }
+    ],
+    "isProvisional": false,
+    "hasClosures": false
+  },
+  {
     "tims_id": "TIMS-213614",
     "url": "/Road/All/Disruption/TIMS-213614",
     "severity": "Minimal",
-    "ordinal": 74,
+    "ordinal": 65,
     "category": "Works",
     "subCategory": "Utility works",
     "comments": "[A1] Goswell Road (Southbound) at the junction of Baltic Street West - Lane restrictions in place to facilitate Vodafone telecoms works.",
@@ -11932,10 +11431,185 @@
     "hasClosures": false
   },
   {
+    "tims_id": "TIMS-213960",
+    "url": "/Road/All/Disruption/TIMS-213960",
+    "severity": "Minimal",
+    "ordinal": 66,
+    "category": "Works",
+    "subCategory": "Utility works",
+    "comments": "[A3063] Wellington Road South (Southbound) at the junction of [A315] Staines Road - Lane closure southbound in operation to facilitate Cadent Gas works.",
+    "currentUpdate": "Traffic is flowing well.",
+    "currentUpdateDateTime": "2025-07-22 09:22:46+00:00",
+    "corridorIds": [],
+    "startDateTime": "2025-07-21 07:00:00+00:00",
+    "endDateTime": "2025-08-31 17:30:00+00:00",
+    "lastModifiedTime": "2025-07-22 09:22:46+00:00",
+    "levelOfInterest": "Low",
+    "location": "[A3063] WELLINGTON ROAD SOUTH (TW3 ,TW4 ) (Hounslow)",
+    "status": "Active",
+    "geography": {
+      "geo_type": "Point",
+      "coordinates": [
+        -0.378107,
+        51.465232
+      ],
+      "crs": {
+        "crs_type": "name",
+        "properties": {
+          "name": "EPSG:4326"
+        }
+      }
+    },
+    "geometry": null,
+    "streets": null,
+    "isProvisional": false,
+    "hasClosures": false
+  },
+  {
+    "tims_id": "TIMS-213943",
+    "url": "/Road/All/Disruption/TIMS-213943",
+    "severity": "Minimal",
+    "ordinal": 67,
+    "category": "Works",
+    "subCategory": "Borough works",
+    "comments": "Cycle Way Creation and Footpath Renewal Works - [A118] Romford Road (Both directions) at the junction of [B165] Little Ilford Lane - Temporary signals are in place for various pavement and cycle lane works being carried out at this location. ",
+    "currentUpdate": "Delays are possible.",
+    "currentUpdateDateTime": "2025-07-22 09:51:23+00:00",
+    "corridorIds": [],
+    "startDateTime": "2025-07-10 09:00:00+00:00",
+    "endDateTime": "2025-08-20 09:00:00+00:00",
+    "lastModifiedTime": "2025-07-22 09:51:31+00:00",
+    "levelOfInterest": "Low",
+    "location": "[A118] ROMFORD ROAD (E12 ) (Newham,Redbridge)",
+    "status": "Active",
+    "geography": {
+      "geo_type": "Point",
+      "coordinates": [
+        0.058498,
+        51.554449
+      ],
+      "crs": {
+        "crs_type": "name",
+        "properties": {
+          "name": "EPSG:4326"
+        }
+      }
+    },
+    "geometry": null,
+    "streets": null,
+    "isProvisional": false,
+    "hasClosures": false
+  },
+  {
+    "tims_id": "TIMS-213941",
+    "url": "/Road/All/Disruption/TIMS-213941",
+    "severity": "Minimal",
+    "ordinal": 68,
+    "category": "Works",
+    "subCategory": "Utility works",
+    "comments": "[A310] Twickenham Road (Both directions) at the junction of Teesdale Gardens - Temporary traffic signals in operation to facilitate UKPN works.",
+    "currentUpdate": "Delays are possible. ",
+    "currentUpdateDateTime": "2025-07-22 09:19:45+00:00",
+    "corridorIds": [],
+    "startDateTime": "2025-07-10 13:30:00+00:00",
+    "endDateTime": "2025-07-22 17:00:00+00:00",
+    "lastModifiedTime": "2025-07-22 09:19:45+00:00",
+    "levelOfInterest": "Low",
+    "location": "[A310] TWICKENHAM ROAD (TW7 ) (Hounslow)",
+    "status": "Active",
+    "geography": {
+      "geo_type": "Point",
+      "coordinates": [
+        -0.32458,
+        51.47654
+      ],
+      "crs": {
+        "crs_type": "name",
+        "properties": {
+          "name": "EPSG:4326"
+        }
+      }
+    },
+    "geometry": null,
+    "streets": null,
+    "isProvisional": false,
+    "hasClosures": false
+  },
+  {
+    "tims_id": "TIMS-213890",
+    "url": "/Road/All/Disruption/TIMS-213890",
+    "severity": "Minimal",
+    "ordinal": 69,
+    "category": "Works",
+    "subCategory": "Utility works",
+    "comments": "[A1205] Burdett Road (Both directions) at the junction of Portia Way - Lane restrictions in operation to facilitate Thames Water works.",
+    "currentUpdate": "Delays are possible. ",
+    "currentUpdateDateTime": "2025-07-22 09:52:31+00:00",
+    "corridorIds": [],
+    "startDateTime": "2025-07-14 07:00:00+00:00",
+    "endDateTime": "2025-11-14 19:00:00+00:00",
+    "lastModifiedTime": "2025-07-22 09:52:38+00:00",
+    "levelOfInterest": "Low",
+    "location": "[A1205] BURDETT ROAD (E1 ,E14 ,E3 ) (Tower Hamlets)",
+    "status": "Active",
+    "geography": {
+      "geo_type": "Point",
+      "coordinates": [
+        -0.031717,
+        51.520116
+      ],
+      "crs": {
+        "crs_type": "name",
+        "properties": {
+          "name": "EPSG:4326"
+        }
+      }
+    },
+    "geometry": null,
+    "streets": null,
+    "isProvisional": false,
+    "hasClosures": false
+  },
+  {
+    "tims_id": "TIMS-213635",
+    "url": "/Road/All/Disruption/TIMS-213635",
+    "severity": "Minimal",
+    "ordinal": 70,
+    "category": "Works",
+    "subCategory": "Borough works",
+    "comments": "[A504] Hendon Lane (Both directions) at the junction of Arden Road - Temporary traffic signals in operation to facilitate tree pruning works.",
+    "currentUpdate": "Some delays maybe experienced while this work takes place.",
+    "currentUpdateDateTime": "2025-07-22 12:18:54+00:00",
+    "corridorIds": [],
+    "startDateTime": "2025-07-22 07:30:00+00:00",
+    "endDateTime": "2025-07-22 15:00:00+00:00",
+    "lastModifiedTime": "2025-07-22 12:19:04+00:00",
+    "levelOfInterest": "Low",
+    "location": "[A504] HENDON LANE (N3 ) (Barnet)",
+    "status": "Active",
+    "geography": {
+      "geo_type": "Point",
+      "coordinates": [
+        -0.205014,
+        51.595149
+      ],
+      "crs": {
+        "crs_type": "name",
+        "properties": {
+          "name": "EPSG:4326"
+        }
+      }
+    },
+    "geometry": null,
+    "streets": null,
+    "isProvisional": false,
+    "hasClosures": false
+  },
+  {
     "tims_id": "TIMS-213826",
     "url": "/Road/All/Disruption/TIMS-213826",
     "severity": "Minimal",
-    "ordinal": 75,
+    "ordinal": 71,
     "category": "Works",
     "subCategory": "Utility works",
     "comments": "[A402] Notting Hill Gate (Both directions) at the junction of [B405] Palace Gardens Terrace - Lane restrictions in operation to facilitate UKPN works.",
@@ -11953,6 +11627,297 @@
       "coordinates": [
         -0.194145,
         51.509483
+      ],
+      "crs": {
+        "crs_type": "name",
+        "properties": {
+          "name": "EPSG:4326"
+        }
+      }
+    },
+    "geometry": null,
+    "streets": null,
+    "isProvisional": false,
+    "hasClosures": false
+  },
+  {
+    "tims_id": "TIMS-214519",
+    "url": "/Road/All/Disruption/TIMS-214519",
+    "severity": "Minimal",
+    "ordinal": 72,
+    "category": "Hazards",
+    "subCategory": "Fire",
+    "comments": "[A209] Upper Wickham Lane (Northbound) at the junction of Anthony Road - Road has been closed northbound due to a building fire.",
+    "currentUpdate": "Use other route whilst the road is closed by emergency services.",
+    "currentUpdateDateTime": "2025-07-22 12:20:35+00:00",
+    "corridorIds": [],
+    "startDateTime": "2025-07-22 12:20:34+00:00",
+    "endDateTime": "2025-07-22 23:59:59+00:00",
+    "lastModifiedTime": "2025-07-22 12:22:53+00:00",
+    "levelOfInterest": "Low",
+    "location": "[A209] UPPER WICKHAM LANE (DA16 ) (Bexley,Greenwich)",
+    "status": "Active",
+    "geography": {
+      "geo_type": "Point",
+      "coordinates": [
+        0.110305,
+        51.469874
+      ],
+      "crs": {
+        "crs_type": "name",
+        "properties": {
+          "name": "EPSG:4326"
+        }
+      }
+    },
+    "geometry": {
+      "geo_type": "Polygon",
+      "coordinates": [
+        [
+          [
+            0.1098795356,
+            51.4710712666
+          ],
+          [
+            0.1099758351,
+            51.4708551726
+          ],
+          [
+            0.1102260537,
+            51.4706857972
+          ],
+          [
+            0.1105135286,
+            51.4706152725
+          ],
+          [
+            0.1108712488,
+            51.4706364101
+          ],
+          [
+            0.111132444,
+            51.4707393554
+          ],
+          [
+            0.1113004787,
+            51.4709012027
+          ],
+          [
+            0.1114179102,
+            51.4712007453
+          ],
+          [
+            0.1113761811,
+            51.471410835
+          ],
+          [
+            0.1112099234,
+            51.4715709951
+          ],
+          [
+            0.1109840311,
+            51.4716657402
+          ],
+          [
+            0.110717956,
+            51.471701327
+          ],
+          [
+            0.1104497453,
+            51.4716726669
+          ],
+          [
+            0.1102435581,
+            51.4715978894
+          ],
+          [
+            0.1100878153,
+            51.4714851397
+          ],
+          [
+            0.1099316544,
+            51.4712737723
+          ],
+          [
+            0.1098795356,
+            51.4710712666
+          ]
+        ]
+      ],
+      "crs": {
+        "crs_type": "name",
+        "properties": {
+          "name": "EPSG:4326"
+        }
+      }
+    },
+    "streets": [
+      {
+        "name": "[A209] UPPER WICKHAM LANE (DA16 )",
+        "closure": "Closed",
+        "directions": "Northbound",
+        "segments": [
+          {
+            "toid": "0",
+            "coords": [
+              [
+                0.110509,
+                51.470618
+              ],
+              [
+                0.110481,
+                51.470514
+              ]
+            ],
+            "sourceSystemId": 0
+          },
+          {
+            "toid": "0",
+            "coords": [
+              [
+                0.110625,
+                51.471052
+              ],
+              [
+                0.110509,
+                51.470618
+              ]
+            ],
+            "sourceSystemId": 0
+          },
+          {
+            "toid": "0",
+            "coords": [
+              [
+                0.110625,
+                51.471052
+              ],
+              [
+                0.110667,
+                51.471168
+              ]
+            ],
+            "sourceSystemId": 0
+          },
+          {
+            "toid": "0",
+            "coords": [
+              [
+                0.110481,
+                51.470514
+              ],
+              [
+                0.110451,
+                51.470399
+              ]
+            ],
+            "sourceSystemId": 0
+          },
+          {
+            "toid": "0",
+            "coords": [
+              [
+                0.110451,
+                51.470399
+              ],
+              [
+                0.110444,
+                51.470372
+              ]
+            ],
+            "sourceSystemId": 0
+          },
+          {
+            "toid": "0",
+            "coords": [
+              [
+                0.110703,
+                51.471252
+              ],
+              [
+                0.110667,
+                51.471168
+              ]
+            ],
+            "sourceSystemId": 0
+          },
+          {
+            "toid": "0",
+            "coords": [
+              [
+                0.110444,
+                51.470372
+              ],
+              [
+                0.110335,
+                51.469954
+              ]
+            ],
+            "sourceSystemId": 0
+          }
+        ]
+      }
+    ],
+    "isProvisional": false,
+    "hasClosures": false
+  },
+  {
+    "tims_id": "TIMS-214297",
+    "url": "/Road/All/Disruption/TIMS-214297",
+    "severity": "Minimal",
+    "ordinal": 73,
+    "category": "Surface damage",
+    "subCategory": "Subsidence",
+    "comments": "[A3216] Chelsea Bridge Road (Both directions) at the junction of [A3212] Chelsea Embankment - Restrictions in place to facilitate pothole repairs.  ",
+    "currentUpdate": "Approach with caution. Traffic is flowing well. ",
+    "currentUpdateDateTime": "2025-07-22 09:43:19+00:00",
+    "corridorIds": [],
+    "startDateTime": "2025-07-17 18:48:44+00:00",
+    "endDateTime": "2025-07-17 23:59:59+00:00",
+    "lastModifiedTime": "2025-07-22 09:43:27+00:00",
+    "levelOfInterest": "Low",
+    "location": "[A3216] CHELSEA BRIDGE ROAD (SW11 ,SW1W ,SW3 ) (Kensington & Chelsea,Westminster)",
+    "status": "Active",
+    "geography": {
+      "geo_type": "Point",
+      "coordinates": [
+        -0.150552,
+        51.486312
+      ],
+      "crs": {
+        "crs_type": "name",
+        "properties": {
+          "name": "EPSG:4326"
+        }
+      }
+    },
+    "geometry": null,
+    "streets": null,
+    "isProvisional": false,
+    "hasClosures": false
+  },
+  {
+    "tims_id": "TIMS-213815",
+    "url": "/Road/All/Disruption/TIMS-213815",
+    "severity": "Minimal",
+    "ordinal": 74,
+    "category": "Works",
+    "subCategory": "Borough works",
+    "comments": "[A118] Romford Road (Both directions) at the junction of Dyson Road - Lane restrictions in place for resurfacing works. ",
+    "currentUpdate": "Traffic is flowing well.",
+    "currentUpdateDateTime": "2025-07-22 12:09:14+00:00",
+    "corridorIds": [],
+    "startDateTime": "2025-07-21 07:00:00+00:00",
+    "endDateTime": "2025-07-27 15:00:00+00:00",
+    "lastModifiedTime": "2025-07-22 12:09:43+00:00",
+    "levelOfInterest": "Low",
+    "location": "[A118] ROMFORD ROAD (E15 ,E7 ) (Newham)",
+    "status": "Active",
+    "geography": {
+      "geo_type": "Point",
+      "coordinates": [
+        0.014428,
+        51.544179
       ],
       "crs": {
         "crs_type": "name",

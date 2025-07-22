@@ -8,19 +8,12 @@ This script outlines various methods called during API requests
 import psycopg2
 from psycopg2.extras import RealDictCursor
 
-DB_NAME = "datawarehouse"
-DB_USER = "julyan"
-DB_PASSWORD = "1234"
-DB_HOST = "localhost"
+DB_URL = "postgresql://postgres.stmxtgfmlvovmdomnhfq:julyanvdwlondonetl@aws-0-ap-south-1.pooler.supabase.com:5432/postgres"
 
 # Connecting to the DB
 def connect_to_db():
-    return psycopg2.connect(
-        host=DB_HOST,
-        dbname=DB_NAME,
-        user=DB_USER,
-        password=DB_PASSWORD
-    )
+    conn = psycopg2.connect(DB_URL)
+    return conn
 
 # DB METHODS - CONNECT TO ENDPOINTS
 
@@ -29,7 +22,7 @@ def get_disruption_data(number_of_items):
     conn = connect_to_db()
     cursor = conn.cursor(cursor_factory=RealDictCursor)
 
-    cursor.execute("SELECT * FROM disruptions_history LIMIT %s;", (number_of_items,))
+    cursor.execute("SELECT * FROM disruptions_history ORDER BY id ASC LIMIT %s;", (number_of_items,))
     results = cursor.fetchall()
 
     cursor.close()

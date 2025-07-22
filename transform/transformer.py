@@ -57,8 +57,7 @@ def ingest_tims_data():
 def ingest():
     ingest_tims_data()
 
-    # add other ingest streams here 
-    # also we can do some data integration of applicable
+    # FUTURE WORK: can add other ingestion streams here. We can also do data-integration here. 
 
 if __name__ == "__main__":
     ingest()

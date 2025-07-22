@@ -3,6 +3,7 @@ Julyan van der Westhuizen
 17/06/25
 
 This scripts loads the transformed data from the datalake into the data store (PostgreSQL database). 
+The database is (at the time of writing) hosted on Supabase.
 """
 
 import psycopg2
@@ -166,6 +167,8 @@ def load():
     except Exception as e:
         shared_logger.log_warning(f"Could not load data to database: {e}")
         shared_logger.last_run_info["Load-status"] = 1
+
+    # FUTURE WORK: Load other datastreams here
 
     # Query the DB for logging info
     query_for_info(cursor, start_time)

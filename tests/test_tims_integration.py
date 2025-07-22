@@ -31,7 +31,7 @@ def test_TIMS_json_format():
     API_ENDPOINT = fetch_TIMS.API_ENDPOINT
     query_params = fetch_TIMS.query_params
 
-    response = requests.get(API_ENDPOINT, params=query_params, timeout=10) #prevents the test form hanging
+    response = requests.get(API_ENDPOINT, params=query_params, timeout=10) 
 
     try:
         data = response.json()

@@ -2,9 +2,8 @@
 Julyan van der Westhuizen
 21/07/25
 
-This script defines pydantic models as API response modles
+This script defines pydantic models as API response modules
 note: these differ from the models used to transform the data due to the extra fields added while loading data into the database
-note: In addition, we define API-endpoint-specific models for more specialid access queries
 """
 
 from pydantic import BaseModel

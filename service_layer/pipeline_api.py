@@ -6,13 +6,11 @@ This script outlines a FastAPI python API created for safe access to the Postgre
 The aim is to provide a 'Sevice Layer' to the data pipeline - completing the full lifecycle of data.
 """
 
-
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import JSONResponse
 from service_layer import database
 from service_layer.response_models import DisruptionResponse
 from datetime import datetime
-import json
 
 app = FastAPI()
 
@@ -70,10 +68,4 @@ def export_json(n: int = 10):
         results.append(DisruptionResponse(**d).model_dump(mode="json"))
     
     return JSONResponse(content=results, headers={"Content-Disposition": "attachment; filename=disruptions.json"})
-
-
-
-# Filter by attributes
-
-# Distinct Values
 

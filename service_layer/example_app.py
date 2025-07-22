@@ -11,6 +11,7 @@ For this example application, we'll be plotting disruptions in London over a per
 import pandas as pd
 import requests
 import plotly.express as px
+import plotly.graph_objects as go
 
 # CONNECTING TO MY LOCAL API
 
@@ -33,26 +34,41 @@ for index in df.index:
     df.at[index, "longitude"] = coords[0]
     df.at[index, "latitude"] = coords[1]
 
-# Convert time so that it can be used for animation
-df["snapshot_time"] = pd.to_datetime(df["snapshot_time"])
-df["snapshot_minute"] = df["snapshot_time"].dt.strftime('%Y-%m-%d %H:%M')
+
+# Use startDateTime for animation instead of snapshot_time
+df["startdatetime"] = pd.to_datetime(df["startdatetime"])
+df["start_minute"] = df["startdatetime"].dt.strftime('%Y-%m-%d %H:%M')
 
 # PLOT ANIMATION USING PLOTLY WITH TIMELINE ANIMATION
 
-fig = px.scatter_mapbox(
+# Fields to show in the popups
+hover_data=[
+    "tims_id", "startdatetime", "severity", "category", "subcategory", "comments",
+    "currentupdate", "levelofinterest", "location", "status"
+]
+
+fig = px.scatter_map(
     df,
     lat="latitude",
     lon="longitude",
-    hover_name="tims_id" if "tims_id" in df.columns else None,
-    hover_data=["snapshot_time", "severity", "category", "subcategory", "comments", "currentupdate", "levelofinterest", "location", "status"],
-    animation_frame="snapshot_minute",
+    hover_data=hover_data,
+    animation_frame="start_minute",
     zoom=10,
-    height=800
+    height=800,
+)
+
+# Create a static figure with all points - toggled by the btn
+static_fig = px.scatter_map(
+    df,
+    lat="latitude",
+    lon="longitude",
+    hover_data=hover_data,
+    zoom=10,
+    height=700
 )
 
 fig.update_traces(marker=dict(size=15, opacity=0.8))
 fig.update_layout(
-    mapbox_style="open-street-map", 
     title={
         'text': "London Traffic Disruptions Over Time",
         'y':0.95,
@@ -86,7 +102,7 @@ stats_text = '<br>'.join(stats) #for the plotly displaying
 fig.add_annotation(
     text=stats_text,
     xref="paper", yref="paper",
-    x=0, y=0.9, showarrow=False,  # move annotation further down
+    x=0, y=0.9, showarrow=False,  
     align="left",
     font=dict(size=14),
     bordercolor="black",
@@ -94,6 +110,41 @@ fig.add_annotation(
     bgcolor="white",
     opacity=0.8
 )
-fig.update_layout(margin={"r":0,"t":0,"l":0,"b":180})  # increase bottom margin
+fig.update_layout(margin={"r":0,"t":0,"l":0,"b":180})  
+
+# UPDATING THE LAYOUT TO SUPPORT BOTH ANIMATION / STATIC
+
+# Add a button to toggle between animation and all points
+fig.update_layout(
+    updatemenus=[
+        dict(
+            type="buttons",
+            direction="right",
+            x=0.7,
+            y=1.1,
+            showactive=True,
+            buttons=list([
+                dict(
+                    label="Animate",
+                    method="animate",
+                    args=[None, {"frame": {"duration": 500, "redraw": True}, "fromcurrent": True}]
+                ),
+                dict(
+                    label="Show All",
+                    method="update",
+                    args=[
+                        {
+                            "lat": [df["latitude"]],
+                            "lon": [df["longitude"]],
+                            "marker": [{"size": 15, "opacity": 0.8}],
+                            "customdata": [df[hover_data].values]
+                        }
+                    ]
+                )
+            ]),
+        )
+    ]
+)
+
 fig.show()
 

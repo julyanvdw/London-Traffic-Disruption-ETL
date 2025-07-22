@@ -72,11 +72,10 @@ status_counts = df['status'].value_counts()
 for i in status_counts.index:
     stats.append(str(i) + ": " + str(status_counts[i]))
 
-if 'category' in df.columns:
-    stats.append("Disruptions per category:")
-    category_counts = df['category'].value_counts()
-    for k in category_counts.index:
-        stats.append(str(k) + ": " + str(category_counts[k]))
+stats.append("Disruptions per category:")
+category_counts = df['category'].value_counts()
+for k in category_counts.index:
+    stats.append(str(k) + ": " + str(category_counts[k]))
 
 first_snapshot = df['snapshot_time'].min()
 last_snapshot = df['snapshot_time'].max()

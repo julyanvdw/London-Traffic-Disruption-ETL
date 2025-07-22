@@ -10,6 +10,7 @@ The aim is to provide a 'Sevice Layer' to the data pipeline - completing the ful
 from fastapi import FastAPI, HTTPException
 from service_layer import database
 from service_layer.response_models import DisruptionResponse
+from datetime import datetime
 
 app = FastAPI()
 
@@ -25,6 +26,17 @@ def get_data(n: int = 10):
 
     return disruptions
 
+# Get data within a time range (date and time)
+@app.get("/disruption-data/by-snapshot-date", response_model=list[DisruptionResponse])
+def get_disruptions_in_time_range(start_datetime: datetime, end_datetime: datetime):
+    
+    data = database.get_disruptions_in_time_range(start_datetime, end_datetime)
+    disruptions = []
+    for d in data:
+        disruptions.append(DisruptionResponse(**d))
+    
+    return disruptions
+
 # Query by ID
 @app.get("/disruption-data/{disruption_id}", response_model=DisruptionResponse)
 def get_disruption(disruption_id: int):
@@ -35,7 +47,8 @@ def get_disruption(disruption_id: int):
     return DisruptionResponse(**data)
 
 
-# Get data within a time range (date and time)
+
+
 
 # Get data within the last n minutes or something
 
@@ -45,8 +58,3 @@ def get_disruption(disruption_id: int):
 
 # Distinct Values
 
-'''
-todo: 
-
-
-'''

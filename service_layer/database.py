@@ -50,5 +50,16 @@ def get_disruption_by_id(disruption_id):
 
     return result
 
+# Find the Disruptions within a particular date and time range
+def get_disruptions_in_time_range(start_datetime, end_datetime):
+    conn = connect_to_db()
+    cursor = conn.cursor(cursor_factory=RealDictCursor)
 
+    cursor.execute("SELECT * FROM disruptions_history WHERE snapshot_time >= %s AND snapshot_time <= %s", (start_datetime, end_datetime))
+    results = cursor.fetchall()
+
+    cursor.close()
+    conn.close()
+
+    return results
 

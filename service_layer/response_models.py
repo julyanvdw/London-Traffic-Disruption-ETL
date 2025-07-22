@@ -13,6 +13,7 @@ from datetime import datetime
 
 # General Data Blob (all fields) response model
 class DisruptionResponse(BaseModel):
+    id:int
     tims_id: str
     snapshot_time: datetime
     severity: Optional[str] = None

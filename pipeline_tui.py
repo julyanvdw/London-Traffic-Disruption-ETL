@@ -140,12 +140,15 @@ class LogsView(Vertical):
         log = self.query_one(Log)
         
         # Get the filename from sharedlogger
-        filename = f"{shared_logger.logs_location}/{shared_logger.logs_filename}"
-        log.clear()
+        try:
+            filename = f"{shared_logger.logs_location}/{shared_logger.logs_filename}"
+            log.clear()
 
-        with open(filename, 'r') as f:
-            for line in f:
-                log.write_line(line.rstrip())
+            with open(filename, 'r') as f:
+                for line in f:
+                    log.write_line(line.rstrip())
+        except Exception:
+            pass
 
 class PipelineControl(Vertical):
     
@@ -249,12 +252,15 @@ class HistoryView(Vertical):
         log = self.query_one(Log)
         
         # Get the filename from sharedlogger
-        filename = f"{shared_logger.logs_location}/{shared_logger.history_filename}"
-        log.clear()
+        try:
+            filename = f"{shared_logger.logs_location}/{shared_logger.history_filename}"
+            log.clear()
 
-        with open(filename, 'r') as f:
-            for line in f:
-                log.write_line(line.rstrip())
+            with open(filename, 'r') as f:
+                for line in f:
+                    log.write_line(line.rstrip())
+        except Exception:
+            pass
 
 class PipelineTUI(App):
     

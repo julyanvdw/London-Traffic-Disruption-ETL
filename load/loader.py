@@ -10,21 +10,12 @@ import json
 from datalake_manager import LakeManager
 from datetime import datetime
 from pipeline_log_manager import shared_logger
+from psycopg2.extras import execute_batch
 
-DB_NAME = "datawarehouse"
-DB_USER = "julyan"
-DB_PASSWORD = "1234"
-DB_HOST = "localhost"
-
+DB_URL = "postgresql://postgres.stmxtgfmlvovmdomnhfq:julyanvdwlondonetl@aws-0-ap-south-1.pooler.supabase.com:5432/postgres"
 
 def connect_to_db():
-    conn = psycopg2.connect(
-        dbname=DB_NAME,
-        user=DB_USER,
-        password=DB_PASSWORD,
-        host=DB_HOST
-    )
-
+    conn = psycopg2.connect(DB_URL)
     return conn
 
 def flatten_disruption(disruption):
@@ -99,47 +90,51 @@ def query_for_info(cursor, start_time):
 
 def load_tims_data(conn, cursor):
         
+    # Set up the manager to get data from file system
     manager = LakeManager()
     files_data = manager.read_TIMS_transformed_snapshot() #note files_data results in the form [file_in_dir][data_item_in_file]
-    
-    items_loaded_count = 0
 
-    for data in files_data: 
+    # flatten all the rows and handle the nested streets inside each disruption object
+    disruption_rows = []
+    street_rows = []
+
+    for data in files_data:
         for d in data:
-            disruption_row, street_rows = flatten_disruption(d)
+            disruption_row, current_street_rows = flatten_disruption(d)
+            disruption_rows.append(disruption_row)
+            street_rows.extend(current_street_rows)
 
-            # EXECUTE SQL COMMANDS ON DB
-            cursor.execute("""
-                    INSERT INTO disruptions_history 
-                        (
-                            tims_id, snapshot_time, url, severity, ordinal, category, subCategory, comments,
-                            currentUpdate, currentUpdateDateTime, corridorIds, startDateTime, endDateTime,
-                            lastModifiedTime, levelOfInterest, location, status, geography, geometry,
-                            isProvisional, hasClosures        
-                        ) 
-                        VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
-                    ON CONFLICT (tims_id, snapshot_time) DO NOTHING;
-            """, disruption_row)
+    items_loaded_count = len(disruption_rows) + len(street_rows)
 
-            items_loaded_count += 1
+    # Batch insert disruptions
+    if len(disruption_rows) != 0:
+        execute_batch(cursor, """
+            INSERT INTO disruptions_history (
+                tims_id, snapshot_time, url, severity, ordinal, category, subCategory, comments,
+                currentUpdate, currentUpdateDateTime, corridorIds, startDateTime, endDateTime,
+                lastModifiedTime, levelOfInterest, location, status, geography, geometry,
+                isProvisional, hasClosures
+            ) VALUES (
+                %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s
+            )
+            ON CONFLICT (tims_id, snapshot_time) DO NOTHING;
+        """, disruption_rows)
 
-            for street in street_rows:
-                cursor.execute("""
-                        INSERT INTO streets 
-                            (
-                                tims_id, snapshot_time, name, closure, directions, segments
-                            ) 
-                            VALUES (%s, %s, %s, %s, %s, %s)
-                        ON CONFLICT DO NOTHING;
-                """, street)
+    # Batch insert streets
+    if len(street_rows) != 0:
+        execute_batch(cursor, """
+            INSERT INTO streets (
+                tims_id, snapshot_time, name, closure, directions, segments
+            ) VALUES (
+                %s, %s, %s, %s, %s, %s
+            )
+            ON CONFLICT DO NOTHING;
+        """, street_rows)
 
-                items_loaded_count += 1
+    # Update metric
+    shared_logger.last_run_info["Items-loaded"] = str(items_loaded_count)
 
-            # Update metric
-            shared_logger.last_run_info["Items-loaded"] = str(items_loaded_count)
-
-            # Commit changes to DB
-            conn.commit()
+    conn.commit()
 
 def load():
     # SET UP DB CONNECTION

@@ -4,4 +4,5 @@ __pycache__/
 *.pyd
 venv/
 pipeline_venv/
+.pytest_cache/
 

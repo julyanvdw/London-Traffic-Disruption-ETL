@@ -84,7 +84,7 @@ The example application completes the data lifecycle by consuming processed disr
 8. Textual - a framework for building TUIs in python 
 
 ## Future work and extensions
-The pipeline is architected in such a way that it can easily be extended. Two areas of extension are: 
+The pipeline is architected in such a way that it can easily be extended. Areas of extension are: 
 
 1. Adding more data sources for richer insight capabilities
 2. Adding more applications making use of API endpoints
@@ -107,7 +107,7 @@ The pipeline is architected in such a way that it can easily be extended. Two ar
 ---
 
 ### Running instructions 
-1. Clone the directory
+1. Clone the repo
 2. Ensure all the root directory files (mentioned above) are present and configured (should be by default)
 3. Navigate to the root directory
 

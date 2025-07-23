@@ -69,7 +69,7 @@ The TUI provides a command-line interface for monitoring and controlling the pip
 ---
 
 ### Example Application
-The example application completes the data lifecycle by consuming processed disruption data from our API server. It fetches data from the pipeline’s RESTful endpoints, process it, and create interactive visualizations using Plotly. 
+The example application completes the data lifecycle by consuming processed disruption data from our API server. It fetches data from the pipeline’s RESTful endpoints, processes it, and create interactive visualizations using Plotly. 
 
 ![Example Application](screenshots/example.png)
 

@@ -38,7 +38,7 @@ The orchestrator coordinates the execution of the entire ETL pipeline. It manage
 The pipeline logger is a shared object passed throughout the codebase, enabling unified logging of key events and metrics across all ETL stages. This ensures consistent and centralized monitoring of pipeline health and operations.
 
 #### 8. API Server
-The API server is built with FastAPI and exposes RESTful endpoints for querying, exporting, and interacting with the processed disruption data. It enables external applications and users to access the pipeline’s data and functionality in a protected.
+The API server is built with FastAPI and exposes RESTful endpoints for querying, exporting, and interacting with the processed disruption data. It enables external applications and users to access the pipeline’s data and functionality in a protected way.
 
 | API endpoints | Database |
 |----------|----------|
